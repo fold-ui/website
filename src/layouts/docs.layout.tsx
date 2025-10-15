@@ -195,7 +195,7 @@ export default function DocsLayout(props: any) {
 
     useEffect(() => {
         setTimeout(() => {
-            setFont('DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+            setFont('Instrument Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
         }, 10)
     }, [])
 
@@ -211,7 +211,7 @@ export default function DocsLayout(props: any) {
                 )
             case 2:
                 return setFont(
-                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                    'Instrument Sans,  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
                 )
         }
     }, [option])
@@ -574,7 +574,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.18.0
+                                                    v0.19.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -707,7 +707,7 @@ export default function DocsLayout(props: any) {
                                     </Link>
                                     <Popover
                                         arrow
-                                        width={310}
+                                        width={350}
                                         anchor="bottom-right"
                                         content={
                                             <View
@@ -723,9 +723,9 @@ export default function DocsLayout(props: any) {
                                                     onOptionChange={setOption}>
                                                     <Option>System Font</Option>
                                                     <Option>Inter</Option>
-                                                    <Option>DM Sans</Option>
+                                                    <Option>Instrument</Option>
                                                 </Options>
-                                                <Heading as="h5">Color:</Heading>
+                                                {/* <Heading as="h5">Color:</Heading> */}
                                                 <Palette
                                                     display="none"
                                                     justifyContent="center"

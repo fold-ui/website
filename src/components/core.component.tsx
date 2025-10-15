@@ -1022,7 +1022,7 @@ const All = () => {
                 )
             case 2:
                 return setFont(
-                    'DM Sans,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
+                    'Instrument Sans,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
         }
     }, [option])
@@ -1065,7 +1065,7 @@ const All = () => {
             border="1px solid var(--f-color-border)"
             radius="var(--f-radius)"
             width="85%"
-            m="0 auto 6rem auto"
+            m="0 auto 0rem auto"
             style={{ overflow: 'hidden' }}
             bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
             className="core__components-container">
@@ -1147,7 +1147,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        width={300}>
+                        width={310}>
                         <Options
                             animated
                             shadow="none"
@@ -1156,7 +1156,7 @@ const All = () => {
                             onOptionChange={setOption}>
                             <Option>System Font</Option>
                             <Option>Inter</Option>
-                            <Option>DM Sans</Option>
+                            <Option>Instrument</Option>
                         </Options>
 
                         <Card
@@ -1491,8 +1491,9 @@ export const CoreComponent = () => {
             <All />
 
             {/* features */}
-
+{/* 
             <View
+                display="none"
                 row
                 width="100%">
                 <View
@@ -1588,21 +1589,18 @@ export const CoreComponent = () => {
                     </View>
                 </View>
             </View>
+ */}
 
-            
-
-            
             <View
                 row
                 gap="3rem"
                 width="85%"
-                m="6rem auto 3rem auto"
+                m="3rem auto 3rem auto"
                 radius="var(--f-radius)"
                 position="relative"
                 className="features"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
-
                 <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
@@ -1660,7 +1658,6 @@ export const CoreComponent = () => {
                     </View>
                 </View>
 
-
                 <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
@@ -1704,11 +1701,7 @@ export const CoreComponent = () => {
                         <DarkModeButton />
                     </View>
                 </View>
-
             </View>
-
-
-
 
             <View
                 row
@@ -1720,7 +1713,6 @@ export const CoreComponent = () => {
                 className="features"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
-
                 <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
@@ -1776,7 +1768,6 @@ export const CoreComponent = () => {
                         </View>
                     </View>
                 </View>
-
 
                 <View 
                     border="1px solid var(--f-color-border)"
@@ -1846,7 +1837,6 @@ export const CoreComponent = () => {
                         </View>
                     </View>
                 </View>
-
             </View>
         </>
     )
