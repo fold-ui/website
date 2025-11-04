@@ -1154,7 +1154,7 @@ const All = () => {
                             width="100%"
                             selected={option}
                             onOptionChange={setOption}>
-                            <Option>System Font</Option>
+                            <Option>System</Option>
                             <Option>Inter</Option>
                             <Option>Instrument</Option>
                         </Options>

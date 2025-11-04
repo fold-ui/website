@@ -154,7 +154,7 @@ export default function SiteLayout(props: any) {
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-base-800)',
+                                            '--f-button-background-color-hover': 'rgb(from var(--f-color-nav-translucent) r g b / 0.33)',
                                         }}>
                                         Documentation
                                     </Button>
@@ -167,7 +167,7 @@ export default function SiteLayout(props: any) {
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-base-800)',
+                                            '--f-button-background-color-hover': 'rgb(from var(--f-color-nav-translucent) r g b / 0.33)',
                                         }}>
                                         Download
                                     </Button>
@@ -176,21 +176,21 @@ export default function SiteLayout(props: any) {
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-800)"
+                                        bgColor="transparent"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-800)"
+                                        bgColor="transparent"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-800)"
+                                        bgColor="transparent"
                                     />
                                 </View>
                             </Header>
