@@ -108,7 +108,7 @@ export default function SiteLayout(props: any) {
                 </View>
 
                 <Affix zIndex={100}>
-                    {(stuck) => (
+                    {(stuck) => !stuck ? null : (
                         <View 
                             className="navigation"
                             position="sticky"
@@ -123,9 +123,9 @@ export default function SiteLayout(props: any) {
                                 className="page-nav"
                                 border="none"
                                 style={{
-                                    background: stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent',
-                                    backdropFilter: stuck ? 'blur(10px)' : 'transparent',
-                                    transition: stuck ? 'background 0.1s' : 'transparent',
+                                    background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)',
+                                    backdropFilter:'blur(10px)',
+                                    transition: 'background 0.1s',
                                 }}>
                                 <View
                                     row
@@ -133,7 +133,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent)" />
+                                        <LogoSolid color="var(--f-color-accent-50)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation

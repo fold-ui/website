@@ -1,4 +1,4 @@
-import { Button, Divider, Heading, Link, Text, View } from '@fold-dev/core'
+import { Button, Divider, Heading, Link, LogoSolid, Text, View } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useEffect, useRef } from 'react'
@@ -188,13 +188,16 @@ export const HeroComponent = () => {
                     m="0 auto"
                     p="5rem 0 0 0"
                     position="relative">
+                    <LogoSolid 
+                        color="var(--f-color-accent)" 
+                        size="lg"
+                    />
+
                     <Text
                         textAlign="center"
-                        size="sm"
-                        fontWeight="var(--f-font-weight-bold)"
                         style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="accent">
+                        colorToken="accent-400">
                         Introducing
                     </Text>
 
@@ -252,7 +255,7 @@ export const HeroComponent = () => {
 
                     <Text
                         size="sm"
-                        colorToken="accent">
+                        colorToken="accent-400">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
@@ -260,8 +263,8 @@ export const HeroComponent = () => {
                             textDecoration="none"
                             className="f-underline"
                             color="currentColor"
-                            href="https://twitter.com/fold_dev">
-                            Follow us on social media
+                            href="https://github.com/fold-dev">
+                            Join us on GitHub
                         </Link> & get notified of any updates.
                     </Text>
                 </View>

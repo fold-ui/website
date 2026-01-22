@@ -208,7 +208,7 @@ body {
 
 [data-theme="light"],
 [data-theme="dark"] {
-    --f-color-nav-translucent: var(--f-color-base-900);
+    --f-color-nav-translucent: var(--f-color-base-950);
 } 
 
 [data-theme="light"] .page-nav {
