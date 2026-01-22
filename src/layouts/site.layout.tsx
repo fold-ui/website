@@ -95,7 +95,7 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(8deg, var(--f-color-blue-600), var(--f-color-indigo-600))"
+                    bg="linear-gradient(8deg, var(--f-color-violet-600), var(--f-color-indigo-600))"
                     colorToken="white"
                     >
                     <Text
@@ -121,11 +121,11 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 className="page-nav"
-                                bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
+                                border="none"
                                 style={{
-                                    borderColor: 'var(--f-color-slate-900)',
-                                    backdropFilter: 'blur(10px)',
-                                    transition: 'background 0.1s',
+                                    background: stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent',
+                                    backdropFilter: stuck ? 'blur(10px)' : 'transparent',
+                                    transition: stuck ? 'background 0.1s' : 'transparent',
                                 }}>
                                 <View
                                     row
@@ -178,7 +178,7 @@ export default function SiteLayout(props: any) {
                                         fgColor="var(--f-color-base-100)"
                                         bgColor="transparent"
                                     />
-                                    <SocialIcon
+                                  {/*   <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
@@ -191,7 +191,7 @@ export default function SiteLayout(props: any) {
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
                                         bgColor="transparent"
-                                    />
+                                    /> */}
                                 </View>
                             </Header>
                         </View>
@@ -213,7 +213,7 @@ export default function SiteLayout(props: any) {
                         className="footer_block">
                         <LogoSolid color="var(--f-color-accent)" />
                         <Text colorToken="accent">fold.dev &copy; 2025</Text>
-                        <View
+                       {/*  <View
                             row
                             gap={10}
                             justifyContent="flex-start">
@@ -238,7 +238,7 @@ export default function SiteLayout(props: any) {
                                 fgColor="var(--f-color-accent-50)"
                                 bgColor="var(--f-color-accent)"
                             />
-                        </View>
+                        </View> */}
                     </View>
                     <View
                         column
@@ -257,7 +257,7 @@ export default function SiteLayout(props: any) {
                                 <Text
                                     as="a"
                                     href="/"
-                                    size="xl"
+                                    
                                     fontWeight={400}
                                     colorToken="text"
                                     textDecoration="none">
