@@ -257,7 +257,7 @@ export default function SiteLayout(props: any) {
                                 <Text
                                     as="a"
                                     href="/"
-                                    
+                                    size="xl"
                                     fontWeight={400}
                                     colorToken="text"
                                     textDecoration="none">
