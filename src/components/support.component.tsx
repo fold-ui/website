@@ -32,7 +32,7 @@ export const SupportComponent = (props) => {
                     <Text
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
-                        colorToken="text-weakest"
+                        colorToken="accent"
                         id="features">
                         Support
                     </Text>

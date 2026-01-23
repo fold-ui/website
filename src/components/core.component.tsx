@@ -988,7 +988,7 @@ const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(3)
-    const [option, setOption] = useState(2)
+    const [option, setOption] = useState(1)
 
     const setAccent = (color) => {
         document.getElementById('custom-styles').innerHTML = colors[color]
@@ -1453,12 +1453,11 @@ export const CoreComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
-                        colorToken="text-weakest">
+                        colorToken="accent">
                         Open Source
                     </Text>
                     <Heading
                         textAlign="center"
-                        colorToken="text-weak"
                         fontWeight={400}
                         width="80%">
                         Leverage Fold's 85+ components to power your next project. 
@@ -1619,7 +1618,7 @@ export const CoreComponent = () => {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="text-weakest"
+                            colorToken="accent"
                             id="features">
                             Lightweight
                         </Text>
@@ -1677,7 +1676,7 @@ export const CoreComponent = () => {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="text-weakest"
+                            colorToken="accent"
                             id="features">
                             Themable
                         </Text>
@@ -1731,7 +1730,7 @@ export const CoreComponent = () => {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="text-weakest"
+                            colorToken="accent"
                             id="features">
                             Design System
                         </Text>
@@ -1788,7 +1787,7 @@ export const CoreComponent = () => {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="text-weakest"
+                            colorToken="accent"
                             id="features">
                             Developer Friendly
                         </Text>

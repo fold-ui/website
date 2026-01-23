@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3453 4154" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,10.0182,-182.494)">
+        <g>
+            <g transform="matrix(1.04974,-0.245948,0.186014,0.793937,-522.37,1177.23)">
+                <ellipse cx="1677.6" cy="1970.12" rx="1243" ry="1775.5" style="fill:url(#_Radial1);"/>
+            </g>
+            <g transform="matrix(1.04974,-0.245948,0.186014,0.793937,-456.589,1328.18)">
+                <ellipse cx="2523.14" cy="1751.99" rx="1076" ry="1316" style="fill:url(#_Radial2);"/>
+            </g>
+            <g transform="matrix(1.04974,-0.245948,0.186014,0.793937,-600.907,1064.28)">
+                <ellipse cx="1022.63" cy="2251.96" rx="1271" ry="1677.5" style="fill:url(#_Radial3);"/>
+            </g>
+            <g transform="matrix(1.04974,-0.245948,0.186014,0.793937,-558.615,1150.1)">
+                <ellipse cx="1507.1" cy="2108.15" rx="1352.5" ry="1707" style="fill:url(#_Radial4);"/>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.79762e-13,1775.5,-1243,-4.75891e-13,1677.6,1970.12)">
+            <stop offset="0" style="stop-color:rgb(18, 113, 255);stop-opacity:0.2"/>
+            <stop offset="1" style="stop-color:rgba(18, 113, 255, 1);stop-opacity:0"/>
+        </radialGradient>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-5.0384e-13,1316,-1076,-4.11954e-13,2523.14,1751.99)">
+            <stop offset="0" style="stop-color:rgba(221, 74, 255, 1);stop-opacity:0.2"/>
+            <stop offset="1" style="stop-color:rgba(221, 74, 255, 1);stop-opacity:0"/>
+        </radialGradient>
+        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.42242e-13,1677.5,-1271,-4.86611e-13,1022.63,2251.96)">
+            <stop offset="0" style="stop-color:rgb(100, 220, 255);stop-opacity:0.2"/>
+            <stop offset="1" style="stop-color:rgba(100, 220, 255, 1);stop-opacity:0"/>
+        </radialGradient>
+        <radialGradient id="_Radial4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.53537e-13,1707,-1352.5,-5.17814e-13,1507.1,2108.15)">
+            <stop offset="0" style="stop-color:rgb( 200, 50, 50);stop-opacity:0.2"/>
+            <stop offset="1" style="stop-color:rgba( 200, 50, 50, 1);stop-opacity:0"/>
+        </radialGradient>
+    </defs>
+</svg>

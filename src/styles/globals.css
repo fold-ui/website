@@ -1,9 +1,15 @@
+@import '../fonts/Inter/inter.css';
+@import '../fonts/DMSans/dmsans.css';
+@import '../fonts/Instrument/instrument.css';
+
 html,
 body {
     height: 100%;
-    font-size: 15px;
+    font-size: 14px;
     background-color: var(--f-color-surface) !important;
     scroll-behavior: smooth;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'cv10' 10, 'cv06' 6, 'cv12' 12, 'cv13' 13, 'ss01' 1, 'cv01' 1, 'cv02' 2,
+        'cv03' 3, 'cv04' 4, 'cv09' 9, 'cv08' 8 !important;
 }
 
 /* shinji */
@@ -536,10 +542,10 @@ body {
 }
 
 .gradient {
-    background-color: var(--f-color-zinc-950) !important;
+    background-color: var(--f-color-zinc-900) !important;
     background-image: url('../../public/gradient.svg') !important;
     background-size: 100% auto !important;
-    background-position: center -20% !important;
+    background-position: center -75% !important;
     justify-content: flex-start;
     position: relative;
 }

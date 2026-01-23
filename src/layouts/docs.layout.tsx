@@ -195,7 +195,7 @@ export default function DocsLayout(props: any) {
 
     useEffect(() => {
         setTimeout(() => {
-            setFont('Instrument Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+            setFont('Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
         }, 10)
     }, [])
 
@@ -666,7 +666,7 @@ export default function DocsLayout(props: any) {
                                             <Icon icon={PiGithubLogo} />
                                         </Pill>
                                     </Link>
-                                    <Link
+                                   {/*  <Link
                                         href="https://twitter.com/fold_dev"
                                         target="_blank">
                                         <Pill
@@ -704,7 +704,7 @@ export default function DocsLayout(props: any) {
                                             color={Token.ColorSlate200}>
                                             <Icon icon={PiLifebuoy} />
                                         </Pill>
-                                    </Link>
+                                    </Link> */}
                                     <Popover
                                         arrow
                                         width={350}
