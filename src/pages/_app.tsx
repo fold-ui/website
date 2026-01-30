@@ -1,5 +1,5 @@
 import React from 'react'
-import '@fold-dev/core/dist/styles.css'
+import '@fold-ui/core/dist/styles.css'
 import '@/styles/globals.css'
 import DocsLayout from '@/layouts/docs.layout'
 import SiteLayout from '@/layouts/site.layout'

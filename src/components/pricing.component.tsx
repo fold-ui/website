@@ -28,8 +28,8 @@ import {
     TooltipContent,
     View,
     useVisibility
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import { useEffect, useRef, useState } from 'react'
 import { PiSparkle } from 'react-icons/pi'
 import { GraphicLeft, GraphicRight } from './graphic.component'
@@ -59,7 +59,7 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Consider Early Access as alpha software, which can be relatively unstable. 
                 The team is diligently working to fix bugs and resolve other issues.
-                To report a bug, open a new issue on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
+                To report a bug, open a new issue on <Link href="https://github.com/fold-ui/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -84,7 +84,7 @@ export const FAQAccordion = (props) => (
                 What support channels are available?
             </AccordionHeading>
             <AccordionPanel>
-                Email us at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>, or post a message to the private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>, or start a <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussion</Link>.
+                Email us at <Link target="_blank" href="mailto:support@fold-ui.com">support@fold-ui.com</Link>, or post a message to the private <Link target="_blank" href="https://groups.google.com/a/fold-ui.com/g/pro">Fold Pro Google Group</Link>, or start a <Link target="_blank" href="https://github.com/fold-ui/fold/discussions">GitHub Discussion</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -92,7 +92,7 @@ export const FAQAccordion = (props) => (
                 Where can I report bugs or submit feature requests?
             </AccordionHeading>
             <AccordionPanel>
-                <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-dev/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
+                <Link target="_blank" href="https://github.com/fold-ui/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-ui/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -100,7 +100,7 @@ export const FAQAccordion = (props) => (
                 Is there a roadmap?
             </AccordionHeading>
             <AccordionPanel>
-                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>.
+                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-ui/projects/8/views/2">here</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -117,13 +117,13 @@ export const FAQAccordion = (props) => (
                 Is the source code available?
             </AccordionHeading>
             <AccordionPanel>
-                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold-ui.com/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>I have another question?</AccordionHeading>
             <AccordionPanel>
-                For any other questions, please email <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
+                For any other questions, please email <Link target="_blank" href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.
             </AccordionPanel>
         </AccordionItem>
     </Accordion>
@@ -174,16 +174,16 @@ export const PricingComponent = () => {
 
         // switch (seats) {
         //     case 1: 
-        //         url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
+        //         url = 'https://store.fold-ui.com/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
         //         break
         //     case 2: 
-        //         url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
+        //         url = 'https://store.fold-ui.com/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
         //         break
         //     case 3: 
-        //         url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
+        //         url = 'https://store.fold-ui.com/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
         //         break
         //     case 4: 
-        //         url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
+        //         url = 'https://store.fold-ui.com/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
         //         break
         // }
 
@@ -415,7 +415,7 @@ export const PricingComponent = () => {
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak">
-                            <Link href="licensing@fold.dev" target="_blank">Contact us</Link> for distributable OEM license options.
+                            <Link href="support@fold-ui.com" target="_blank">Contact us</Link> for distributable OEM license options.
                         </Text>
 
                     </Card>
@@ -507,7 +507,7 @@ export const PricingComponent = () => {
                         <Text
                             size="sm"
                             m="1rem 0 0 0">
-                            Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
+                            Need more than 10 developers? <Link href="mailto:support@fold-ui.com" size="sm">Contact us</Link>.
                         </Text>                        
                         <Flexer />
                         <Button
@@ -526,7 +526,7 @@ export const PricingComponent = () => {
 
                 <View lineHeight={2}>
                     <Text colorToken="base-600" textAlign="center">
-                        Please email <Link href="mailto:licensing@fold.dev" colorToken="accent-400">licensing@fold.dev</Link> if you are unsure which license applies to you.
+                        Please email <Link href="mailto:support@fold-ui.com" colorToken="accent-400">support@fold-ui.com</Link> if you are unsure which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
                         Purchasing a license is subject to the <Link href="/license" target="_blank">license agreement</Link>.

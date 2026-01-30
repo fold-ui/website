@@ -20,8 +20,8 @@ import {
     View,
     useCacheValue,
     useVisibility
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import { useEffect, useState } from 'react'
 import { PiRocket } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
@@ -90,13 +90,14 @@ export default function SiteLayout(props: any) {
 
                 <View
                     row
-                    p="0.6rem"
+                    p="1rem"
                     gap={10}
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(8deg, var(--f-color-violet-600), var(--f-color-indigo-600))"
-                    colorToken="white"
+                    //bg="linear-gradient(8deg, var(--f-color-violet-600), var(--f-color-indigo-600))"
+                    colorToken="accent"
+                    style={{ borderBottom: '1px solid var(--f-color-zinc-800)' }}
                     >
                     <Text
                         textAlign="center"
@@ -160,7 +161,7 @@ export default function SiteLayout(props: any) {
                                     </Button>
                                     <Button
                                         target="_blank"
-                                        href="https://github.com/fold-dev/fold"
+                                        href="https://github.com/fold-ui/fold"
                                         as="a"
                                         border="none"
                                         style={{
@@ -172,7 +173,7 @@ export default function SiteLayout(props: any) {
                                         Download
                                     </Button>
                                     <SocialIcon
-                                        url="https://github.com/fold-dev"
+                                        url="https://github.com/fold-ui"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
@@ -186,7 +187,7 @@ export default function SiteLayout(props: any) {
                                         bgColor="transparent"
                                     />
                                     <SocialIcon
-                                        url="https://www.linkedin.com/company/fold-dev"
+                                        url="https://www.linkedin.com/company/fold-ui"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
@@ -212,13 +213,13 @@ export default function SiteLayout(props: any) {
                         alignItems="flex-start"
                         className="footer_block">
                         <LogoSolid color="var(--f-color-accent)" />
-                        <Text colorToken="accent">fold.dev &copy; 2025</Text>
+                        <Text colorToken="accent">fold-ui.com &copy; 2025</Text>
                        {/*  <View
                             row
                             gap={10}
                             justifyContent="flex-start">
                             <SocialIcon
-                                url="https://github.com/fold-dev/fold"
+                                url="https://github.com/fold-ui/fold"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
                                 fgColor="var(--f-color-accent-50)"
@@ -232,7 +233,7 @@ export default function SiteLayout(props: any) {
                                 bgColor="var(--f-color-accent)"
                             />
                             <SocialIcon
-                                url="https://www.linkedin.com/company/fold-dev"
+                                url="https://www.linkedin.com/company/fold-ui"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
                                 fgColor="var(--f-color-accent-50)"
@@ -329,7 +330,7 @@ export default function SiteLayout(props: any) {
                             <Li>
                                 <Text
                                     as="a"
-                                    href="https://github.com/fold-dev/fold"
+                                    href="https://github.com/fold-ui/fold"
                                     target="_blank"
                                     size="xl"
                                     fontWeight={400}
@@ -353,7 +354,7 @@ export default function SiteLayout(props: any) {
                             <Li>
                                 <Text
                                     as="a"
-                                    href="https://github.com/orgs/fold-dev/projects/8/views/2"
+                                    href="https://github.com/orgs/fold-ui/projects/8/views/2"
                                     target="_blank"
                                     size="xl"
                                     fontWeight={400}
@@ -440,7 +441,7 @@ export default function SiteLayout(props: any) {
                             variant="accent"
                             colorToken="white"
                             target="_blank"
-                            href="https://fold.dev/docs">
+                            href="https://fold-ui.com/docs">
                             Documentation
                         </Button>
                     </View>

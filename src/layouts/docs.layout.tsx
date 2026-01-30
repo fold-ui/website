@@ -35,8 +35,8 @@ import {
     Text,
     View,
     useVisibility
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import Head from 'next/head'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
@@ -453,7 +453,7 @@ export default function DocsLayout(props: any) {
                                             Releases
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://github.com/orgs/fold-dev/projects/8/views/2"
+                                            href="https://github.com/orgs/fold-ui/projects/8/views/2"
                                             target="_blank"
                                             prefix={
                                                 <Icon
@@ -465,7 +465,7 @@ export default function DocsLayout(props: any) {
                                             Roadmap
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://storybook.fold.dev"
+                                            href="https://storybook.fold-ui.com"
                                             target="_blank"
                                             prefix={<StorybookIcon />}>
                                             Storybook
@@ -615,7 +615,7 @@ export default function DocsLayout(props: any) {
                                             Hooks
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://fold-dev.github.io/fold"
+                                            href="https://fold-ui.github.io/fold"
                                             target="_blank">
                                             TypeDocs
                                         </NavigationItem>
@@ -655,7 +655,7 @@ export default function DocsLayout(props: any) {
                                     noStretch>
                                     <Link
                                         target="_blank"
-                                        href="https://github.com/fold-dev/fold">
+                                        href="https://github.com/fold-ui/fold">
                                         <Pill
                                             p="0"
                                             subtle
@@ -680,7 +680,7 @@ export default function DocsLayout(props: any) {
                                         </Pill>
                                     </Link>
                                     <Link
-                                        href="https://www.linkedin.com/company/fold-dev"
+                                        href="https://www.linkedin.com/company/fold-ui"
                                         target="_blank">
                                         <Pill
                                             p="0"
@@ -693,7 +693,7 @@ export default function DocsLayout(props: any) {
                                         </Pill>
                                     </Link>
                                     <Link
-                                        href="mailto:support@fold.dev"
+                                        href="mailto:support@fold-ui.com"
                                         style={{ textWrap: 'nowrap' }}>
                                         <Pill
                                             p="0"
@@ -771,7 +771,7 @@ export default function DocsLayout(props: any) {
                                     <Button
                                         outline
                                         as="a"
-                                        href="https://app-sandbox.fold.dev"
+                                        href="https://app-sandbox.fold-ui.com"
                                         target="_blank"
                                         variant="accent">
                                         AppSandbox ↗

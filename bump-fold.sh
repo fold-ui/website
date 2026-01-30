@@ -1,1 +1,1 @@
-npm i --save @fold-dev/core@latest @fold-dev/design@latest
+npm i --save @fold-ui/core@latest @fold-ui/design@latest

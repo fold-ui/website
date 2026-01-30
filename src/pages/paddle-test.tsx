@@ -1,5 +1,5 @@
 import { HeaderComponent } from '@/components/header.component'
-import { Button, View } from '@fold-dev/core'
+import { Button, View } from '@fold-ui/core'
 import { useEffect, useState } from 'react'
 
 function PaddleTest() {

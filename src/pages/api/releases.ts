@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     })
 
     const { data } = await octokit.request('GET /repos/{owner}/{repo}/releases?page=1&per_page=100', {
-        owner: 'fold-dev',
+        owner: 'fold-ui',
         repo: String(repo),
         headers: {
             'X-GitHub-Api-Version': '2022-11-28',

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Html, Head, Main, NextScript } from 'next/document'
-import { useCacheValue } from '@fold-dev/core'
+import { useCacheValue } from '@fold-ui/core'
 
 export default function Document() {
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
@@ -38,8 +38,8 @@ export default function Document() {
                 />
 
                 <meta property="og:title" content="Fold" />
-                <meta property="og:url" content="https://fold.dev" />
-                <meta property="og:image" content="https://fold.dev/og.png" />
+                <meta property="og:url" content="https://fold-ui.com" />
+                <meta property="og:image" content="https://fold-ui.com/og.png" />
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="1280" />
                 <meta property="og:image:height" content="630" />

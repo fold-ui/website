@@ -7,7 +7,7 @@ import {
     Link,
     Text,
     View
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 
 export const FAQComponent = () => {
     return (
@@ -44,8 +44,8 @@ export const FAQComponent = () => {
                         <AccordionPanel>
                             Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
                             but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
-                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro" colorToken="accent">Fold Pro Google Group</Link> or 
-                            on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent">GitHub.</Link> (label it as Pro)
+                            it to the <Link target="_blank" href="https://groups.google.com/a/fold-ui.com/g/pro" colorToken="accent">Fold Pro Google Group</Link> or 
+                            on <Link href="https://github.com/fold-ui/fold" target="_blank" fontSize="inherit" colorToken="accent">GitHub.</Link> (label it as Pro)
                         </AccordionPanel>
                     </AccordionItem>
                     <AccordionItem>
@@ -75,7 +75,7 @@ export const FAQComponent = () => {
                             SaaS is for teams that have a product that users pay for.
                             We are more than happy to assist with any questions you may have.
                             Please <Link
-                                href="licensing@fold.dev"
+                                href="support@fold-ui.com"
                                 target="_blank"
                                 fontSize="inherit"
                                 colorToken="accent">

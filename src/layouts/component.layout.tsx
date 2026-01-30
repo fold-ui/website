@@ -23,12 +23,12 @@ import {
     THead,
     Tr,
     View,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { useEffect, useMemo, useState } from 'react'
 import React from 'react'
 import DocsLayout from './docs.layout'
 import { useRouter } from 'next/navigation'
-import * as Token from '@fold-dev/design/tokens'
+import * as Token from '@fold-ui/design/tokens'
 
 export default function ComponentLayout({ children, docs, props, css }) {
     const [showChild, setShowChild] = useState(false)
@@ -79,8 +79,8 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         <NotificationContent>
                             More documentation & examples coming very soon.
                             If you are a Fold Pro customer and need help implementing this component, 
-                            please email us at <a href="mailto:support@fold.dev">support</a> or leave a message 
-                            on the <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a>.
+                            please email us at <a href="mailto:support@fold-ui.com">support</a> or leave a message 
+                            on the <a href="https://groups.google.com/a/fold-ui.com/g/pro" target="_blank">Fold Pro Google Group</a>.
                         </NotificationContent>
                     </Notification>
                 )}
@@ -134,7 +134,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                             We are actively improving the documentation. For more information on prop
                                             types,{' '}
                                             <Link
-                                                href="https://fold-dev.github.io/fold/"
+                                                href="https://fold-ui.github.io/fold/"
                                                 target="_blank">
                                                 see our TypeDocs
                                             </Link>
@@ -152,7 +152,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                             More prop information coming soon! We are currently improving the Pro documentation. For more information on prop
                                             types,{' '}
                                             <Link
-                                                href="https://fold-dev.github.io/pro/"
+                                                href="https://fold-ui.github.io/pro/"
                                                 target="_blank">
                                                 see our TypeDocs for Pro
                                             </Link>

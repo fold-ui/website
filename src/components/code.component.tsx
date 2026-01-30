@@ -5,7 +5,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypePrettyCode from 'rehype-pretty-code'
-import { Copy, Icon, View } from '@fold-dev/core'
+import { Copy, Icon, View } from '@fold-ui/core'
 import { DocumentIcon } from '@heroicons/react/24/outline'
 
 export const highlightCode = async (code: string, lang = 'javascript') => {

@@ -1,5 +1,5 @@
 
-import { View } from '@fold-dev/core'
+import { View } from '@fold-ui/core'
 import { useEffect, useMemo, useState } from 'react'
 
 export const ContentContainerComponent = (props) => {
