@@ -18,7 +18,7 @@ import {
     Grid,
     Breadcrumb,
     BreadcrumbItem,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import {
     CircleStackIcon,
     LanguageIcon,
@@ -30,7 +30,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import React, { useEffect, useMemo, useState } from 'react'
-import * as Token from '@fold-dev/design/tokens'
+import * as Token from '@fold-ui/design/tokens'
 import { useRouter } from 'next/navigation'
 import {
     PiBracketsSquareDuotone,
@@ -366,7 +366,7 @@ export default function DesignSystem(props) {
                 If you encounter any issues or have questions related to the design system, feel free to contact us or
                 leave a comment on{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank">
                     GitHub
                 </Link>

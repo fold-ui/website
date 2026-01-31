@@ -1,0 +1,468 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, FIBin, Icon, MenuProvider, Portal, Text, View, useCheck, useDialog } from '@fold-ui/core'
+import React, { useMemo, useRef, useState } from 'react'
+import {
+    Detail,
+    GroupDetail,
+    GroupMenu,
+    ContextPopup,
+    RichInputOption,
+    RichInputProvider,
+    Todo,
+    TodoProvider,
+    dispatchTodoEvent,
+    todoState,
+    FloatingToolbar,
+    processHTML,
+    CommonProvider,
+} from '@fold-ui/pro'
+import * as data from '@/dummy-data'
+
+export const docs = {
+    title: 'Todo',
+    subtitle: 'The Todo component provides a list-based interface for managing and tracking tasks.',
+    description:
+        'Todo components are useful for creating task management interfaces where users can add, complete, and organize their work items. They are suited to personal productivity tools, project checklists, and reminder applications.',
+    experimental: true,
+}
+
+export const props = [{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoAddSection","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-add-section.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: string) => void"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-add-section.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoAddTask","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-add-task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: string) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoSectionHeader","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"name":{"defaultValue":null,"description":"","name":"name","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"tasks":{"defaultValue":null,"description":"","name":"tasks","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"tasksCompleted":{"defaultValue":null,"description":"","name":"tasksCompleted","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"collapsible":{"defaultValue":null,"description":"","name":"collapsible","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"editableName":{"defaultValue":null,"description":"","name":"editableName","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"taskCount":{"defaultValue":null,"description":"","name":"taskCount","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoSection","methods":[],"props":{"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-section.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoSections","methods":[],"props":{"sections":{"defaultValue":null,"description":"","name":"sections","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-sections.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Section[]"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoTaskEditor","methods":[],"props":{"isAddBelow":{"defaultValue":null,"description":"","name":"isAddBelow","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"indented":{"defaultValue":null,"description":"","name":"indented","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onIndent":{"defaultValue":null,"description":"","name":"onIndent","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onOutdent":{"defaultValue":null,"description":"","name":"onOutdent","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onAddBelowClose":{"defaultValue":null,"description":"","name":"onAddBelowClose","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task-editor.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoTaskItem","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoTask","methods":[],"props":{"task":{"defaultValue":null,"description":"","name":"task","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Task"},"tags":{}},"visible":{"defaultValue":null,"description":"","name":"visible","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"parentSelected":{"defaultValue":null,"description":"","name":"parentSelected","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoTasks","methods":[],"props":{"parentColor":{"defaultValue":null,"description":"","name":"parentColor","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-tasks.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"tasks":{"defaultValue":null,"description":"","name":"tasks","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-tasks.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Task[]"},"tags":{}},"visible":{"defaultValue":null,"description":"","name":"visible","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-tasks.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-tasks.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"parentSelected":{"defaultValue":null,"description":"","name":"parentSelected","declarations":[{"fileName":"fold/packages/pro/src/todo/todo-tasks.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"Todo","methods":[],"props":{"sections":{"defaultValue":null,"description":"","name":"sections","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Section[]"},"tags":{}},"toolbar":{"defaultValue":null,"description":"","name":"toolbar","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(selection: any) => ReactNode"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"TodoProvider","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"defaultSelection":{"defaultValue":null,"description":"","name":"defaultSelection","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"defaultInteraction":{"defaultValue":null,"description":"","name":"defaultInteraction","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"lined\" | \"animated\""},"tags":{}},"targetVariant":{"defaultValue":null,"description":"","name":"targetVariant","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"task":{"defaultValue":null,"description":"","name":"task","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: TodoTaskProps) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"sectionHeader":{"defaultValue":null,"description":"","name":"sectionHeader","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: TodoSectionHeaderProps) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"onTaskOpen":{"defaultValue":null,"description":"","name":"onTaskOpen","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onTaskUpdate":{"defaultValue":null,"description":"","name":"onTaskUpdate","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onTaskAdd":{"defaultValue":null,"description":"","name":"onTaskAdd","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onTaskAddBelow":{"defaultValue":null,"description":"","name":"onTaskAddBelow","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onTaskMove":{"defaultValue":null,"description":"","name":"onTaskMove","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onSectionUpdate":{"defaultValue":null,"description":"","name":"onSectionUpdate","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onSectionAdd":{"defaultValue":null,"description":"","name":"onSectionAdd","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onSectionMove":{"defaultValue":null,"description":"","name":"onSectionMove","declarations":[{"fileName":"fold/packages/pro/src/todo/todo.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"getSectionIndex","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"flattenArrayWithLevel","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"nestObjectsByLevel","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"findSubtaskAmount","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/todo/index.ts","description":"","displayName":"todoState","methods":[],"props":{}}]
+
+export const css = [[["--f-todo-padding","1rem"],["--f-todo-background","var(--f-color-surface)"]],[["--f-todo-drag-opacity","0.9"]],[["--f-todo-section-header-color","var(--f-color-text-weak)"],["--f-todo-section-header-gap","14px"],["--f-todo-section-header-height","60px"],["--f-todo-section-description-color","var(--f-color-text-weaker)"],["--f-todo-section-header-font-size","16px"],["--f-todo-section-header-line-height","20px"],["--f-todo-section-header-description-font-size","12px"],["--f-todo-section-header-description-line-height","14px"],["--f-todo-section-header-pill-height","22px"],["--f-todo-section-header-pill-font-size","12px"],["--f-todo-section-header-pill-line-height","14px"],["--f-todo-section-header-collapse-width","30px"],["--f-todo-section-header-collapse-height","20px"],["--f-todo-section-header-padding","0 10px"],["--f-todo-section-header-margin","0 0 0 -10px"]],[["--f-todo-section-placeholder-background","var(--f-color-surface-stronger)"],["--f-todo-section-placeholder-radius","var(--f-radius)"],["--f-todo-section-placeholder-border","none"],["--f-todo-section-placeholder-outline","none"],["--f-todo-section-placeholder-margin","0"]],[["--f-todo-collapse-color","var(--f-color-text-weakest)"],["--f-todo-collapse-left","0px"],["--f-todo-collapse-top","20px"],["--f-todo-collapse-icon-width","4px"],["--f-todo-collapse-icon-margin","0 0 0 20px"]],[["--f-todo-task-item-height","40px"],["--f-todo-task-item-padding","8px 10px 8px 0"],["--f-todo-task-item-height-footer","fit-content"],["--f-todo-task-item-select-color","var(--f-color-accent)"],["--f-todo-task-item-parent-select-color","var(--f-color-accent-weak)"],["--f-todo-task-item-select-width","2px"],["--f-todo-task-item-collapse-padding","0px"],["--f-todo-task-checkbox-width","20px"],["--f-todo-task-collapse-width","30px"],["--f-todo-task-collapse-height","20px"],["--f-todo-task-color-width","5px"],["--f-todo-task-color-left","-5px"],["--f-todo-task-border-width","1px"],["--f-todo-task-border-bottom","var(--f-todo-task-border-width) solid var(--f-color-surface-stronger)"]],[["--f-todo-task-footer-margin-top","4px"],["--f-todo-task-footer-min-height","28px"],["--f-todo-task-footer-gap","4px"],["--f-todo-text-weight","400"],["--f-todo-text-letter-spacing","0px"],["--f-todo-text-size","14px"],["--f-todo-text-line-height","20px"],["--f-todo-text-color","var(--f-color-text)"],["--f-todo-users-height","22px"]],[["--f-todo-text-color-inactive","var(--f-color-text-weakest)"]],[["--f-todo-add-section-margin","15px 0 0 0"],["--f-todo-add-section-padding","0px 30px"],["--f-todo-add-section-spacing","12px"],["--f-todo-add-section-height","40px"],["--f-todo-add-section-background","transparent"]],[["--f-todo-add-task-background","transparent"],["--f-todo-add-task-padding","10px 0px 10px 30px"],["--f-todo-add-task-spacing","10px"],["--f-todo-add-task-min-height","40px"],["--f-todo-add-task-text-size","14px"],["--f-todo-add-task-line-height","20px"],["--f-todo-add-task-border-bottom","1px solid var(--f-color-surface-stronger)"]],[["--f-todo-task-editor-color","var(--f-color-text)"]],[["--f-todo-add-below-height","fit-content"],["--f-todo-add-below-padding","10px 0"],["--f-todo-task-border-bottom","var(--f-todo-task-border-width) solid var(--f-color-surface-stronger)"]]]
+
+
+
+<CodeComponent filename="todo.tsx" code="aW1wb3J0IHsKICBUb2RvQWRkU2VjdGlvbiwKICBUb2RvQWRkVGFzaywKICBUb2RvU2VjdGlvbkhlYWRlciwKICBUb2RvU2VjdGlvbiwKICBUb2RvU2VjdGlvbnMsCiAgVG9kb1Rhc2tFZGl0b3IsCiAgVG9kb1Rhc2tJdGVtLAogIFRvZG9UYXNrLAogIFRvZG9UYXNrcywKICBUb2RvLAogIFRvZG9Qcm92aWRlciwKICBnZXRTZWN0aW9uSW5kZXgsCiAgZmxhdHRlbkFycmF5V2l0aExldmVsLAogIG5lc3RPYmplY3RzQnlMZXZlbCwKICBmaW5kU3VidGFza0Ftb3VudCwKICB0b2RvU3RhdGUsCn0gZnJvbSAiQGZvbGQtdWkvcHJvIjsK" />
+```tsx
+import {
+  TodoAddSection,
+  TodoAddTask,
+  TodoSectionHeader,
+  TodoSection,
+  TodoSections,
+  TodoTaskEditor,
+  TodoTaskItem,
+  TodoTask,
+  TodoTasks,
+  Todo,
+  TodoProvider,
+  getSectionIndex,
+  flattenArrayWithLevel,
+  nestObjectsByLevel,
+  findSubtaskAmount,
+  todoState,
+} from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [sections, setSections] = useState(data.sections);
+    const [task, setTask] = useState({});
+    const [section, setSection] = useState({});
+    const [options, setOptions] = useState([]);
+    const { setDialog, closeDialog } = useDialog();
+    const handleTaskOpen = (task) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskOpen(task);
+    };
+    const handleTaskUpdate = (taskData) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskUpdate(taskData);
+    };
+    const handleTaskDelete = (task) => {
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (<View row width="100%" justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button onClick={() => {
+                    todoState({ task, setTask, sections, setSections }).handleTaskDelete(task);
+                    closeDialog();
+                }} variant="danger">
+                        Delete
+                    </Button>
+                </View>),
+        });
+    };
+    const handleTaskAddBelow = ({ id, shouldIndent, task: { title, users, badges, labels } }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskAddBelow({
+            id,
+            shouldIndent,
+            task: { title, users, badges, labels },
+        });
+    };
+    const handleTaskAdd = ({ task, sectionIndex }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskAdd({ task, sectionIndex });
+    };
+    const handleTaskMove = ({ origin, target, selection }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskMove({ origin, target, selection });
+    };
+    const handleSectionUpdate = (sec) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionUpdate(sec);
+    };
+    const handleSectionDelete = (sec) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionDelete(sec);
+    };
+    const handleSectionAdd = ({ name, sectionIndex }) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionAdd({ name, sectionIndex });
+    };
+    const handleSectionMove = ({ origin, target }) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionMove({ origin, target });
+    };
+    const handleHtmlProcessing = (html) => {
+        const { labels, users, title, to, from } = processHTML(html);
+        return { labels, users, title, to, from };
+    };
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers);
+        }
+        else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels);
+        }
+        else {
+            setOptions([]);
+        }
+    };
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            });
+        }
+        else {
+            next();
+        }
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'todo-menu':
+                return (<ContextPopup isTodo item={payload} onCancel={dismiss} onTodoAddBelow={() => {
+                        dismiss();
+                        dispatchTodoEvent('add-task-below', { id: payload.id });
+                    }} onTodoEdit={() => {
+                        dismiss();
+                        dispatchTodoEvent('edit-task', { id: payload.id });
+                    }} onSave={(card) => {
+                        dismiss();
+                        handleTaskUpdate({ ...payload, ...card });
+                    }} onView={() => {
+                        dismiss();
+                        setTask(payload);
+                    }} onDelete={() => {
+                        dismiss();
+                        handleTaskDelete(payload);
+                    }}/>);
+            case 'todo-section':
+                return (<GroupMenu onEdit={(section) => {
+                        setSection({ ...section });
+                        dismiss();
+                    }} onSave={(section) => {
+                        handleSectionUpdate({ ...payload, ...section });
+                        dismiss();
+                    }} onDelete={() => {
+                        handleSectionDelete(payload);
+                        dismiss();
+                    }} group={payload}/>);
+            default:
+                return null;
+        }
+    };
+    return (<RichInputProvider triggers={['#', '@']} options={options} htmlProcessor={handleHtmlProcessing} onWord={handleWord} onTrigger={handleTrigger}>
+            <CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+                {!!task.id && (<Detail item={{ ...task }} onCancel={() => {
+                setTask({});
+            }} onSave={(task) => {
+                handleTaskUpdate(task);
+                setTask({});
+            }} onDelete={(task) => {
+                handleTaskDelete(task);
+                setTask({});
+            }}/>)}
+
+                {!!section.id && (<GroupDetail item={{ ...section }} onCancel={() => {
+                setSection({});
+            }} onSave={(section) => {
+                handleSectionUpdate({ ...section });
+                setSection({});
+            }} onDelete={(section) => {
+                handleSectionDelete(section);
+                setSection({});
+            }}/>)}
+
+                <MenuProvider menu={getMenu}>
+                    <TodoProvider id="todo-instance-1" defaultSelection={{}} defaultInteraction="animated" targetVariant={{ projects: 'focus' }} task={undefined} sectionHeader={undefined} onTaskOpen={handleTaskOpen} onTaskUpdate={handleTaskUpdate} onTaskAdd={handleTaskAdd} onTaskAddBelow={handleTaskAddBelow} onTaskMove={handleTaskMove} onSectionUpdate={handleSectionUpdate} onSectionAdd={handleSectionAdd} onSectionMove={handleSectionMove}>
+                        <Todo sections={sections} toolbar={({ selection }) => {
+            return (<FloatingToolbar selection={selection} onDelete={() => {
+                    todoState({
+                        task,
+                        setTask,
+                        sections,
+                        setSections,
+                    }).handleSelectionDelete(selection);
+                    dispatchTodoEvent('select', {
+                        instanceId: 'todo-instance-1',
+                    });
+                    closeDialog();
+                }}/>);
+        }}/>
+                    </TodoProvider>
+                </MenuProvider>
+            </CommonProvider>
+        </RichInputProvider>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3NlY3Rpb25zLCBzZXRTZWN0aW9uc10gPSB1c2VTdGF0ZTxhbnk+KGRhdGEuc2VjdGlvbnMpCiAgICBjb25zdCBbdGFzaywgc2V0VGFza10gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgW3NlY3Rpb24sIHNldFNlY3Rpb25dID0gdXNlU3RhdGU8YW55Pih7fSkKICAgIGNvbnN0IFtvcHRpb25zLCBzZXRPcHRpb25zXSA9IHVzZVN0YXRlPFJpY2hJbnB1dE9wdGlvbltdPihbXSkKICAgIGNvbnN0IHsgc2V0RGlhbG9nLCBjbG9zZURpYWxvZyB9ID0gdXNlRGlhbG9nKCkKCiAgICBjb25zdCBoYW5kbGVUYXNrT3BlbiA9ICh0YXNrKSA9PiB7CiAgICAgICAgdG9kb1N0YXRlKHsgdGFzaywgc2V0VGFzaywgc2VjdGlvbnMsIHNldFNlY3Rpb25zIH0pLmhhbmRsZVRhc2tPcGVuKHRhc2spCiAgICB9CgogICAgY29uc3QgaGFuZGxlVGFza1VwZGF0ZSA9ICh0YXNrRGF0YSkgPT4gewogICAgICAgIHRvZG9TdGF0ZSh7IHRhc2ssIHNldFRhc2ssIHNlY3Rpb25zLCBzZXRTZWN0aW9ucyB9KS5oYW5kbGVUYXNrVXBkYXRlKHRhc2tEYXRhKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVRhc2tEZWxldGUgPSAodGFzaykgPT4gewogICAgICAgIHNldERpYWxvZyh7CiAgICAgICAgICAgIHRpdGxlOiAnQXJlIHlvdSBzdXJlPycsCiAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnVGhpcyBhY3Rpb24gY2Fubm90IGJlIHVuZG9uZS4nLAogICAgICAgICAgICBmb290ZXI6ICgKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9InNwYWNlLWJldHdlZW4iPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17Y2xvc2VEaWFsb2d9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgdG9kb1N0YXRlKHsgdGFzaywgc2V0VGFzaywgc2VjdGlvbnMsIHNldFNlY3Rpb25zIH0pLmhhbmRsZVRhc2tEZWxldGUodGFzaykKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsb3NlRGlhbG9nKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIj4KICAgICAgICAgICAgICAgICAgICAgICAgRGVsZXRlCiAgICAgICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICksCiAgICAgICAgfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVUYXNrQWRkQmVsb3cgPSAoeyBpZCwgc2hvdWxkSW5kZW50LCB0YXNrOiB7IHRpdGxlLCB1c2VycywgYmFkZ2VzLCBsYWJlbHMgfSB9KSA9PiB7CiAgICAgICAgdG9kb1N0YXRlKHsgdGFzaywgc2V0VGFzaywgc2VjdGlvbnMsIHNldFNlY3Rpb25zIH0pLmhhbmRsZVRhc2tBZGRCZWxvdyh7CiAgICAgICAgICAgIGlkLAogICAgICAgICAgICBzaG91bGRJbmRlbnQsCiAgICAgICAgICAgIHRhc2s6IHsgdGl0bGUsIHVzZXJzLCBiYWRnZXMsIGxhYmVscyB9LAogICAgICAgIH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlVGFza0FkZCA9ICh7IHRhc2ssIHNlY3Rpb25JbmRleCB9KSA9PiB7CiAgICAgICAgdG9kb1N0YXRlKHsgdGFzaywgc2V0VGFzaywgc2VjdGlvbnMsIHNldFNlY3Rpb25zIH0pLmhhbmRsZVRhc2tBZGQoeyB0YXNrLCBzZWN0aW9uSW5kZXggfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVUYXNrTW92ZSA9ICh7IG9yaWdpbiwgdGFyZ2V0LCBzZWxlY3Rpb24gfSkgPT4gewogICAgICAgIHRvZG9TdGF0ZSh7IHRhc2ssIHNldFRhc2ssIHNlY3Rpb25zLCBzZXRTZWN0aW9ucyB9KS5oYW5kbGVUYXNrTW92ZSh7IG9yaWdpbiwgdGFyZ2V0LCBzZWxlY3Rpb24gfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVTZWN0aW9uVXBkYXRlID0gKHNlYykgPT4gewogICAgICAgIHRvZG9TdGF0ZSh7IHRhc2ssIHNldFRhc2ssIHNlY3Rpb25zLCBzZXRTZWN0aW9ucyB9KS5oYW5kbGVTZWN0aW9uVXBkYXRlKHNlYykKICAgIH0KCiAgICBjb25zdCBoYW5kbGVTZWN0aW9uRGVsZXRlID0gKHNlYykgPT4gewogICAgICAgIHRvZG9TdGF0ZSh7IHRhc2ssIHNldFRhc2ssIHNlY3Rpb25zLCBzZXRTZWN0aW9ucyB9KS5oYW5kbGVTZWN0aW9uRGVsZXRlKHNlYykKICAgIH0KCiAgICBjb25zdCBoYW5kbGVTZWN0aW9uQWRkID0gKHsgbmFtZSwgc2VjdGlvbkluZGV4IH0pID0+IHsKICAgICAgICB0b2RvU3RhdGUoeyB0YXNrLCBzZXRUYXNrLCBzZWN0aW9ucywgc2V0U2VjdGlvbnMgfSkuaGFuZGxlU2VjdGlvbkFkZCh7IG5hbWUsIHNlY3Rpb25JbmRleCB9KQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVNlY3Rpb25Nb3ZlID0gKHsgb3JpZ2luLCB0YXJnZXQgfSkgPT4gewogICAgICAgIHRvZG9TdGF0ZSh7IHRhc2ssIHNldFRhc2ssIHNlY3Rpb25zLCBzZXRTZWN0aW9ucyB9KS5oYW5kbGVTZWN0aW9uTW92ZSh7IG9yaWdpbiwgdGFyZ2V0IH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlSHRtbFByb2Nlc3NpbmcgPSAoaHRtbCkgPT4gewogICAgICAgIGNvbnN0IHsgbGFiZWxzLCB1c2VycywgdGl0bGUsIHRvLCBmcm9tIH0gPSBwcm9jZXNzSFRNTChodG1sKQogICAgICAgIHJldHVybiB7IGxhYmVscywgdXNlcnMsIHRpdGxlLCB0bywgZnJvbSB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlVHJpZ2dlciA9ICh3b3JkKSA9PiB7CiAgICAgICAgaWYgKHdvcmQudHJpbSgpLmNoYXJBdCgwKSA9PSAnQCcpIHsKICAgICAgICAgICAgc2V0T3B0aW9ucyhkYXRhLnJpY2hJbnB1dFVzZXJzKQogICAgICAgIH0gZWxzZSBpZiAod29yZC50cmltKCkuY2hhckF0KDApID09ICcjJykgewogICAgICAgICAgICBzZXRPcHRpb25zKGRhdGEucmljaElucHV0TGFiZWxzKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldE9wdGlvbnMoW10pCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVdvcmQgPSAod29yZCwgbmV4dCkgPT4gewogICAgICAgIGlmICh3b3JkLmluY2x1ZGVzKCdkYXRlOicpKSB7CiAgICAgICAgICAgIG5leHQoewogICAgICAgICAgICAgICAgcGhyYXNlOiB3b3JkLnRyaW0oKSwKICAgICAgICAgICAgICAgIHR5cGU6IHdvcmQuc3BsaXQoJzonKVswXSwKICAgICAgICAgICAgICAgIHZhbHVlOiB3b3JkLnNwbGl0KCc6JylbMV0udHJpbSgpLAogICAgICAgICAgICB9KQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIG5leHQoKQogICAgICAgIH0KICAgIH0KCiAgICBjb25zdCBnZXRNZW51ID0gKHsgZGF0YTogeyB0YXJnZXQsIHBheWxvYWQgfSwgZGlzbWlzcyB9KSA9PiB7CiAgICAgICAgc3dpdGNoICh0YXJnZXQpIHsKICAgICAgICAgICAgY2FzZSAndG9kby1tZW51JzoKICAgICAgICAgICAgICAgIHJldHVybiAoCiAgICAgICAgICAgICAgICAgICAgPENvbnRleHRQb3B1cAogICAgICAgICAgICAgICAgICAgICAgICBpc1RvZG8KICAgICAgICAgICAgICAgICAgICAgICAgaXRlbT17cGF5bG9hZH0KICAgICAgICAgICAgICAgICAgICAgICAgb25DYW5jZWw9e2Rpc21pc3N9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uVG9kb0FkZEJlbG93PXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc3BhdGNoVG9kb0V2ZW50KCdhZGQtdGFzay1iZWxvdycsIHsgaWQ6IHBheWxvYWQuaWQgfSkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25Ub2RvRWRpdD17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNwYXRjaFRvZG9FdmVudCgnZWRpdC10YXNrJywgeyBpZDogcGF5bG9hZC5pZCB9KQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyhjYXJkKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVRhc2tVcGRhdGUoeyAuLi5wYXlsb2FkLCAuLi5jYXJkIH0pCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIG9uVmlldz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRUYXNrKHBheWxvYWQpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVRhc2tEZWxldGUocGF5bG9hZCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBjYXNlICd0b2RvLXNlY3Rpb24nOgogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICA8R3JvdXBNZW51CiAgICAgICAgICAgICAgICAgICAgICAgIG9uRWRpdD17KHNlY3Rpb24pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlY3Rpb24oeyAuLi5zZWN0aW9uIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoc2VjdGlvbikgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlU2VjdGlvblVwZGF0ZSh7IC4uLnBheWxvYWQsIC4uLnNlY3Rpb24gfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlU2VjdGlvbkRlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPXtwYXlsb2FkfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIGRlZmF1bHQ6CiAgICAgICAgICAgICAgICByZXR1cm4gbnVsbAogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxSaWNoSW5wdXRQcm92aWRlcgogICAgICAgICAgICB0cmlnZ2Vycz17WycjJywgJ0AnXX0KICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgaHRtbFByb2Nlc3Nvcj17aGFuZGxlSHRtbFByb2Nlc3Npbmd9CiAgICAgICAgICAgIG9uV29yZD17aGFuZGxlV29yZH0KICAgICAgICAgICAgb25UcmlnZ2VyPXtoYW5kbGVUcmlnZ2VyfT4KICAgICAgICAgICAgPENvbW1vblByb3ZpZGVyCiAgICAgICAgICAgICAgICBvblVzZXJGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgICAgICBvbkxhYmVsRmlsdGVyPXsodmFsKSA9PiBudWxsfQogICAgICAgICAgICAgICAgYXZhaWxhYmxlTGFiZWxzPXtkYXRhLmF2YWlsYWJsZUxhYmVsc30KICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgY29sb3JzPXtkYXRhLmNvbG9yUGFsZXR0ZX0+CiAgICAgICAgICAgICAgICB7ISF0YXNrLmlkICYmICgKICAgICAgICAgICAgICAgICAgICA8RGV0YWlsCiAgICAgICAgICAgICAgICAgICAgICAgIGl0ZW09e3sgLi4udGFzayB9fQogICAgICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGFzayh7fSkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsodGFzaykgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlVGFza1VwZGF0ZSh0YXNrKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGFzayh7fSkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eyh0YXNrKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVUYXNrRGVsZXRlKHRhc2spCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRUYXNrKHt9KQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICApfQoKICAgICAgICAgICAgICAgIHshIXNlY3Rpb24uaWQgJiYgKAogICAgICAgICAgICAgICAgICAgIDxHcm91cERldGFpbAogICAgICAgICAgICAgICAgICAgICAgICBpdGVtPXt7IC4uLnNlY3Rpb24gfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DYW5jZWw9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlY3Rpb24oe30pCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KHNlY3Rpb24pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVNlY3Rpb25VcGRhdGUoeyAuLi5zZWN0aW9uIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRTZWN0aW9uKHt9KQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KHNlY3Rpb24pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVNlY3Rpb25EZWxldGUoc2VjdGlvbikKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlY3Rpb24oe30pCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICl9CgogICAgICAgICAgICAgICAgPE1lbnVQcm92aWRlciBtZW51PXtnZXRNZW51fT4KICAgICAgICAgICAgICAgICAgICA8VG9kb1Byb3ZpZGVyCiAgICAgICAgICAgICAgICAgICAgICAgIGlkPSJ0b2RvLWluc3RhbmNlLTEiCiAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHRTZWxlY3Rpb249e3t9fQogICAgICAgICAgICAgICAgICAgICAgICBkZWZhdWx0SW50ZXJhY3Rpb249ImFuaW1hdGVkIgogICAgICAgICAgICAgICAgICAgICAgICB0YXJnZXRWYXJpYW50PXt7IHByb2plY3RzOiAnZm9jdXMnIH19CiAgICAgICAgICAgICAgICAgICAgICAgIHRhc2s9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICAgICAgc2VjdGlvbkhlYWRlcj17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgICAgICAgICBvblRhc2tPcGVuPXtoYW5kbGVUYXNrT3Blbn0KICAgICAgICAgICAgICAgICAgICAgICAgb25UYXNrVXBkYXRlPXtoYW5kbGVUYXNrVXBkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICBvblRhc2tBZGQ9e2hhbmRsZVRhc2tBZGR9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uVGFza0FkZEJlbG93PXtoYW5kbGVUYXNrQWRkQmVsb3d9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uVGFza01vdmU9e2hhbmRsZVRhc2tNb3ZlfQogICAgICAgICAgICAgICAgICAgICAgICBvblNlY3Rpb25VcGRhdGU9e2hhbmRsZVNlY3Rpb25VcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2VjdGlvbkFkZD17aGFuZGxlU2VjdGlvbkFkZH0KICAgICAgICAgICAgICAgICAgICAgICAgb25TZWN0aW9uTW92ZT17aGFuZGxlU2VjdGlvbk1vdmV9PgogICAgICAgICAgICAgICAgICAgICAgICA8VG9kbwogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2VjdGlvbnM9e3NlY3Rpb25zfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdG9vbGJhcj17KHsgc2VsZWN0aW9uIH0pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8RmxvYXRpbmdUb29sYmFyCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZWxlY3Rpb249e3NlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdG9kb1N0YXRlKHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGFzaywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGFzaywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2VjdGlvbnMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlY3Rpb25zLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pLmhhbmRsZVNlbGVjdGlvbkRlbGV0ZShzZWxlY3Rpb24pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGF0Y2hUb2RvRXZlbnQoJ3NlbGVjdCcsIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW5zdGFuY2VJZDogJ3RvZG8taW5zdGFuY2UtMScsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbG9zZURpYWxvZygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9Ub2RvUHJvdmlkZXI+CiAgICAgICAgICAgICAgICA8L01lbnVQcm92aWRlcj4KICAgICAgICAgICAgPC9Db21tb25Qcm92aWRlcj4KICAgICAgICA8L1JpY2hJbnB1dFByb3ZpZGVyPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const [sections, setSections] = useState<any>(data.sections)
+    const [task, setTask] = useState<any>({})
+    const [section, setSection] = useState<any>({})
+    const [options, setOptions] = useState<RichInputOption[]>([])
+    const { setDialog, closeDialog } = useDialog()
+
+    const handleTaskOpen = (task) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskOpen(task)
+    }
+
+    const handleTaskUpdate = (taskData) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskUpdate(taskData)
+    }
+
+    const handleTaskDelete = (task) => {
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (
+                <View
+                    row
+                    width="100%"
+                    justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button
+                        onClick={() => {
+                            todoState({ task, setTask, sections, setSections }).handleTaskDelete(task)
+                            closeDialog()
+                        }}
+                        variant="danger">
+                        Delete
+                    </Button>
+                </View>
+            ),
+        })
+    }
+
+    const handleTaskAddBelow = ({ id, shouldIndent, task: { title, users, badges, labels } }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskAddBelow({
+            id,
+            shouldIndent,
+            task: { title, users, badges, labels },
+        })
+    }
+
+    const handleTaskAdd = ({ task, sectionIndex }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskAdd({ task, sectionIndex })
+    }
+
+    const handleTaskMove = ({ origin, target, selection }) => {
+        todoState({ task, setTask, sections, setSections }).handleTaskMove({ origin, target, selection })
+    }
+
+    const handleSectionUpdate = (sec) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionUpdate(sec)
+    }
+
+    const handleSectionDelete = (sec) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionDelete(sec)
+    }
+
+    const handleSectionAdd = ({ name, sectionIndex }) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionAdd({ name, sectionIndex })
+    }
+
+    const handleSectionMove = ({ origin, target }) => {
+        todoState({ task, setTask, sections, setSections }).handleSectionMove({ origin, target })
+    }
+
+    const handleHtmlProcessing = (html) => {
+        const { labels, users, title, to, from } = processHTML(html)
+        return { labels, users, title, to, from }
+    }
+
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers)
+        } else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels)
+        } else {
+            setOptions([])
+        }
+    }
+
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            })
+        } else {
+            next()
+        }
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'todo-menu':
+                return (
+                    <ContextPopup
+                        isTodo
+                        item={payload}
+                        onCancel={dismiss}
+                        onTodoAddBelow={() => {
+                            dismiss()
+                            dispatchTodoEvent('add-task-below', { id: payload.id })
+                        }}
+                        onTodoEdit={() => {
+                            dismiss()
+                            dispatchTodoEvent('edit-task', { id: payload.id })
+                        }}
+                        onSave={(card) => {
+                            dismiss()
+                            handleTaskUpdate({ ...payload, ...card })
+                        }}
+                        onView={() => {
+                            dismiss()
+                            setTask(payload)
+                        }}
+                        onDelete={() => {
+                            dismiss()
+                            handleTaskDelete(payload)
+                        }}
+                    />
+                )
+            case 'todo-section':
+                return (
+                    <GroupMenu
+                        onEdit={(section) => {
+                            setSection({ ...section })
+                            dismiss()
+                        }}
+                        onSave={(section) => {
+                            handleSectionUpdate({ ...payload, ...section })
+                            dismiss()
+                        }}
+                        onDelete={() => {
+                            handleSectionDelete(payload)
+                            dismiss()
+                        }}
+                        group={payload}
+                    />
+                )
+            default:
+                return null
+        }
+    }
+
+    return (
+        <RichInputProvider
+            triggers={['#', '@']}
+            options={options}
+            htmlProcessor={handleHtmlProcessing}
+            onWord={handleWord}
+            onTrigger={handleTrigger}>
+            <CommonProvider
+                onUserFilter={(val) => null}
+                onLabelFilter={(val) => null}
+                availableLabels={data.availableLabels}
+                availableUsers={data.availableUsers}
+                colors={data.colorPalette}>
+                {!!task.id && (
+                    <Detail
+                        item={{ ...task }}
+                        onCancel={() => {
+                            setTask({})
+                        }}
+                        onSave={(task) => {
+                            handleTaskUpdate(task)
+                            setTask({})
+                        }}
+                        onDelete={(task) => {
+                            handleTaskDelete(task)
+                            setTask({})
+                        }}
+                    />
+                )}
+
+                {!!section.id && (
+                    <GroupDetail
+                        item={{ ...section }}
+                        onCancel={() => {
+                            setSection({})
+                        }}
+                        onSave={(section) => {
+                            handleSectionUpdate({ ...section })
+                            setSection({})
+                        }}
+                        onDelete={(section) => {
+                            handleSectionDelete(section)
+                            setSection({})
+                        }}
+                    />
+                )}
+
+                <MenuProvider menu={getMenu}>
+                    <TodoProvider
+                        id="todo-instance-1"
+                        defaultSelection={{}}
+                        defaultInteraction="animated"
+                        targetVariant={{ projects: 'focus' }}
+                        task={undefined}
+                        sectionHeader={undefined}
+                        onTaskOpen={handleTaskOpen}
+                        onTaskUpdate={handleTaskUpdate}
+                        onTaskAdd={handleTaskAdd}
+                        onTaskAddBelow={handleTaskAddBelow}
+                        onTaskMove={handleTaskMove}
+                        onSectionUpdate={handleSectionUpdate}
+                        onSectionAdd={handleSectionAdd}
+                        onSectionMove={handleSectionMove}>
+                        <Todo
+                            sections={sections}
+                            toolbar={({ selection }) => {
+                                return (
+                                    <FloatingToolbar
+                                        selection={selection}
+                                        onDelete={() => {
+                                            todoState({
+                                                task,
+                                                setTask,
+                                                sections,
+                                                setSections,
+                                            }).handleSelectionDelete(selection)
+                                            dispatchTodoEvent('select', {
+                                                instanceId: 'todo-instance-1',
+                                            })
+                                            closeDialog()
+                                        }}
+                                    />
+                                )
+                            }}
+                        />
+                    </TodoProvider>
+                </MenuProvider>
+            </CommonProvider>
+        </RichInputProvider>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,5 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-ui/core'
 import { CodeComponent } from '../../components/code.component'
 import React from 'react'
 
@@ -32,10 +32,10 @@ export default function GettingStarted(props) {
                 filename="console"
                 code={`
     # Using npm
-    npm install @fold-dev/core
+    npm install @fold-ui/core
 
     # Using yarn
-    yarn add @fold-dev/core
+    yarn add @fold-ui/core
                 `}
             />
             <Heading as="h3">Setup</Heading>
@@ -49,7 +49,7 @@ export default function GettingStarted(props) {
             </Text>
             <CodeComponent
                 code={`
-    import '@fold-dev/core/dist/styles.css'
+    import '@fold-ui/core/dist/styles.css'
                 `}
                 showSnippet
                 dontConvert
@@ -62,7 +62,7 @@ export default function GettingStarted(props) {
             <CodeComponent
                 code={`
     import React from 'react'
-    import { FoldProvider } from '@fold-dev/core'
+    import { FoldProvider } from '@fold-ui/core'
 
     function App() {
         return (
@@ -85,7 +85,7 @@ export default function GettingStarted(props) {
             <CodeComponent
                 code={`
     import React from 'react'
-    import { FoldProvider } from '@fold-dev/core'
+    import { FoldProvider } from '@fold-ui/core'
 
     function MyComponent() {
         return (
@@ -106,7 +106,7 @@ export default function GettingStarted(props) {
                 Fold has been crafted using TypeScript and exported to es2015 as a target. If you have preferences for
                 an alternative compilation target,{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank">
                     let us know
                 </Link>

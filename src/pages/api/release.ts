@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     })
 
     const { data: { body } } = await octokit.request('GET /repos/{owner}/{repo}/releases/{release_id}', {
-        owner: 'fold-dev',
+        owner: 'fold-ui',
         repo: 'fold',
         release_id: +id,
         headers: {

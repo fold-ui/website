@@ -39,8 +39,8 @@ import {
     timezones,
     useCopy,
     useScrollingDatePicker
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { PiCompassTool } from 'react-icons/pi'
 import CodeComponent, { highlightCode } from './code.component'
@@ -1208,7 +1208,7 @@ const All = () => {
                             mime="image/png"
                             filesize={24325}
                             label="screenshot.png"
-                            href="https://fold.dev"
+                            href="https://fold-ui.com"
                         />
 
                         <Copy
@@ -1463,7 +1463,7 @@ export const CoreComponent = () => {
                         Leverage Fold's 85+ components to power your next project. 
                         Fold is completely free (MIT), and will always remain that way.
                     </Heading>
-                    <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
+                    <Code snippet="npm i --save @fold-ui/core @fold-ui/design @fold-ui/pro" />
                     {/* 
                     <View
                         row

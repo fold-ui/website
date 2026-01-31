@@ -12,7 +12,7 @@ import {
     DataGridTypes,
     dataGridState,
     dispatchDataGridEvent
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { useState } from 'react'
 
 export const DataGridExample = () => {

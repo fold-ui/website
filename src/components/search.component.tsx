@@ -18,8 +18,8 @@ import {
     getKey,
     useEvent,
     useVisibility,
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import {
     ChatBubbleBottomCenterIcon,
     ChatBubbleLeftEllipsisIcon,

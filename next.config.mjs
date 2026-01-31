@@ -24,7 +24,7 @@ const withMDX = createMDX({
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     reactStrictMode: true,
-    transpilePackages: ['@fold-dev/design/tokens-es6','@fold-pro/react'],
+    transpilePackages: ['@fold-ui/design/tokens-es6','@fold-pro/react'],
 }
 
 export default withMDX(nextConfig)

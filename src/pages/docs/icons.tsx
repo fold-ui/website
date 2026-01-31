@@ -1,8 +1,8 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Heading, IconLib, Link, Text, View, defaultIcons } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, IconLib, Link, Text, View, defaultIcons } from '@fold-ui/core'
 import { CodeComponent } from '../../components/code.component'
 import React, { useMemo } from 'react'
-import { Table, TBody, Td, Th, THead, Tr } from '@fold-dev/core'
+import { Table, TBody, Td, Th, THead, Tr } from '@fold-ui/core'
 
 export default function Icons(props) {
     return (
@@ -54,7 +54,7 @@ export default function Icons(props) {
                 minHeight="fit-content"
                 code={`
     import React from 'react'
-    import { defaultIcons, setFoldIcons } from '@fold-dev/core'
+    import { defaultIcons, setFoldIcons } from '@fold-ui/core'
     import { CubeIcon } from '@heroicons/react/24/outline'
 
     const iconLibrary = {
@@ -103,7 +103,7 @@ export default function Icons(props) {
             <Text>
                 If you need any help or support, please visit our{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank">
                     community
                 </Link>

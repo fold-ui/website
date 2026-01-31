@@ -1,4 +1,4 @@
-import { Divider } from '@fold-dev/core'
+import { Divider } from '@fold-ui/core'
 import { useEffect, useState } from 'react'
 import { CoreComponent } from '@/components/core.component'
 import { FAQComponent } from '@/components/faq.component'

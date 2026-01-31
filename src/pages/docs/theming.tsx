@@ -12,7 +12,7 @@ import {
     NotificationIcon,
     Text,
     View,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { CodeComponent } from '../../components/code.component'
 import React from 'react'
 
@@ -63,9 +63,9 @@ export default function Theming(props) {
                 </NotificationContent>
             </Notification>
             <Text>
-                Fold's design tokens are managed with <code>@fold-dev/design</code>, a package located im{' '}
+                Fold's design tokens are managed with <code>@fold-ui/design</code>, a package located im{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/packages/design"
+                    href="https://github.com/fold-ui/fold/packages/design"
                     target="_blank">
                     GitHub
                 </Link>
@@ -78,7 +78,7 @@ export default function Theming(props) {
                 lang="bash"
                 filename="console"
                 code={` 
-    git clone https://github.com/fold-dev/fold.git
+    git clone https://github.com/fold-ui/fold.git
     cd fold
     npm install
     cd packages/design
@@ -118,7 +118,7 @@ export default function Theming(props) {
                 dontConvert
                 filename="App.tsx"
                 code={` 
-    import '@fold-dev/core/dist/styles.css'
+    import '@fold-ui/core/dist/styles.css'
     import '../path/to/new/tokens-light.css'
     import '../path/to/new/tokens-dark.css'
                 `}
@@ -153,7 +153,7 @@ export default function Theming(props) {
                 dontConvert
                 filename="App.tsx"
                 code={` 
-    import '@fold-dev/core/dist/styles.css'
+    import '@fold-ui/core/dist/styles.css'
     import '../path/to/new/tokens-mytheme.css'
                 `}
             />
@@ -162,7 +162,7 @@ export default function Theming(props) {
             <CodeComponent
                 code={`
     import React from 'react'
-    import { useTheme } from '@fold-dev/core'
+    import { useTheme } from '@fold-ui/core'
 
     function App() {
         const { setTheme, getSystemTheme, getStoredTheme } = useTheme()
@@ -194,7 +194,7 @@ export default function Theming(props) {
                 We are actively improving these docs, so if you encounter any issues or have questions related to
                 creating themes, feel free to contact us or leave a comment on{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank">
                     GitHub
                 </Link>

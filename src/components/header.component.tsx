@@ -1,7 +1,7 @@
 import React from 'react'
-import { Divider, Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-dev/core'
+import { Divider, Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-ui/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
-import * as Token from '@fold-dev/design/tokens'
+import * as Token from '@fold-ui/design/tokens'
 
 export const HeaderComponent = ({ title, subtitle = null, description = null }) => {
     return  (
@@ -17,7 +17,6 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                 style={{  overflow: 'hidden' }}
                 className="hero-background"
                 width="100%"
-                
                 justifyContent="stretch">
                 {!!subtitle && (
                     <Text

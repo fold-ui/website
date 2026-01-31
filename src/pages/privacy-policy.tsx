@@ -1,6 +1,6 @@
 import { ContentContainerComponent } from '@/components/content-container.component'
 import { HeaderComponent } from '@/components/header.component'
-import { View } from '@fold-dev/core'
+import { View } from '@fold-ui/core'
 import Link from 'next/link'
 
 export default function PrivacyPolicy(props) {
@@ -29,14 +29,14 @@ export default function PrivacyPolicy(props) {
                 We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the date of the latest revision will be indicated at the top.
 
                 <h2>Contact Us</h2>
-                If you have any questions or concerns about this Privacy Policy, please contact us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.
+                If you have any questions or concerns about this Privacy Policy, please contact us at <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.
                 
                 <h2>Consent</h2>
                 <p>By using this website, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
-                <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
+                <p>Email: <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link></p>
             </ContentContainerComponent>
         </>
     )

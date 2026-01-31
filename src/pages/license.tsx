@@ -1,7 +1,7 @@
 import React from 'react'
-import { Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-dev/core'
+import { Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-ui/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
-import * as Token from '@fold-dev/design/tokens'
+import * as Token from '@fold-ui/design/tokens'
 import { HeaderComponent } from '@/components/header.component'
 import { ContentContainerComponent } from '@/components/content-container.component'
 
@@ -19,10 +19,10 @@ export const LicenseContent = (props) => (
 
         <Heading as="h3">Team License</Heading>
         <Text>The LICENSEE is permitted to have a maximum of ten (10) developers utilizing the license key. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
-        <Text>Email <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link> for upgrading your Indie license to a Team license, or obtaining additional seats.</Text>
+        <Text>Email <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link> for upgrading your Indie license to a Team license, or obtaining additional seats.</Text>
 
         <Heading as="h3">OEM License</Heading>
-        <Text>Please enquire about OEM license options by emailing <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>
+        <Text>Please enquire about OEM license options by emailing <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.</Text>
 
         <Heading as="h2">Restrictions</Heading>
         <Text>Unless the LICENSEE has been granted prior, written consent from Johannes du Plessis ("Fold"), the LICENSEE may not:</Text>
@@ -45,11 +45,11 @@ export const LicenseContent = (props) => (
         </List>
 
         <Heading as="h2">Technical Support</Heading>
-        <Text>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy email support@fold.dev.</Text>
+        <Text>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy email support@fold-ui.com.</Text>
 
         <Heading as="h2">Refunds</Heading>
         <Text>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE.</Text>
-        <Text>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>
+        <Text>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.</Text>
         <Text>If a refund is issued, the LICENSEE agrees to delete all files within 24 hours and is not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</Text>
 
         <Notification variant="highlight">
@@ -75,7 +75,7 @@ export const LicenseContent = (props) => (
 
         <Heading as="h2">Contact Information</Heading>
         <Text>Address: Marine Drive, Umhlanga, KZN, ZA</Text>
-        <Text>Email: <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link></Text>
+        <Text>Email: <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link></Text>
     </View>
 )
 

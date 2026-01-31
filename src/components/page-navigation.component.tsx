@@ -1,4 +1,4 @@
-import { Heading, View } from '@fold-dev/core'
+import { Heading, View } from '@fold-ui/core'
 import { useEffect, useState } from 'react'
 
 export default function PageNavigationComponent({ tocHtml }) {

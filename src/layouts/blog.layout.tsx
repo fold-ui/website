@@ -1,5 +1,5 @@
 import { HeaderComponent } from '@/components/header.component'
-import { Heading, Notification, NotificationContent, View } from '@fold-dev/core'
+import { Heading, Notification, NotificationContent, View } from '@fold-ui/core'
 import { useEffect, useMemo, useState } from 'react'
 import { articles } from '../blog'
 import { ContentContainerComponent } from '@/components/content-container.component'

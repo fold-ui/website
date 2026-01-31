@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Pill, Heading, IconLib, Link, Stack, Tooltip, View, Text } from '@fold-dev/core'
+import { Pill, Heading, IconLib, Link, Stack, Tooltip, View, Text } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -13,18 +13,18 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/tooltip/index.ts","description":"","displayName":"TooltipContent","methods":[],"props":{"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tooltip/index.ts","description":"","displayName":"Tooltip","methods":[],"props":{"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"alwaysVisible":{"defaultValue":null,"description":"","name":"alwaysVisible","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"delay":{"defaultValue":null,"description":"","name":"delay","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"contentProps":{"defaultValue":null,"description":"","name":"contentProps","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ anchor?: PopoutPosition; arrow?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
 
-export const css = [[["--f-tooltip-background","var(--f-color-surface-inverse)"],["--f-tooltip-color","var(--f-color-text-weakest)"],["--f-tooltip-border-radius","var(--f-radius)"],["--f-tooltip-reposition-duraction","var(--f-transition-duration-fast)"]]]
+export const css = [[["--f-tooltip-background","var(--f-color-surface-inverse)"],["--f-tooltip-color","var(--f-color-text-on-color)"],["--f-tooltip-border-radius","var(--f-radius)"],["--f-tooltip-reposition-duraction","var(--f-transition-duration-fast)"]]]
 
 
 
-<CodeComponent filename="tooltip.tsx" code="aW1wb3J0IHsgVG9vbHRpcENvbnRlbnQsIFRvb2x0aXAgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+<CodeComponent filename="tooltip.tsx" code="aW1wb3J0IHsgVG9vbHRpcENvbnRlbnQsIFRvb2x0aXAgfSBmcm9tICJAZm9sZC11aS9jb3JlIjsK" />
 ```tsx
-import { TooltipContent, Tooltip } from "@fold-dev/core";
+import { TooltipContent, Tooltip } from "@fold-ui/core";
 ```
 
 ### Usage
 
-export const Usage = () => (<Tooltip text="This is the default tooltip.">
+export const Usage = () => (<Tooltip alwaysVisible text="This is the default tooltip with text that stretches past the 500px max-width size.">
         <Pill>Hover here!</Pill>
     </Tooltip>);
 
@@ -32,11 +32,13 @@ export const Usage = () => (<Tooltip text="This is the default tooltip.">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRvb2x0aXAgdGV4dD0iVGhpcyBpcyB0aGUgZGVmYXVsdCB0b29sdGlwLiI+CiAgICAgICAgPFBpbGw+SG92ZXIgaGVyZSE8L1BpbGw+CiAgICA8L1Rvb2x0aXA+Cik=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRvb2x0aXAKICAgICAgICBhbHdheXNWaXNpYmxlCiAgICAgICAgdGV4dD0iVGhpcyBpcyB0aGUgZGVmYXVsdCB0b29sdGlwIHdpdGggdGV4dCB0aGF0IHN0cmV0Y2hlcyBwYXN0IHRoZSA1MDBweCBtYXgtd2lkdGggc2l6ZS4iPgogICAgICAgIDxQaWxsPkhvdmVyIGhlcmUhPC9QaWxsPgogICAgPC9Ub29sdGlwPgop" />
 
 ```tsx
 export const Usage = () => (
-    <Tooltip text="This is the default tooltip.">
+    <Tooltip
+        alwaysVisible
+        text="This is the default tooltip with text that stretches past the 500px max-width size.">
         <Pill>Hover here!</Pill>
     </Tooltip>
 )

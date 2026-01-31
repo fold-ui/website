@@ -3,7 +3,7 @@ import {
     Link,
     Text,
     View
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 
 export const SupportComponent = (props) => {
     return (
@@ -54,17 +54,17 @@ export const SupportComponent = (props) => {
                         position="relative">
                         {[
                             {
-                                url: 'https://github.com/fold-dev/fold/issues',
+                                url: 'https://github.com/fold-ui/fold/issues',
                                 title: 'Reporting Bugs',
                                 text: 'If you want to contribute to the project or report a bug, you can open an issue or submit a pull request on the GitHub repository.',
                             },
                             {
-                                url: 'https://github.com/fold-dev/fold/discussions',
+                                url: 'https://github.com/fold-ui/fold/discussions',
                                 title: 'Technical Support',
                                 text: 'If you have a question or a suggestion, feel free to engage with the community on GitHub Discussions. Discussions allow you to ask for help, share ideas, and participate in conversations with other users.',
                             },
                             // {
-                            //     url: 'mailto:support@fold.dev',
+                            //     url: 'mailto:support@fold-ui.com',
                             //     title: 'Pro',
                             //     text: 'For any other support needs, if you are a Pro customer, please feel free to reach out to us directly via email.',
                             // },

@@ -23,7 +23,7 @@ npm run dev
 If you've come across a bug or an issue, please don't hesitate to open a new issue. To make the process as smooth as possible, we've created some issue templates to get you started.
 
 ### Sharing Feedback 📢
-We'd love to get your feedback, be it suggestions, feature requests, or general thoughts on your experience. If you believe that creating a new issue isn't the best choice, don't hesitate to initiate a [discussion (in the Fold repo)](https://github.com/fold-dev/fold/discussions) instead.
+We'd love to get your feedback, be it suggestions, feature requests, or general thoughts on your experience. If you believe that creating a new issue isn't the best choice, don't hesitate to initiate a [discussion (in the Fold repo)](https://github.com/fold-ui/fold/discussions) instead.
 
 ## Code of Conduct ☀️
 Please note that we have a [Code of Conduct](CODE_OF_CONDUCT.md) that we expect everyone to follow when participating in this repository. We want to maintain a welcoming and inclusive environment for everyone.
@@ -45,7 +45,7 @@ Examples: `24.1.29.0`, `24.1.29.1`
 
 ## Support
 
-If you encounter any issues or have questions, feel free to [open an issue](https://github.com/fold-dev/fold.dev/issues) or start a [discussion (in the Fold repo)](https://github.com/fold-dev/fold/discussions).
+If you encounter any issues or have questions, feel free to [open an issue](https://github.com/fold-ui/fold-ui.com/issues) or start a [discussion (in the Fold repo)](https://github.com/fold-ui/fold/discussions).
 
 Thank you for being part of our community, and for helping us.
 

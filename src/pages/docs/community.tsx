@@ -1,5 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-ui/core'
 import React from 'react'
 
 export default function Community(props) {
@@ -16,7 +16,7 @@ export default function Community(props) {
             <Heading as="h2">
                 Ask questions, submit bugs & request features at our{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold"
+                    href="https://github.com/fold-ui/fold"
                     target="_blank"
                     fontSize="inherit">
                     repository

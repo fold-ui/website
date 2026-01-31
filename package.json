@@ -1,5 +1,5 @@
 {
-  "name": "@fold-dev/docs",
+  "name": "@fold-ui/docs",
   "version": "25.3.15.0",
   "description": "UI components for product teams.",
   "scripts": {
@@ -11,8 +11,9 @@
     "prettier": "prettier --write 'src/**/*.{ts,tsx}' --print-width 120"
   },
   "dependencies": {
-    "@fold-dev/core": "^0.19.0",
-    "@fold-dev/design": "^0.19.0",
+    "@fold-ui/core": "^0.21.0",
+    "@fold-ui/design": "^0.21.0",
+    "@fold-ui/pro": "^0.21.0",
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
@@ -31,6 +32,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "shikiji": "^0.9.18",
+    "three": "^0.182.0",
     "unified": "^11.0.4"
   },
   "engines": {
@@ -40,15 +42,15 @@
   "author": "Jo du Plessis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fold-dev/components/issues"
+    "url": "https://github.com/fold-ui/components/issues"
   },
-  "url": "https://github.com/fold-dev/components",
+  "url": "https://github.com/fold-ui/components",
   "contributors": [
     {
       "name": "joduplessis"
     }
   ],
-  "homepage": "https://github.com/fold-dev/components#readme",
+  "homepage": "https://github.com/fold-ui/components#readme",
   "devDependencies": {
     "@types/node": "20.8.4",
     "husky": "^8.0.3",

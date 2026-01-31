@@ -22,9 +22,9 @@ import {
     Th,
     Tr,
     View,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { NextPageContext } from 'next'
-import * as Token from '@fold-dev/design/tokens'
+import * as Token from '@fold-ui/design/tokens'
 import { Octokit } from 'octokit'
 import React, { useEffect, useState } from 'react'
 import { PiGithubLogo, PiTag, PiTagDuotone } from 'react-icons/pi'
