@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { SVGLoader } from 'three/addons/loaders/SVGLoader.js'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
+import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 
 const LogoViewer = () => {
     const mountRef = useRef(null)
@@ -122,7 +122,7 @@ const LogoViewer = () => {
         scene.add(pivot)
 
         // --- Stars ---
-        const starCount = 1000
+        const starCount = 0
         const starPositions = new Float32Array(starCount * 3)
         for (let i = 0; i < starCount; i++) {
             const r = 400 + Math.random() * 500

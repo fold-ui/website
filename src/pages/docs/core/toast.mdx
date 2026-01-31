@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Button, IconLib, Stack, Text, Toast, ToastAnchor, useToast } from '@fold-dev/core'
+import { Button, IconLib, Stack, Text, Toast, ToastAnchor, useToast } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -14,13 +14,13 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"Toast","methods":[],"props":{"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"message":{"defaultValue":null,"description":"","name":"message","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"showDismiss":{"defaultValue":null,"description":"","name":"showDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"showProgress":{"defaultValue":null,"description":"","name":"showProgress","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ToastAnchor"},"tags":{}},"delay":{"defaultValue":null,"description":"","name":"delay","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"toastComponent":{"defaultValue":null,"description":"","name":"toastComponent","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"ueid":{"defaultValue":null,"description":"","name":"ueid","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"containerProps":{"defaultValue":null,"description":"","name":"containerProps","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"ToastContainer","methods":[],"props":{}}]
 
-export const css = [[["--f-toast-border-radius","var(--f-radius)"],["--f-toast-color","var(--f-color-text-on-color)"],["--f-toast-background-color","var(--f-color-surface-inverse)"],["--f-toast-max-width","100%"],["--f-toast-padding","var(--f-space-4)"]]]
+export const css = [[["--f-toast-border-radius","var(--f-radius)"],["--f-toast-color","var(--f-color-text-on-color)"],["--f-toast-background-color","var(--f-color-surface-inverse)"],["--f-toast-max-width","100%"],["--f-toast-padding","var(--f-space-3)"]]]
 
 
 
-<CodeComponent filename="toast.tsx" code="aW1wb3J0IHsgVG9hc3QsIFRvYXN0Q29udGFpbmVyIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+<CodeComponent filename="toast.tsx" code="aW1wb3J0IHsgVG9hc3QsIFRvYXN0Q29udGFpbmVyIH0gZnJvbSAiQGZvbGQtdWkvY29yZSI7Cg==" />
 ```tsx
-import { Toast, ToastContainer } from "@fold-dev/core";
+import { Toast, ToastContainer } from "@fold-ui/core";
 ```
 
 ### Usage
@@ -64,6 +64,7 @@ export const ProgressMeterAndIcon = () => (
 ### Variants
 
 export const Variants = () => (<Stack direction="vertical" spacing={10}>
+        <Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} delay={1000} showProgress={true}/>
         <Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} delay={1000} variant="accent" showProgress={true}/>
         <Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} delay={2000} variant="success" showProgress={true}/>
         <Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} delay={3000} variant="neutral" showProgress={true}/>
@@ -77,13 +78,19 @@ export const Variants = () => (<Stack direction="vertical" spacing={10}>
 <Variants />
 </div>
 
-<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgPFRvYXN0CiAgICAgICAgICAgIG1lc3NhZ2U9IkNvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LiIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPn0KICAgICAgICAgICAgZGVsYXk9ezEwMDB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgc2hvd1Byb2dyZXNzPXt0cnVlfQogICAgICAgIC8+CiAgICAgICAgPFRvYXN0CiAgICAgICAgICAgIG1lc3NhZ2U9IkNvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LiIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPn0KICAgICAgICAgICAgZGVsYXk9ezIwMDB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXszMDAwfQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBzaG93UHJvZ3Jlc3M9e3RydWV9CiAgICAgICAgLz4KICAgICAgICA8VG9hc3QKICAgICAgICAgICAgbWVzc2FnZT0iQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuIgogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249Indhcm5pbmciIC8+fQogICAgICAgICAgICBkZWxheT17NDAwMH0KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgc2hvd1Byb2dyZXNzPXt0cnVlfQogICAgICAgIC8+CiAgICAgICAgPFRvYXN0CiAgICAgICAgICAgIG1lc3NhZ2U9IkNvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LiIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPn0KICAgICAgICAgICAgZGVsYXk9ezUwMDB9CiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXs2MDAwfQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXs3MDAwfQogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgPFRvYXN0CiAgICAgICAgICAgIG1lc3NhZ2U9IkNvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LiIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPn0KICAgICAgICAgICAgZGVsYXk9ezEwMDB9CiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXsxMDAwfQogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXsyMDAwfQogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBzaG93UHJvZ3Jlc3M9e3RydWV9CiAgICAgICAgLz4KICAgICAgICA8VG9hc3QKICAgICAgICAgICAgbWVzc2FnZT0iQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuIgogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249Indhcm5pbmciIC8+fQogICAgICAgICAgICBkZWxheT17MzAwMH0KICAgICAgICAgICAgdmFyaWFudD0ibmV1dHJhbCIKICAgICAgICAgICAgc2hvd1Byb2dyZXNzPXt0cnVlfQogICAgICAgIC8+CiAgICAgICAgPFRvYXN0CiAgICAgICAgICAgIG1lc3NhZ2U9IkNvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LiIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPn0KICAgICAgICAgICAgZGVsYXk9ezQwMDB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgICAgIHNob3dQcm9ncmVzcz17dHJ1ZX0KICAgICAgICAvPgogICAgICAgIDxUb2FzdAogICAgICAgICAgICBtZXNzYWdlPSJDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4iCiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0id2FybmluZyIgLz59CiAgICAgICAgICAgIGRlbGF5PXs1MDAwfQogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBzaG93UHJvZ3Jlc3M9e3RydWV9CiAgICAgICAgLz4KICAgICAgICA8VG9hc3QKICAgICAgICAgICAgbWVzc2FnZT0iQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuIgogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249Indhcm5pbmciIC8+fQogICAgICAgICAgICBkZWxheT17NjAwMH0KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBzaG93UHJvZ3Jlc3M9e3RydWV9CiAgICAgICAgLz4KICAgICAgICA8VG9hc3QKICAgICAgICAgICAgbWVzc2FnZT0iQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuIgogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249Indhcm5pbmciIC8+fQogICAgICAgICAgICBkZWxheT17NzAwMH0KICAgICAgICAgICAgdmFyaWFudD0iaGlnaGxpZ2h0IgogICAgICAgICAgICBzaG93UHJvZ3Jlc3M9e3RydWV9CiAgICAgICAgLz4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
 export const Variants = () => (
     <Stack
         direction="vertical"
         spacing={10}>
+        <Toast
+            message="Converting your document to PDF format."
+            prefix={<IconLib icon="warning" />}
+            delay={1000}
+            showProgress={true}
+        />
         <Toast
             message="Converting your document to PDF format."
             prefix={<IconLib icon="warning" />}
@@ -200,7 +207,7 @@ export const CustomComponent = () => {
         showToast({
             delay: 4000,
             anchor: 'bottom-center',
-            toastComponent: ({ onDismiss }) => (<Text p={10} onClick={onDismiss} colorToken="text-on-color">
+            toastComponent: ({ onDismiss }) => (<Text p={10} onClick={onDismiss} radius="var(--f-radius)" colorToken="text-on-color" bgToken="surface-inverse">
                     Converting your document to PDF format.
                 </Text>),
         });
@@ -212,7 +219,7 @@ export const CustomComponent = () => {
 <CustomComponent />
 </div>
 
-<CodeComponent filename="CustomComponent.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbXBvbmVudCA9ICgpID0+IHsKICAgIGNvbnN0IHsgc2hvd1RvYXN0IH0gPSB1c2VUb2FzdCgpCgogICAgY29uc3QgaGFuZGxlQ2xpY2sgPSAoKSA9PiB7CiAgICAgICAgc2hvd1RvYXN0KHsKICAgICAgICAgICAgZGVsYXk6IDQwMDAsCiAgICAgICAgICAgIGFuY2hvcjogJ2JvdHRvbS1jZW50ZXInLAogICAgICAgICAgICB0b2FzdENvbXBvbmVudDogKHsgb25EaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17b25EaXNtaXNzfQogICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtb24tY29sb3IiPgogICAgICAgICAgICAgICAgICAgIENvbnZlcnRpbmcgeW91ciBkb2N1bWVudCB0byBQREYgZm9ybWF0LgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICApLAogICAgICAgIH0pCiAgICB9CgogICAgcmV0dXJuIDxCdXR0b24gb25DbGljaz17aGFuZGxlQ2xpY2t9PlNob3cgQ3VzdG9tIFRvYXN0IE1lc3NhZ2U8L0J1dHRvbj4KfQ==" />
+<CodeComponent filename="CustomComponent.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbXBvbmVudCA9ICgpID0+IHsKICAgIGNvbnN0IHsgc2hvd1RvYXN0IH0gPSB1c2VUb2FzdCgpCgogICAgY29uc3QgaGFuZGxlQ2xpY2sgPSAoKSA9PiB7CiAgICAgICAgc2hvd1RvYXN0KHsKICAgICAgICAgICAgZGVsYXk6IDQwMDAsCiAgICAgICAgICAgIGFuY2hvcjogJ2JvdHRvbS1jZW50ZXInLAogICAgICAgICAgICB0b2FzdENvbXBvbmVudDogKHsgb25EaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17b25EaXNtaXNzfQogICAgICAgICAgICAgICAgICAgIHJhZGl1cz0idmFyKC0tZi1yYWRpdXMpIgogICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtb24tY29sb3IiCiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1pbnZlcnNlIj4KICAgICAgICAgICAgICAgICAgICBDb252ZXJ0aW5nIHlvdXIgZG9jdW1lbnQgdG8gUERGIGZvcm1hdC4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgKSwKICAgICAgICB9KQogICAgfQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfT5TaG93IEN1c3RvbSBUb2FzdCBNZXNzYWdlPC9CdXR0b24+Cn0=" />
 
 ```tsx
 export const CustomComponent = () => {
@@ -226,7 +233,9 @@ export const CustomComponent = () => {
                 <Text
                     p={10}
                     onClick={onDismiss}
-                    colorToken="text-on-color">
+                    radius="var(--f-radius)"
+                    colorToken="text-on-color"
+                    bgToken="surface-inverse">
                     Converting your document to PDF format.
                 </Text>
             ),

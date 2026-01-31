@@ -1,0 +1,923 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Menu, MenuItem, Text, View, useCheck } from '@fold-ui/core'
+import React, { useState } from 'react'
+import {
+    CalendarTypes,
+    ColorButton,
+    CommonProvider,
+    DateButton,
+    DateSelect,
+    Detail,
+    LabelButton,
+    LabelSelect,
+    ListButton,
+    Priority,
+    PriorityButton,
+    Repeat,
+    RichInput,
+    RichInputOption,
+    RichInputProvider,
+    TaskDetail,
+    UserButton,
+    UserSelect,
+    defaultWeekdays,
+    getRepeatFrequencyText,
+} from '@fold-ui/pro'
+import * as data from '@/dummy-data'
+
+export const docs = {
+    title: 'Common',
+    subtitle: 'The Common components provide shared building blocks and utilities used across the Pro component library.',
+    description:
+        'Common components contain shared functionality, styles, and utilities that are leveraged by other Pro components, ensuring consistency and reducing code duplication.',
+    experimental: true,
+}
+
+export const props = [{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"ActionButton","methods":[],"props":{"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold/packages/pro/src/common/action-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"accent\" | \"default\""},"tags":{}},"border":{"defaultValue":null,"description":"","name":"border","declarations":[{"fileName":"fold/packages/pro/src/common/action-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/pro/src/common/action-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"className":{"defaultValue":null,"description":"","name":"className","declarations":[{"fileName":"fold/packages/pro/src/common/action-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/action-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Badge","methods":[],"props":{"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"fold/packages/pro/src/common/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/common/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"progress":{"defaultValue":null,"description":"","name":"progress","declarations":[{"fileName":"fold/packages/pro/src/common/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"fold/packages/pro/src/common/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Check","methods":[],"props":{"priority":{"defaultValue":null,"description":"","name":"priority","declarations":[{"fileName":"fold/packages/pro/src/common/check.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Priority"},"tags":{}},"onCheck":{"defaultValue":null,"description":"","name":"onCheck","declarations":[{"fileName":"fold/packages/pro/src/common/check.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"fold/packages/pro/src/common/check.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/dist/checkbox/checkbox.d.ts","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"InputHTMLAttributes"}],"required":false,"type":{"name":"boolean"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"fold/packages/pro/src/common/check.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"ColorButton","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/common/color-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"colors":{"defaultValue":null,"description":"","name":"colors","declarations":[{"fileName":"fold/packages/pro/src/common/color-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string[]"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"fold/packages/pro/src/common/color-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(color: any) => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/color-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/color-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"CommonProvider","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"ContextPopup","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"DateButton","methods":[],"props":{"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"dates":{"defaultValue":null,"description":"","name":"dates","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ start: Date; end: Date; }"},"tags":{}},"repeat":{"defaultValue":null,"description":"","name":"repeat","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Repeat"},"tags":{}},"onDateChange":{"defaultValue":null,"description":"","name":"onDateChange","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"({ dates, repeat }: { dates: any; repeat: any; }) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/date-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"DateSelect","methods":[],"props":{"wholeDay":{"defaultValue":null,"description":"","name":"wholeDay","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"dateRange":{"defaultValue":null,"description":"","name":"dateRange","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"dates":{"defaultValue":null,"description":"","name":"dates","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"{ start: Date; end: Date; }"},"tags":{}},"repeat":{"defaultValue":null,"description":"","name":"repeat","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Repeat"},"tags":{}},"presets":{"defaultValue":null,"description":"","name":"presets","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ preset: string; label: string; }[]"},"tags":{}},"monthNames":{"defaultValue":null,"description":"","name":"monthNames","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(val: any) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/date-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Detail","methods":[],"props":{"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"item":{"defaultValue":null,"description":"","name":"item","declarations":[{"fileName":"fold/packages/pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"{ id?: string; title: string; description?: string; color?: string; priority?: Priority; complete?: boolean; locked?: boolean; start?: Date; end?: Date; repeat?: Repeat; users?: UserSelectUser[]; labels?: LabelSelectLabel[]; badges?: BadgesBadge[]; }"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"FloatingToolbar","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"GroupDetail","methods":[],"props":{"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/group-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/group-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/group-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"item":{"defaultValue":null,"description":"","name":"item","declarations":[{"fileName":"fold/packages/pro/src/common/group-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"GroupMenu","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"LabelButton","methods":[],"props":{"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"fold/packages/pro/src/common/label-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/common/label-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(label: LabelSelectLabel) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/label-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(label: LabelSelectLabel) => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/label-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/label-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"LabelMenu","methods":[],"props":{"saveOnUpdate":{"defaultValue":null,"description":"","name":"saveOnUpdate","declarations":[{"fileName":"fold/packages/pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"fold/packages/pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(users: LabelSelectLabel[]) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"LabelSelect","methods":[],"props":{"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(label: LabelSelectLabel) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(label: LabelSelectLabel) => void"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Label","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"id":{"defaultValue":{"value":"null"},"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"icon":{"defaultValue":{"value":"null"},"description":"","name":"icon","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"fold/packages/pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Labels","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"fold/packages/pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"ListButton","methods":[],"props":{"list":{"defaultValue":null,"description":"","name":"list","declarations":[{"fileName":"fold/packages/pro/src/common/list-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"fold/packages/pro/src/common/list-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ListOption[]"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold/packages/pro/src/common/list-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"fold/packages/pro/src/common/list-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/list-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"PriorityButton","methods":[],"props":{"priority":{"defaultValue":null,"description":"","name":"priority","declarations":[{"fileName":"fold/packages/pro/src/common/priority-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Priority"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold/packages/pro/src/common/priority-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"fold/packages/pro/src/common/priority-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/priority-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/priority-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Number","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Repeat","methods":[],"props":{"repeat":{"defaultValue":null,"description":"","name":"repeat","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Repeat"},"tags":{}},"weekdays":{"defaultValue":null,"description":"","name":"weekdays","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"((value: Repeat) => void) & FormEventHandler<any>"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onClear":{"defaultValue":null,"description":"","name":"onClear","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/pro/src/common/repeat.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"OptionsMenu","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"RichInputProvider","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"RichInput","methods":[],"props":{"dontClearOnSubmit":{"defaultValue":null,"description":"","name":"dontClearOnSubmit","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"defaultValue":{"defaultValue":null,"description":"","name":"defaultValue","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"placeholder":{"defaultValue":null,"description":"","name":"placeholder","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"className":{"defaultValue":null,"description":"","name":"className","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onEnter":{"defaultValue":null,"description":"","name":"onEnter","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onBlur":{"defaultValue":null,"description":"","name":"onBlur","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onIndent":{"defaultValue":null,"description":"","name":"onIndent","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onOutdent":{"defaultValue":null,"description":"","name":"onOutdent","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onUp":{"defaultValue":null,"description":"","name":"onUp","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onDown":{"defaultValue":null,"description":"","name":"onDown","declarations":[{"fileName":"fold/packages/pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"TaskDetail","methods":[],"props":{"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"onCheck":{"defaultValue":null,"description":"","name":"onCheck","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onTitleChange":{"defaultValue":null,"description":"","name":"onTitleChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onDescriptionChange":{"defaultValue":null,"description":"","name":"onDescriptionChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"priority":{"defaultValue":null,"description":"","name":"priority","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Priority"},"tags":{}},"onPriorityChange":{"defaultValue":null,"description":"","name":"onPriorityChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onColorChange":{"defaultValue":null,"description":"","name":"onColorChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"list":{"defaultValue":null,"description":"","name":"list","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"listOptions":{"defaultValue":null,"description":"","name":"listOptions","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"ListOption[]"},"tags":{}},"onListOptionChange":{"defaultValue":null,"description":"","name":"onListOptionChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"dates":{"defaultValue":null,"description":"","name":"dates","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"repeat":{"defaultValue":null,"description":"","name":"repeat","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onDateDelete":{"defaultValue":null,"description":"","name":"onDateDelete","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onDateChange":{"defaultValue":null,"description":"","name":"onDateChange","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"badges":{"defaultValue":null,"description":"","name":"badges","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"BadgesBadge[]"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onUserAdd":{"defaultValue":null,"description":"","name":"onUserAdd","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onUserDelete":{"defaultValue":null,"description":"","name":"onUserDelete","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onLabelAdd":{"defaultValue":null,"description":"","name":"onLabelAdd","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onLabelDelete":{"defaultValue":null,"description":"","name":"onLabelDelete","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"menu":{"defaultValue":null,"description":"","name":"menu","declarations":[{"fileName":"fold/packages/pro/src/common/task-detail.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"ToolbarButton","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hasClose":{"defaultValue":null,"description":"","name":"hasClose","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"className":{"defaultValue":null,"description":"","name":"className","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}},"onClose":{"defaultValue":null,"description":"","name":"onClose","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/toolbar-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"UserButton","methods":[],"props":{"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"fold/packages/pro/src/common/user-button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/common/user-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(user: UserSelectUser) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/user-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(user: UserSelectUser) => void"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold/packages/pro/src/common/user-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/user-button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"UserMenu","methods":[],"props":{"saveOnUpdate":{"defaultValue":null,"description":"","name":"saveOnUpdate","declarations":[{"fileName":"fold/packages/pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"fold/packages/pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(users: UserSelectUser[]) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"UserSelect","methods":[],"props":{"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"fold/packages/pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(user: UserSelectUser) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"fold/packages/pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(user: UserSelectUser) => void"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/common/index.ts","description":"","displayName":"Users","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/pro/src/common/users.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"fold/packages/pro/src/common/users.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/pro/src/common/users.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}}]
+
+export const css = [[],[["--f-common-toolbar-button-background","var(--f-color-surface-strong)"],["--f-common-toolbar-button-background-hover","var(--f-color-surface-stronger)"],["--f-common-toolbar-button-padding","0 6px"],["--f-common-toolbar-button-gap","5px"],["--f-common-toolbar-button-height","18px"],["--f-common-toolbar-button-color","var(--f-color-text-weak)"],["--f-common-toolbar-button-width-base","fit-content"],["--f-common-toolbar-button-width-full","fit-content"],["--f-common-toolbar-button-x-background","var(--f-color-surface-strongest)"],["--f-common-toolbar-button-x-color","var(--f-color-text-weaker)"],["--f-common-toolbar-button-font-size","12px"],["--f-common-toolbar-button-line-height","14px"]],[["--f-common-action-button-border","1px dashed var(--f-color-surface-strongest)"],["--f-common-action-button-size","22px"],["--f-common-action-button-color","var(--f-color-text-weakest)"]],[["--f-common-avatar-size","22px"],["--f-common-avatar-font-size","12px"],["--f-common-avatar-line-height","14px"]],[["--f-common-check-padding","0"],["--f-common-check-size","20px"],["--f-common-check-size-lg","30px"]],[["--f-common-label-height","18px"],["--f-common-label-padding","0 2px"],["--f-common-label-font-size","12px"],["--f-common-label-line-height","14px"]],[["--f-common-badges-color","var(--f-color-text-weak)"],["--f-common-badge-font-size","12px"],["--f-common-badge-line-height","14px"]],[["--f-common-rich-input-padding","0px"],["--f-common-rich-input-color","var(--f-color-text)"],["--f-common-rich-input-color-placeholder","var(--f-color-text-weakest)"],["--f-common-rich-input-link-color","var(--f-color-text-link)"],["--f-common-rich-input-decoration-size","default"],["--f-common-rich-input-menu-color-background","var(--f-color-surface)"],["--f-common-rich-input-menu-border-radius","var(--f-radius)"],["--f-common-rich-input-menu-border-color","var(--f-color-border)"],["--f-common-rich-input-menu-shadow","var(--f-shadow-card)"],["--f-common-rich-input-menu-padding","0.5rem"],["--f-common-rich-input-menu-item-padding","0.5px 15px"],["--f-common-rich-input-font-size","14px"],["--f-common-rich-input-line-height","20px"]],[["--f-common-rich-input-entity-radius","var(--f-radius)"],["--f-common-rich-input-entity-padding","0"],["--f-common-rich-input-entity-color","var(--f-color-accent)"],["--f-common-rich-input-entity-background","var(--f-color-accent-weak)"]]]
+
+
+
+<CodeComponent filename="common.tsx" code="aW1wb3J0IHsKICBBY3Rpb25CdXR0b24sCiAgQmFkZ2UsCiAgQ2hlY2ssCiAgQ29sb3JCdXR0b24sCiAgQ29tbW9uUHJvdmlkZXIsCiAgQ29udGV4dFBvcHVwLAogIERhdGVCdXR0b24sCiAgRGF0ZVNlbGVjdCwKICBEZXRhaWwsCiAgRmxvYXRpbmdUb29sYmFyLAogIEdyb3VwRGV0YWlsLAogIEdyb3VwTWVudSwKICBMYWJlbEJ1dHRvbiwKICBMYWJlbE1lbnUsCiAgTGFiZWxTZWxlY3QsCiAgTGFiZWwsCiAgTGFiZWxzLAogIExpc3RCdXR0b24sCiAgUHJpb3JpdHlCdXR0b24sCiAgTnVtYmVyLAogIFJlcGVhdCwKICBPcHRpb25zTWVudSwKICBSaWNoSW5wdXRQcm92aWRlciwKICBSaWNoSW5wdXQsCiAgVGFza0RldGFpbCwKICBUb29sYmFyQnV0dG9uLAogIFVzZXJCdXR0b24sCiAgVXNlck1lbnUsCiAgVXNlclNlbGVjdCwKICBVc2VycywKfSBmcm9tICJAZm9sZC11aS9wcm8iOwo=" />
+```tsx
+import {
+  ActionButton,
+  Badge,
+  Check,
+  ColorButton,
+  CommonProvider,
+  ContextPopup,
+  DateButton,
+  DateSelect,
+  Detail,
+  FloatingToolbar,
+  GroupDetail,
+  GroupMenu,
+  LabelButton,
+  LabelMenu,
+  LabelSelect,
+  Label,
+  Labels,
+  ListButton,
+  PriorityButton,
+  Number,
+  Repeat,
+  OptionsMenu,
+  RichInputProvider,
+  RichInput,
+  TaskDetail,
+  ToolbarButton,
+  UserButton,
+  UserMenu,
+  UserSelect,
+  Users,
+} from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [repeat, setRepeat] = useState({
+        interval: 2,
+        weekday: [],
+        frequency: 'day',
+        from: new Date(),
+        to: undefined,
+        repetitions: 0,
+    });
+    return (<View column gap="1rem">
+            <Repeat repeat={repeat} onSave={() => null} onClear={() => null} onDismiss={() => null} onChange={(val) => setRepeat(val)}/>
+            <Text>{getRepeatFrequencyText(repeat, defaultWeekdays)}</Text>
+        </View>);
+};
+export const DateSelector = () => {
+    const [dates, setDates] = useState({ start: new Date(), end: new Date() });
+    const [repeat, setRepeat] = useState({
+        interval: 1,
+        weekday: [],
+        frequency: 'day',
+        from: new Date(),
+        to: undefined,
+        repetitions: 0,
+    });
+    return (<View column gap={10} alignItems="flex-start">
+            <DateButton dates={dates} repeat={repeat} onDelete={() => {
+            setDates({ start: undefined, end: undefined });
+            setRepeat(undefined);
+        }} onDateChange={({ dates, repeat }) => {
+            setDates(dates);
+            setRepeat(repeat);
+        }}/>
+            <View width="fit-content" radius="var(--f-radius)" border="1px solid var(--f-color-border)">
+                <DateSelect dates={dates} repeat={repeat} onCancel={() => {
+            console.log('cancel');
+        }} onSave={({ repeat, dates }) => {
+            setDates(dates);
+            setRepeat(repeat);
+            console.log('save', dates, repeat);
+        }}/>
+            </View>
+        </View>);
+};
+export const UserSelector = () => {
+    const [users, setUsers] = useState(data.users);
+    const [availableUsers, setAvailableUsers] = useState(data.availableUsers);
+    const handleFilter = (text) => {
+        setAvailableUsers(data.availableUsers);
+    };
+    const handleAdd = (user) => {
+        setUsers([...users, user]);
+    };
+    const handleDelete = (user) => {
+        setUsers(users.filter((u) => user.id != u.id));
+    };
+    return (<CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+            <View column gap={10} alignItems="flex-start">
+                <UserButton users={users} onAdd={handleAdd} onDelete={handleDelete}/>
+                <UserSelect users={users} onAdd={handleAdd} onDelete={handleDelete}/>
+            </View>
+        </CommonProvider>);
+};
+export const LabelSelector = () => {
+    const [labels, setLabels] = useState(data.labels);
+    const [availableLabels, setAvailableLabels] = useState(data.availableLabels);
+    const handleFilter = (text) => {
+        setAvailableLabels([
+            {
+                id: 'create',
+                text: `Create "${text}"`,
+                icon: 'plus',
+            },
+        ]);
+    };
+    const handleAdd = (label) => {
+        setLabels([...labels, label]);
+        setAvailableLabels(data.availableLabels);
+    };
+    const handleDelete = (label) => {
+        setLabels(labels.filter((l) => label.id != l.id));
+        setAvailableLabels(data.availableLabels);
+    };
+    return (<CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+            <View column gap={10} alignItems="flex-start">
+                <View row gap={5}>
+                    <LabelButton labels={labels} onAdd={handleAdd} onDelete={handleDelete}/>
+                </View>
+                <LabelSelect labels={labels} onAdd={handleAdd} onDelete={handleDelete}/>
+            </View>
+        </CommonProvider>);
+};
+export const ListSelector = () => {
+    const [list, setList] = useState(1);
+    const [listOptions, setListOptions] = useState(data.listOptions);
+    return (<View column gap={10} alignItems="flex-start">
+            <View row position="relative" gap={5}>
+                <ListButton onChange={setList} title="Select project" list={list} options={listOptions}/>
+            </View>
+        </View>);
+};
+export const PrioritySelector = () => {
+    const [priority, setPriority] = useState('medium');
+    return (<View column gap={10} alignItems="flex-start">
+            <View row gap={5}>
+                <PriorityButton onChange={setPriority} title="Select project" priority={priority}/>
+            </View>
+        </View>);
+};
+export const ColorSelector = () => {
+    const [color, setColor] = useState(data.colorPalette[3]);
+    return (<View column gap={10} alignItems="flex-start">
+            <View row gap={5}>
+                <ColorButton onChange={setColor} color={color} colors={data.colorPalette}/>
+            </View>
+        </View>);
+};
+export const TaskDetailView = () => {
+    const { checked, check } = useCheck();
+    const [title, setTitle] = useState('awesome');
+    const [description, setDescription] = useState('');
+    const [labels, setLabels] = useState(data.labels);
+    const [availableLabels, setAvailableLabels] = useState(data.availableLabels);
+    const [users, setUsers] = useState(data.users);
+    const [availableUsers, setAvailableUsers] = useState(data.availableUsers);
+    const [dates, setDates] = useState({ start: new Date(), end: new Date() });
+    const [repeat, setRepeat] = useState({ interval: [2, 4], frequency: 'day', from: new Date() });
+    const [color, setColor] = useState(data.colorPalette[3]);
+    const [colors, setColors] = useState(data.colorPalette);
+    const [priority, setPriority] = useState('medium');
+    const [list, setList] = useState(1);
+    const [listOptions, setListOptions] = useState(data.listOptions);
+    const [options, setOptions] = useState([]);
+    const handleLabelFilter = (text) => {
+        setAvailableLabels([
+            {
+                id: 'create',
+                text: `Create "${text}"`,
+                icon: 'plus',
+            },
+        ]);
+    };
+    const handleLabelAdd = (label) => {
+        setLabels([...labels, label]);
+        setAvailableLabels(data.availableLabels);
+    };
+    const handleLabelDelete = (label) => {
+        setLabels(labels.filter((l) => label.id != l.id));
+        setAvailableLabels(data.availableLabels);
+    };
+    const handleUserFilter = (text) => {
+        setAvailableUsers(data.availableUsers);
+    };
+    const handleUserAdd = (user) => {
+        setUsers([...users, user]);
+    };
+    const handleUserDelete = (user) => {
+        setUsers(users.filter((u) => user.id != u.id));
+    };
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ]);
+                break;
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ]);
+                break;
+        }
+    };
+    const handleWord = (word, cb, always = false) => {
+        const keywords = ['assign:', 'to:', 'from:', 'date:'];
+        let flag = true;
+        keywords.map((keyword) => {
+            if (word.includes(keyword)) {
+                cb({
+                    phrase: word.trim(),
+                    type: word.split(':')[0],
+                    value: word.split(':')[1].trim(),
+                });
+                flag = false;
+            }
+        });
+        if (always || flag)
+            cb(null);
+    };
+    return (<RichInputProvider triggers={['#', '@']} options={options} onWord={handleWord} onTrigger={handleTrigger}>
+            <CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+                <TaskDetail checked={checked} onCheck={check} title={title} onTitleChange={setTitle} description={description} onDescriptionChange={setDescription} priority={priority} onPriorityChange={setPriority} color={color} onColorChange={setColor} list={list} listOptions={listOptions} onListOptionChange={setList} dates={dates} repeat={repeat} onDateDelete={() => {
+            setDates({ start: undefined, end: undefined });
+            setRepeat({ interval: [], frequency: '', from: new Date() });
+        }} onDateChange={({ dates, repeat }) => {
+            setDates(dates);
+            setRepeat(repeat);
+        }} badges={[]} users={users} onUserAdd={handleUserAdd} onUserDelete={handleUserDelete} labels={labels} onLabelAdd={handleLabelAdd} onLabelDelete={handleLabelDelete} menu={<Menu width={200} border="none">
+                            <MenuItem>Delete</MenuItem>
+                            <MenuItem>Copy</MenuItem>
+                            <MenuItem>Cut</MenuItem>
+                            <MenuItem>Paste</MenuItem>
+                            <MenuItem>Select</MenuItem>
+                        </Menu>}/>
+            </CommonProvider>
+        </RichInputProvider>);
+};
+export const DetailView = () => {
+    const [options, setOptions] = useState([]);
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers);
+        }
+        else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels);
+        }
+        else {
+            setOptions([]);
+        }
+    };
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            });
+        }
+        else {
+            next();
+        }
+    };
+    return (<RichInputProvider triggers={['#', '@']} options={options} onWord={handleWord} onTrigger={handleTrigger}>
+            <CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+                <Detail item={{ ...data.sections[0].tasks[1] }} onCancel={() => console.log('close window')} onSave={(task) => console.log('save task', task)} onDelete={(task) => console.log('delete task', task)}/>
+            </CommonProvider>
+        </RichInputProvider>);
+};
+export const RichInputField = () => {
+    const [options, setOptions] = useState([]);
+    const handleSave = (html) => {
+        if (html.trim() != '') {
+        }
+    };
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ]);
+                break;
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ]);
+                break;
+        }
+    };
+    const handleWord = (word, cb, always = false) => {
+        const keywords = ['assign:', 'to:', 'from:', 'date:'];
+        let flag = true;
+        keywords.map((keyword) => {
+            if (word.includes(keyword)) {
+                cb({
+                    phrase: word.trim(),
+                    type: word.split(':')[0],
+                    value: word.split(':')[1].trim(),
+                });
+                flag = false;
+            }
+        });
+        if (always || flag)
+            cb(null);
+    };
+    return (<View width={400}>
+            <RichInputProvider triggers={['#', '@']} options={options} onWord={handleWord} onTrigger={handleTrigger}>
+                <RichInput dontClearOnSubmit defaultValue="Research target audience..." placeholder="Task title" onEnter={handleSave} onCancel={() => null} onBlur={handleSave} onIndent={() => null} onOutdent={() => null} onUp={() => null} onDown={() => null}/>
+            </RichInputProvider>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3JlcGVhdCwgc2V0UmVwZWF0XSA9IHVzZVN0YXRlPENhbGVuZGFyVHlwZXMuUmVwZWF0Pih7CiAgICAgICAgaW50ZXJ2YWw6IDIsCiAgICAgICAgd2Vla2RheTogW10sCiAgICAgICAgZnJlcXVlbmN5OiAnZGF5JywKICAgICAgICBmcm9tOiBuZXcgRGF0ZSgpLAogICAgICAgIHRvOiB1bmRlZmluZWQsCiAgICAgICAgcmVwZXRpdGlvbnM6IDAsCiAgICB9KQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIGdhcD0iMXJlbSI+CiAgICAgICAgICAgIDxSZXBlYXQKICAgICAgICAgICAgICAgIHJlcGVhdD17cmVwZWF0fQogICAgICAgICAgICAgICAgb25TYXZlPXsoKSA9PiBudWxsfQogICAgICAgICAgICAgICAgb25DbGVhcj17KCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17KCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsodmFsKSA9PiBzZXRSZXBlYXQodmFsKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFRleHQ+e2dldFJlcGVhdEZyZXF1ZW5jeVRleHQocmVwZWF0LCBkZWZhdWx0V2Vla2RheXMpfTwvVGV4dD4KICAgICAgICA8L1ZpZXc+CiAgICApCn0KCgoKZXhwb3J0IGNvbnN0IERhdGVTZWxlY3RvciA9ICgpID0+IHsKICAgIGNvbnN0IFtkYXRlcywgc2V0RGF0ZXNdID0gdXNlU3RhdGU8YW55Pih7IHN0YXJ0OiBuZXcgRGF0ZSgpLCBlbmQ6IG5ldyBEYXRlKCkgfSkKICAgIGNvbnN0IFtyZXBlYXQsIHNldFJlcGVhdF0gPSB1c2VTdGF0ZTxhbnk+KHsKICAgICAgICBpbnRlcnZhbDogMSwKICAgICAgICB3ZWVrZGF5OiBbXSwKICAgICAgICBmcmVxdWVuY3k6ICdkYXknLAogICAgICAgIGZyb206IG5ldyBEYXRlKCksCiAgICAgICAgdG86IHVuZGVmaW5lZCwKICAgICAgICByZXBldGl0aW9uczogMCwKICAgIH0pCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxEYXRlQnV0dG9uCiAgICAgICAgICAgICAgICBkYXRlcz17ZGF0ZXN9CiAgICAgICAgICAgICAgICByZXBlYXQ9e3JlcGVhdH0KICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgc2V0RGF0ZXMoeyBzdGFydDogdW5kZWZpbmVkLCBlbmQ6IHVuZGVmaW5lZCB9KQogICAgICAgICAgICAgICAgICAgIHNldFJlcGVhdCh1bmRlZmluZWQpCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25EYXRlQ2hhbmdlPXsoeyBkYXRlcywgcmVwZWF0IH0pID0+IHsKICAgICAgICAgICAgICAgICAgICBzZXREYXRlcyhkYXRlcykKICAgICAgICAgICAgICAgICAgICBzZXRSZXBlYXQocmVwZWF0KQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCIKICAgICAgICAgICAgICAgIHJhZGl1cz0idmFyKC0tZi1yYWRpdXMpIgogICAgICAgICAgICAgICAgYm9yZGVyPSIxcHggc29saWQgdmFyKC0tZi1jb2xvci1ib3JkZXIpIj4KICAgICAgICAgICAgICAgIDxEYXRlU2VsZWN0CiAgICAgICAgICAgICAgICAgICAgZGF0ZXM9e2RhdGVzfQogICAgICAgICAgICAgICAgICAgIHJlcGVhdD17cmVwZWF0fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCdjYW5jZWwnKQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoeyByZXBlYXQsIGRhdGVzIH0pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RGF0ZXMoZGF0ZXMpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldFJlcGVhdChyZXBlYXQpCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKCdzYXZlJywgZGF0ZXMsIHJlcGVhdCkKICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvVmlldz4KICAgICkKfQoKCgpleHBvcnQgY29uc3QgVXNlclNlbGVjdG9yID0gKCkgPT4gewogICAgY29uc3QgW3VzZXJzLCBzZXRVc2Vyc10gPSB1c2VTdGF0ZShkYXRhLnVzZXJzKQogICAgY29uc3QgW2F2YWlsYWJsZVVzZXJzLCBzZXRBdmFpbGFibGVVc2Vyc10gPSB1c2VTdGF0ZShkYXRhLmF2YWlsYWJsZVVzZXJzKQoKICAgIGNvbnN0IGhhbmRsZUZpbHRlciA9ICh0ZXh0KSA9PiB7CiAgICAgICAgc2V0QXZhaWxhYmxlVXNlcnMoZGF0YS5hdmFpbGFibGVVc2VycykKICAgIH0KCiAgICBjb25zdCBoYW5kbGVBZGQgPSAodXNlcikgPT4gewogICAgICAgIHNldFVzZXJzKFsuLi51c2VycywgdXNlcl0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlRGVsZXRlID0gKHVzZXIpID0+IHsKICAgICAgICBzZXRVc2Vycyh1c2Vycy5maWx0ZXIoKHUpID0+IHVzZXIuaWQgIT0gdS5pZCkpCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8Q29tbW9uUHJvdmlkZXIKICAgICAgICAgICAgb25Vc2VyRmlsdGVyPXsodmFsKSA9PiBudWxsfQogICAgICAgICAgICBvbkxhYmVsRmlsdGVyPXsodmFsKSA9PiBudWxsfQogICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICBhdmFpbGFibGVVc2Vycz17ZGF0YS5hdmFpbGFibGVVc2Vyc30KICAgICAgICAgICAgY29sb3JzPXtkYXRhLmNvbG9yUGFsZXR0ZX0+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgIDxVc2VyQnV0dG9uCiAgICAgICAgICAgICAgICAgICAgdXNlcnM9e3VzZXJzfQogICAgICAgICAgICAgICAgICAgIG9uQWRkPXtoYW5kbGVBZGR9CiAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9e2hhbmRsZURlbGV0ZX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8VXNlclNlbGVjdAogICAgICAgICAgICAgICAgICAgIHVzZXJzPXt1c2Vyc30KICAgICAgICAgICAgICAgICAgICBvbkFkZD17aGFuZGxlQWRkfQogICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXtoYW5kbGVEZWxldGV9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9Db21tb25Qcm92aWRlcj4KICAgICkKfQoKCgpleHBvcnQgY29uc3QgTGFiZWxTZWxlY3RvciA9ICgpID0+IHsKICAgIGNvbnN0IFtsYWJlbHMsIHNldExhYmVsc10gPSB1c2VTdGF0ZShkYXRhLmxhYmVscykKICAgIGNvbnN0IFthdmFpbGFibGVMYWJlbHMsIHNldEF2YWlsYWJsZUxhYmVsc10gPSB1c2VTdGF0ZTxhbnk+KGRhdGEuYXZhaWxhYmxlTGFiZWxzKQoKICAgIGNvbnN0IGhhbmRsZUZpbHRlciA9ICh0ZXh0KSA9PiB7CiAgICAgICAgc2V0QXZhaWxhYmxlTGFiZWxzKFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgaWQ6ICdjcmVhdGUnLAogICAgICAgICAgICAgICAgdGV4dDogYENyZWF0ZSAiJHt0ZXh0fSJgLAogICAgICAgICAgICAgICAgaWNvbjogJ3BsdXMnLAogICAgICAgICAgICB9LAogICAgICAgIF0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlQWRkID0gKGxhYmVsKSA9PiB7CiAgICAgICAgc2V0TGFiZWxzKFsuLi5sYWJlbHMsIGxhYmVsXSkKICAgICAgICBzZXRBdmFpbGFibGVMYWJlbHMoZGF0YS5hdmFpbGFibGVMYWJlbHMpCiAgICB9CgogICAgY29uc3QgaGFuZGxlRGVsZXRlID0gKGxhYmVsKSA9PiB7CiAgICAgICAgc2V0TGFiZWxzKGxhYmVscy5maWx0ZXIoKGwpID0+IGxhYmVsLmlkICE9IGwuaWQpKQogICAgICAgIHNldEF2YWlsYWJsZUxhYmVscyhkYXRhLmF2YWlsYWJsZUxhYmVscykKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxDb21tb25Qcm92aWRlcgogICAgICAgICAgICBvblVzZXJGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgIG9uTGFiZWxGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgIGF2YWlsYWJsZUxhYmVscz17ZGF0YS5hdmFpbGFibGVMYWJlbHN9CiAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICBjb2xvcnM9e2RhdGEuY29sb3JQYWxldHRlfT4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezV9PgogICAgICAgICAgICAgICAgICAgIDxMYWJlbEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICBsYWJlbHM9e2xhYmVsc30KICAgICAgICAgICAgICAgICAgICAgICAgb25BZGQ9e2hhbmRsZUFkZH0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9e2hhbmRsZURlbGV0ZX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPExhYmVsU2VsZWN0CiAgICAgICAgICAgICAgICAgICAgbGFiZWxzPXtsYWJlbHN9CiAgICAgICAgICAgICAgICAgICAgb25BZGQ9e2hhbmRsZUFkZH0KICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17aGFuZGxlRGVsZXRlfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvQ29tbW9uUHJvdmlkZXI+CiAgICApCn0KCgoKZXhwb3J0IGNvbnN0IExpc3RTZWxlY3RvciA9ICgpID0+IHsKICAgIGNvbnN0IFtsaXN0LCBzZXRMaXN0XSA9IHVzZVN0YXRlKDEpCiAgICBjb25zdCBbbGlzdE9wdGlvbnMsIHNldExpc3RPcHRpb25zXSA9IHVzZVN0YXRlKGRhdGEubGlzdE9wdGlvbnMpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgIHBvc2l0aW9uPSJyZWxhdGl2ZSIKICAgICAgICAgICAgICAgIGdhcD17NX0+CiAgICAgICAgICAgICAgICA8TGlzdEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRMaXN0fQogICAgICAgICAgICAgICAgICAgIHRpdGxlPSJTZWxlY3QgcHJvamVjdCIKICAgICAgICAgICAgICAgICAgICBsaXN0PXtsaXN0fQogICAgICAgICAgICAgICAgICAgIG9wdGlvbnM9e2xpc3RPcHRpb25zfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvVmlldz4KICAgICkKfQoKCgpleHBvcnQgY29uc3QgUHJpb3JpdHlTZWxlY3RvciA9ICgpID0+IHsKICAgIGNvbnN0IFtwcmlvcml0eSwgc2V0UHJpb3JpdHldID0gdXNlU3RhdGU8UHJpb3JpdHk+KCdtZWRpdW0nKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICBnYXA9ezV9PgogICAgICAgICAgICAgICAgPFByaW9yaXR5QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldFByaW9yaXR5fQogICAgICAgICAgICAgICAgICAgIHRpdGxlPSJTZWxlY3QgcHJvamVjdCIKICAgICAgICAgICAgICAgICAgICBwcmlvcml0eT17cHJpb3JpdHl9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9WaWV3PgogICAgKQp9CgoKCmV4cG9ydCBjb25zdCBDb2xvclNlbGVjdG9yID0gKCkgPT4gewogICAgY29uc3QgW2NvbG9yLCBzZXRDb2xvcl0gPSB1c2VTdGF0ZShkYXRhLmNvbG9yUGFsZXR0ZVszXSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgZ2FwPXs1fT4KICAgICAgICAgICAgICAgIDxDb2xvckJ1dHRvbgogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRDb2xvcn0KICAgICAgICAgICAgICAgICAgICBjb2xvcj17Y29sb3J9CiAgICAgICAgICAgICAgICAgICAgY29sb3JzPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0KCgoKZXhwb3J0IGNvbnN0IFRhc2tEZXRhaWxWaWV3ID0gKCkgPT4gewogICAgY29uc3QgeyBjaGVja2VkLCBjaGVjayB9ID0gdXNlQ2hlY2soKQogICAgY29uc3QgW3RpdGxlLCBzZXRUaXRsZV0gPSB1c2VTdGF0ZSgnYXdlc29tZScpCiAgICBjb25zdCBbZGVzY3JpcHRpb24sIHNldERlc2NyaXB0aW9uXSA9IHVzZVN0YXRlKCcnKQogICAgY29uc3QgW2xhYmVscywgc2V0TGFiZWxzXSA9IHVzZVN0YXRlKGRhdGEubGFiZWxzKQogICAgY29uc3QgW2F2YWlsYWJsZUxhYmVscywgc2V0QXZhaWxhYmxlTGFiZWxzXSA9IHVzZVN0YXRlPGFueT4oZGF0YS5hdmFpbGFibGVMYWJlbHMpCiAgICBjb25zdCBbdXNlcnMsIHNldFVzZXJzXSA9IHVzZVN0YXRlKGRhdGEudXNlcnMpCiAgICBjb25zdCBbYXZhaWxhYmxlVXNlcnMsIHNldEF2YWlsYWJsZVVzZXJzXSA9IHVzZVN0YXRlKGRhdGEuYXZhaWxhYmxlVXNlcnMpCiAgICBjb25zdCBbZGF0ZXMsIHNldERhdGVzXSA9IHVzZVN0YXRlPGFueT4oeyBzdGFydDogbmV3IERhdGUoKSwgZW5kOiBuZXcgRGF0ZSgpIH0pCiAgICBjb25zdCBbcmVwZWF0LCBzZXRSZXBlYXRdID0gdXNlU3RhdGUoeyBpbnRlcnZhbDogWzIsIDRdLCBmcmVxdWVuY3k6ICdkYXknLCBmcm9tOiBuZXcgRGF0ZSgpIH0pCiAgICBjb25zdCBbY29sb3IsIHNldENvbG9yXSA9IHVzZVN0YXRlKGRhdGEuY29sb3JQYWxldHRlWzNdKQogICAgY29uc3QgW2NvbG9ycywgc2V0Q29sb3JzXSA9IHVzZVN0YXRlKGRhdGEuY29sb3JQYWxldHRlKQogICAgY29uc3QgW3ByaW9yaXR5LCBzZXRQcmlvcml0eV0gPSB1c2VTdGF0ZTxQcmlvcml0eT4oJ21lZGl1bScpCiAgICBjb25zdCBbbGlzdCwgc2V0TGlzdF0gPSB1c2VTdGF0ZSgxKQogICAgY29uc3QgW2xpc3RPcHRpb25zLCBzZXRMaXN0T3B0aW9uc10gPSB1c2VTdGF0ZShkYXRhLmxpc3RPcHRpb25zKQogICAgY29uc3QgW29wdGlvbnMsIHNldE9wdGlvbnNdID0gdXNlU3RhdGU8YW55PihbXSkKCiAgICBjb25zdCBoYW5kbGVMYWJlbEZpbHRlciA9ICh0ZXh0KSA9PiB7CiAgICAgICAgc2V0QXZhaWxhYmxlTGFiZWxzKFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgaWQ6ICdjcmVhdGUnLAogICAgICAgICAgICAgICAgdGV4dDogYENyZWF0ZSAiJHt0ZXh0fSJgLAogICAgICAgICAgICAgICAgaWNvbjogJ3BsdXMnLAogICAgICAgICAgICB9LAogICAgICAgIF0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlTGFiZWxBZGQgPSAobGFiZWwpID0+IHsKICAgICAgICBzZXRMYWJlbHMoWy4uLmxhYmVscywgbGFiZWxdKQogICAgICAgIHNldEF2YWlsYWJsZUxhYmVscyhkYXRhLmF2YWlsYWJsZUxhYmVscykKICAgIH0KCiAgICBjb25zdCBoYW5kbGVMYWJlbERlbGV0ZSA9IChsYWJlbCkgPT4gewogICAgICAgIHNldExhYmVscyhsYWJlbHMuZmlsdGVyKChsKSA9PiBsYWJlbC5pZCAhPSBsLmlkKSkKICAgICAgICBzZXRBdmFpbGFibGVMYWJlbHMoZGF0YS5hdmFpbGFibGVMYWJlbHMpCiAgICB9CgogICAgY29uc3QgaGFuZGxlVXNlckZpbHRlciA9ICh0ZXh0KSA9PiB7CiAgICAgICAgc2V0QXZhaWxhYmxlVXNlcnMoZGF0YS5hdmFpbGFibGVVc2VycykKICAgIH0KCiAgICBjb25zdCBoYW5kbGVVc2VyQWRkID0gKHVzZXIpID0+IHsKICAgICAgICBzZXRVc2VycyhbLi4udXNlcnMsIHVzZXJdKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVVzZXJEZWxldGUgPSAodXNlcikgPT4gewogICAgICAgIHNldFVzZXJzKHVzZXJzLmZpbHRlcigodSkgPT4gdXNlci5pZCAhPSB1LmlkKSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVUcmlnZ2VyID0gKHdvcmQpID0+IHsKICAgICAgICBzd2l0Y2ggKHdvcmQudHJpbSgpKSB7CiAgICAgICAgICAgIGNhc2UgJ0AnOgogICAgICAgICAgICAgICAgc2V0T3B0aW9ucyhbCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQxJywgbmFtZTogJ0BKb2huJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQyJywgbmFtZTogJ0BCZW4nLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDMnLCBuYW1lOiAnQERlcmVrJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ0JywgbmFtZTogJ0BDcmFpZycsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNScsIG5hbWU6ICdAVGltb3RoeScsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNicsIG5hbWU6ICdAQnlyb24nLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDcnLCBuYW1lOiAnQEFuZHJldycsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkOCcsIG5hbWU6ICdAUGV0ZXInLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgIF0pCiAgICAgICAgICAgICAgICBicmVhawogICAgICAgICAgICBjYXNlICcjJzoKICAgICAgICAgICAgICAgIHNldE9wdGlvbnMoWwogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMScsIG5hbWU6ICcjU2FsZXMnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQyJywgbmFtZTogJyNNYXJrZXRpbmcnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQzJywgbmFtZTogJyNEZXZPcHMnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ0JywgbmFtZTogJyNFbmdpbmVlcmluZycsIHR5cGU6ICdsYWJlbCcgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDUnLCBuYW1lOiAnI1Byb2R1Y3QnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICBdKQogICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlV29yZCA9ICh3b3JkLCBjYiwgYWx3YXlzID0gZmFsc2UpID0+IHsKICAgICAgICBjb25zdCBrZXl3b3JkcyA9IFsnYXNzaWduOicsICd0bzonLCAnZnJvbTonLCAnZGF0ZTonXQogICAgICAgIGxldCBmbGFnID0gdHJ1ZQoKICAgICAgICBrZXl3b3Jkcy5tYXAoKGtleXdvcmQpID0+IHsKICAgICAgICAgICAgaWYgKHdvcmQuaW5jbHVkZXMoa2V5d29yZCkpIHsKICAgICAgICAgICAgICAgIGNiKHsKICAgICAgICAgICAgICAgICAgICBwaHJhc2U6IHdvcmQudHJpbSgpLAogICAgICAgICAgICAgICAgICAgIHR5cGU6IHdvcmQuc3BsaXQoJzonKVswXSwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogd29yZC5zcGxpdCgnOicpWzFdLnRyaW0oKSwKICAgICAgICAgICAgICAgIH0pCiAgICAgICAgICAgICAgICBmbGFnID0gZmFsc2UKICAgICAgICAgICAgfQogICAgICAgIH0pCgogICAgICAgIGlmIChhbHdheXMgfHwgZmxhZykgY2IobnVsbCkKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxSaWNoSW5wdXRQcm92aWRlcgogICAgICAgICAgICB0cmlnZ2Vycz17WycjJywgJ0AnXX0KICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgb25Xb3JkPXtoYW5kbGVXb3JkfQogICAgICAgICAgICBvblRyaWdnZXI9e2hhbmRsZVRyaWdnZXJ9PgogICAgICAgICAgICA8Q29tbW9uUHJvdmlkZXIKICAgICAgICAgICAgICAgIG9uVXNlckZpbHRlcj17KHZhbCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgIG9uTGFiZWxGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgYXZhaWxhYmxlVXNlcnM9e2RhdGEuYXZhaWxhYmxlVXNlcnN9CiAgICAgICAgICAgICAgICBjb2xvcnM9e2RhdGEuY29sb3JQYWxldHRlfT4KICAgICAgICAgICAgICAgIDxUYXNrRGV0YWlsCiAgICAgICAgICAgICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH0KICAgICAgICAgICAgICAgICAgICBvbkNoZWNrPXtjaGVja30KICAgICAgICAgICAgICAgICAgICB0aXRsZT17dGl0bGV9CiAgICAgICAgICAgICAgICAgICAgb25UaXRsZUNoYW5nZT17c2V0VGl0bGV9CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb249e2Rlc2NyaXB0aW9ufQogICAgICAgICAgICAgICAgICAgIG9uRGVzY3JpcHRpb25DaGFuZ2U9e3NldERlc2NyaXB0aW9ufQogICAgICAgICAgICAgICAgICAgIHByaW9yaXR5PXtwcmlvcml0eX0KICAgICAgICAgICAgICAgICAgICBvblByaW9yaXR5Q2hhbmdlPXtzZXRQcmlvcml0eX0KICAgICAgICAgICAgICAgICAgICBjb2xvcj17Y29sb3J9CiAgICAgICAgICAgICAgICAgICAgb25Db2xvckNoYW5nZT17c2V0Q29sb3J9CiAgICAgICAgICAgICAgICAgICAgbGlzdD17bGlzdH0KICAgICAgICAgICAgICAgICAgICBsaXN0T3B0aW9ucz17bGlzdE9wdGlvbnN9CiAgICAgICAgICAgICAgICAgICAgb25MaXN0T3B0aW9uQ2hhbmdlPXtzZXRMaXN0fQogICAgICAgICAgICAgICAgICAgIGRhdGVzPXtkYXRlc30KICAgICAgICAgICAgICAgICAgICByZXBlYXQ9e3JlcGVhdH0KICAgICAgICAgICAgICAgICAgICBvbkRhdGVEZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RGF0ZXMoeyBzdGFydDogdW5kZWZpbmVkLCBlbmQ6IHVuZGVmaW5lZCB9KQogICAgICAgICAgICAgICAgICAgICAgICBzZXRSZXBlYXQoeyBpbnRlcnZhbDogW10sIGZyZXF1ZW5jeTogJycsIGZyb206IG5ldyBEYXRlKCkgfSkKICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgIG9uRGF0ZUNoYW5nZT17KHsgZGF0ZXMsIHJlcGVhdCB9KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHNldERhdGVzKGRhdGVzKQogICAgICAgICAgICAgICAgICAgICAgICBzZXRSZXBlYXQocmVwZWF0KQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgYmFkZ2VzPXtbXX0KICAgICAgICAgICAgICAgICAgICB1c2Vycz17dXNlcnN9CiAgICAgICAgICAgICAgICAgICAgb25Vc2VyQWRkPXtoYW5kbGVVc2VyQWRkfQogICAgICAgICAgICAgICAgICAgIG9uVXNlckRlbGV0ZT17aGFuZGxlVXNlckRlbGV0ZX0KICAgICAgICAgICAgICAgICAgICBsYWJlbHM9e2xhYmVsc30KICAgICAgICAgICAgICAgICAgICBvbkxhYmVsQWRkPXtoYW5kbGVMYWJlbEFkZH0KICAgICAgICAgICAgICAgICAgICBvbkxhYmVsRGVsZXRlPXtoYW5kbGVMYWJlbERlbGV0ZX0KICAgICAgICAgICAgICAgICAgICBtZW51PXsKICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnUKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsyMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkRlbGV0ZTwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+Q29weTwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+Q3V0PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5QYXN0ZTwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+U2VsZWN0PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPC9NZW51PgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvQ29tbW9uUHJvdmlkZXI+CiAgICAgICAgPC9SaWNoSW5wdXRQcm92aWRlcj4KICAgICkKfQoKZXhwb3J0IGNvbnN0IERldGFpbFZpZXcgPSAoKSA9PiB7CiAgICBjb25zdCBbb3B0aW9ucywgc2V0T3B0aW9uc10gPSB1c2VTdGF0ZTxSaWNoSW5wdXRPcHRpb25bXT4oW10pCgogICAgY29uc3QgaGFuZGxlVHJpZ2dlciA9ICh3b3JkKSA9PiB7CiAgICAgICAgaWYgKHdvcmQudHJpbSgpLmNoYXJBdCgwKSA9PSAnQCcpIHsKICAgICAgICAgICAgc2V0T3B0aW9ucyhkYXRhLnJpY2hJbnB1dFVzZXJzKQogICAgICAgIH0gZWxzZSBpZiAod29yZC50cmltKCkuY2hhckF0KDApID09ICcjJykgewogICAgICAgICAgICBzZXRPcHRpb25zKGRhdGEucmljaElucHV0TGFiZWxzKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldE9wdGlvbnMoW10pCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVdvcmQgPSAod29yZCwgbmV4dCkgPT4gewogICAgICAgIGlmICh3b3JkLmluY2x1ZGVzKCdkYXRlOicpKSB7CiAgICAgICAgICAgIG5leHQoewogICAgICAgICAgICAgICAgcGhyYXNlOiB3b3JkLnRyaW0oKSwKICAgICAgICAgICAgICAgIHR5cGU6IHdvcmQuc3BsaXQoJzonKVswXSwKICAgICAgICAgICAgICAgIHZhbHVlOiB3b3JkLnNwbGl0KCc6JylbMV0udHJpbSgpLAogICAgICAgICAgICB9KQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIG5leHQoKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxSaWNoSW5wdXRQcm92aWRlcgogICAgICAgICAgICB0cmlnZ2Vycz17WycjJywgJ0AnXX0KICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgb25Xb3JkPXtoYW5kbGVXb3JkfQogICAgICAgICAgICBvblRyaWdnZXI9e2hhbmRsZVRyaWdnZXJ9PgogICAgICAgICAgICA8Q29tbW9uUHJvdmlkZXIKICAgICAgICAgICAgICAgIG9uVXNlckZpbHRlcj17KHZhbCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgIG9uTGFiZWxGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgYXZhaWxhYmxlVXNlcnM9e2RhdGEuYXZhaWxhYmxlVXNlcnN9CiAgICAgICAgICAgICAgICBjb2xvcnM9e2RhdGEuY29sb3JQYWxldHRlfT4KICAgICAgICAgICAgICAgIDxEZXRhaWwKICAgICAgICAgICAgICAgICAgICBpdGVtPXt7IC4uLmRhdGEuc2VjdGlvbnNbMF0udGFza3NbMV0gfX0KICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17KCkgPT4gY29uc29sZS5sb2coJ2Nsb3NlIHdpbmRvdycpfQogICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KHRhc2spID0+IGNvbnNvbGUubG9nKCdzYXZlIHRhc2snLCB0YXNrKX0KICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KHRhc2spID0+IGNvbnNvbGUubG9nKCdkZWxldGUgdGFzaycsIHRhc2spfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9Db21tb25Qcm92aWRlcj4KICAgICAgICA8L1JpY2hJbnB1dFByb3ZpZGVyPgogICAgKQp9CgoKCmV4cG9ydCBjb25zdCBSaWNoSW5wdXRGaWVsZCA9ICgpID0+IHsKICAgIGNvbnN0IFtvcHRpb25zLCBzZXRPcHRpb25zXSA9IHVzZVN0YXRlPGFueT4oW10pCgogICAgY29uc3QgaGFuZGxlU2F2ZSA9IChodG1sKSA9PiB7CiAgICAgICAgaWYgKGh0bWwudHJpbSgpICE9ICcnKSB7CiAgICAgICAgICAgIAogICAgICAgIH0KICAgIH0KCiAgICBjb25zdCBoYW5kbGVUcmlnZ2VyID0gKHdvcmQpID0+IHsKICAgICAgICBzd2l0Y2ggKHdvcmQudHJpbSgpKSB7CiAgICAgICAgICAgIGNhc2UgJ0AnOgogICAgICAgICAgICAgICAgc2V0T3B0aW9ucyhbCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQxJywgbmFtZTogJ0BKb2huJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQyJywgbmFtZTogJ0BCZW4nLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDMnLCBuYW1lOiAnQERlcmVrJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ0JywgbmFtZTogJ0BDcmFpZycsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNScsIG5hbWU6ICdAVGltb3RoeScsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNicsIG5hbWU6ICdAQnlyb24nLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDcnLCBuYW1lOiAnQEFuZHJldycsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkOCcsIG5hbWU6ICdAUGV0ZXInLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgIF0pCiAgICAgICAgICAgICAgICBicmVhawogICAgICAgICAgICBjYXNlICcjJzoKICAgICAgICAgICAgICAgIHNldE9wdGlvbnMoWwogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMScsIG5hbWU6ICcjU2FsZXMnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQyJywgbmFtZTogJyNNYXJrZXRpbmcnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQzJywgbmFtZTogJyNEZXZPcHMnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ0JywgbmFtZTogJyNFbmdpbmVlcmluZycsIHR5cGU6ICdsYWJlbCcgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDUnLCBuYW1lOiAnI1Byb2R1Y3QnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICBdKQogICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlV29yZCA9ICh3b3JkLCBjYiwgYWx3YXlzID0gZmFsc2UpID0+IHsKICAgICAgICBjb25zdCBrZXl3b3JkcyA9IFsnYXNzaWduOicsICd0bzonLCAnZnJvbTonLCAnZGF0ZTonXQogICAgICAgIGxldCBmbGFnID0gdHJ1ZQoKICAgICAgICBrZXl3b3Jkcy5tYXAoKGtleXdvcmQpID0+IHsKICAgICAgICAgICAgaWYgKHdvcmQuaW5jbHVkZXMoa2V5d29yZCkpIHsKICAgICAgICAgICAgICAgIGNiKHsKICAgICAgICAgICAgICAgICAgICBwaHJhc2U6IHdvcmQudHJpbSgpLAogICAgICAgICAgICAgICAgICAgIHR5cGU6IHdvcmQuc3BsaXQoJzonKVswXSwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogd29yZC5zcGxpdCgnOicpWzFdLnRyaW0oKSwKICAgICAgICAgICAgICAgIH0pCiAgICAgICAgICAgICAgICBmbGFnID0gZmFsc2UKICAgICAgICAgICAgfQogICAgICAgIH0pCgogICAgICAgIGlmIChhbHdheXMgfHwgZmxhZykgY2IobnVsbCkKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IHdpZHRoPXs0MDB9PgogICAgICAgICAgICA8UmljaElucHV0UHJvdmlkZXIKICAgICAgICAgICAgICAgIHRyaWdnZXJzPXtbJyMnLCAnQCddfQogICAgICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgICAgIG9uV29yZD17aGFuZGxlV29yZH0KICAgICAgICAgICAgICAgIG9uVHJpZ2dlcj17aGFuZGxlVHJpZ2dlcn0+CiAgICAgICAgICAgICAgICA8UmljaElucHV0CiAgICAgICAgICAgICAgICAgICAgZG9udENsZWFyT25TdWJtaXQKICAgICAgICAgICAgICAgICAgICBkZWZhdWx0VmFsdWU9IlJlc2VhcmNoIHRhcmdldCBhdWRpZW5jZS4uLiIKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iVGFzayB0aXRsZSIKICAgICAgICAgICAgICAgICAgICBvbkVudGVyPXtoYW5kbGVTYXZlfQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBudWxsfQogICAgICAgICAgICAgICAgICAgIG9uQmx1cj17aGFuZGxlU2F2ZX0KICAgICAgICAgICAgICAgICAgICBvbkluZGVudD17KCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgICAgICBvbk91dGRlbnQ9eygpID0+IG51bGx9CiAgICAgICAgICAgICAgICAgICAgb25VcD17KCkgPT4gbnVsbH0KICAgICAgICAgICAgICAgICAgICBvbkRvd249eygpID0+IG51bGx9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1JpY2hJbnB1dFByb3ZpZGVyPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    const [repeat, setRepeat] = useState<CalendarTypes.Repeat>({
+        interval: 2,
+        weekday: [],
+        frequency: 'day',
+        from: new Date(),
+        to: undefined,
+        repetitions: 0,
+    })
+
+    return (
+        <View
+            column
+            gap="1rem">
+            <Repeat
+                repeat={repeat}
+                onSave={() => null}
+                onClear={() => null}
+                onDismiss={() => null}
+                onChange={(val) => setRepeat(val)}
+            />
+            <Text>{getRepeatFrequencyText(repeat, defaultWeekdays)}</Text>
+        </View>
+    )
+}
+
+
+
+export const DateSelector = () => {
+    const [dates, setDates] = useState<any>({ start: new Date(), end: new Date() })
+    const [repeat, setRepeat] = useState<any>({
+        interval: 1,
+        weekday: [],
+        frequency: 'day',
+        from: new Date(),
+        to: undefined,
+        repetitions: 0,
+    })
+
+    return (
+        <View
+            column
+            gap={10}
+            alignItems="flex-start">
+            <DateButton
+                dates={dates}
+                repeat={repeat}
+                onDelete={() => {
+                    setDates({ start: undefined, end: undefined })
+                    setRepeat(undefined)
+                }}
+                onDateChange={({ dates, repeat }) => {
+                    setDates(dates)
+                    setRepeat(repeat)
+                }}
+            />
+            <View
+                width="fit-content"
+                radius="var(--f-radius)"
+                border="1px solid var(--f-color-border)">
+                <DateSelect
+                    dates={dates}
+                    repeat={repeat}
+                    onCancel={() => {
+                        console.log('cancel')
+                    }}
+                    onSave={({ repeat, dates }) => {
+                        setDates(dates)
+                        setRepeat(repeat)
+                        console.log('save', dates, repeat)
+                    }}
+                />
+            </View>
+        </View>
+    )
+}
+
+
+
+export const UserSelector = () => {
+    const [users, setUsers] = useState(data.users)
+    const [availableUsers, setAvailableUsers] = useState(data.availableUsers)
+
+    const handleFilter = (text) => {
+        setAvailableUsers(data.availableUsers)
+    }
+
+    const handleAdd = (user) => {
+        setUsers([...users, user])
+    }
+
+    const handleDelete = (user) => {
+        setUsers(users.filter((u) => user.id != u.id))
+    }
+
+    return (
+        <CommonProvider
+            onUserFilter={(val) => null}
+            onLabelFilter={(val) => null}
+            availableLabels={data.availableLabels}
+            availableUsers={data.availableUsers}
+            colors={data.colorPalette}>
+            <View
+                column
+                gap={10}
+                alignItems="flex-start">
+                <UserButton
+                    users={users}
+                    onAdd={handleAdd}
+                    onDelete={handleDelete}
+                />
+                <UserSelect
+                    users={users}
+                    onAdd={handleAdd}
+                    onDelete={handleDelete}
+                />
+            </View>
+        </CommonProvider>
+    )
+}
+
+
+
+export const LabelSelector = () => {
+    const [labels, setLabels] = useState(data.labels)
+    const [availableLabels, setAvailableLabels] = useState<any>(data.availableLabels)
+
+    const handleFilter = (text) => {
+        setAvailableLabels([
+            {
+                id: 'create',
+                text: `Create "${text}"`,
+                icon: 'plus',
+            },
+        ])
+    }
+
+    const handleAdd = (label) => {
+        setLabels([...labels, label])
+        setAvailableLabels(data.availableLabels)
+    }
+
+    const handleDelete = (label) => {
+        setLabels(labels.filter((l) => label.id != l.id))
+        setAvailableLabels(data.availableLabels)
+    }
+
+    return (
+        <CommonProvider
+            onUserFilter={(val) => null}
+            onLabelFilter={(val) => null}
+            availableLabels={data.availableLabels}
+            availableUsers={data.availableUsers}
+            colors={data.colorPalette}>
+            <View
+                column
+                gap={10}
+                alignItems="flex-start">
+                <View
+                    row
+                    gap={5}>
+                    <LabelButton
+                        labels={labels}
+                        onAdd={handleAdd}
+                        onDelete={handleDelete}
+                    />
+                </View>
+                <LabelSelect
+                    labels={labels}
+                    onAdd={handleAdd}
+                    onDelete={handleDelete}
+                />
+            </View>
+        </CommonProvider>
+    )
+}
+
+
+
+export const ListSelector = () => {
+    const [list, setList] = useState(1)
+    const [listOptions, setListOptions] = useState(data.listOptions)
+
+    return (
+        <View
+            column
+            gap={10}
+            alignItems="flex-start">
+            <View
+                row
+                position="relative"
+                gap={5}>
+                <ListButton
+                    onChange={setList}
+                    title="Select project"
+                    list={list}
+                    options={listOptions}
+                />
+            </View>
+        </View>
+    )
+}
+
+
+
+export const PrioritySelector = () => {
+    const [priority, setPriority] = useState<Priority>('medium')
+
+    return (
+        <View
+            column
+            gap={10}
+            alignItems="flex-start">
+            <View
+                row
+                gap={5}>
+                <PriorityButton
+                    onChange={setPriority}
+                    title="Select project"
+                    priority={priority}
+                />
+            </View>
+        </View>
+    )
+}
+
+
+
+export const ColorSelector = () => {
+    const [color, setColor] = useState(data.colorPalette[3])
+
+    return (
+        <View
+            column
+            gap={10}
+            alignItems="flex-start">
+            <View
+                row
+                gap={5}>
+                <ColorButton
+                    onChange={setColor}
+                    color={color}
+                    colors={data.colorPalette}
+                />
+            </View>
+        </View>
+    )
+}
+
+
+
+export const TaskDetailView = () => {
+    const { checked, check } = useCheck()
+    const [title, setTitle] = useState('awesome')
+    const [description, setDescription] = useState('')
+    const [labels, setLabels] = useState(data.labels)
+    const [availableLabels, setAvailableLabels] = useState<any>(data.availableLabels)
+    const [users, setUsers] = useState(data.users)
+    const [availableUsers, setAvailableUsers] = useState(data.availableUsers)
+    const [dates, setDates] = useState<any>({ start: new Date(), end: new Date() })
+    const [repeat, setRepeat] = useState({ interval: [2, 4], frequency: 'day', from: new Date() })
+    const [color, setColor] = useState(data.colorPalette[3])
+    const [colors, setColors] = useState(data.colorPalette)
+    const [priority, setPriority] = useState<Priority>('medium')
+    const [list, setList] = useState(1)
+    const [listOptions, setListOptions] = useState(data.listOptions)
+    const [options, setOptions] = useState<any>([])
+
+    const handleLabelFilter = (text) => {
+        setAvailableLabels([
+            {
+                id: 'create',
+                text: `Create "${text}"`,
+                icon: 'plus',
+            },
+        ])
+    }
+
+    const handleLabelAdd = (label) => {
+        setLabels([...labels, label])
+        setAvailableLabels(data.availableLabels)
+    }
+
+    const handleLabelDelete = (label) => {
+        setLabels(labels.filter((l) => label.id != l.id))
+        setAvailableLabels(data.availableLabels)
+    }
+
+    const handleUserFilter = (text) => {
+        setAvailableUsers(data.availableUsers)
+    }
+
+    const handleUserAdd = (user) => {
+        setUsers([...users, user])
+    }
+
+    const handleUserDelete = (user) => {
+        setUsers(users.filter((u) => user.id != u.id))
+    }
+
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ])
+                break
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ])
+                break
+        }
+    }
+
+    const handleWord = (word, cb, always = false) => {
+        const keywords = ['assign:', 'to:', 'from:', 'date:']
+        let flag = true
+
+        keywords.map((keyword) => {
+            if (word.includes(keyword)) {
+                cb({
+                    phrase: word.trim(),
+                    type: word.split(':')[0],
+                    value: word.split(':')[1].trim(),
+                })
+                flag = false
+            }
+        })
+
+        if (always || flag) cb(null)
+    }
+
+    return (
+        <RichInputProvider
+            triggers={['#', '@']}
+            options={options}
+            onWord={handleWord}
+            onTrigger={handleTrigger}>
+            <CommonProvider
+                onUserFilter={(val) => null}
+                onLabelFilter={(val) => null}
+                availableLabels={data.availableLabels}
+                availableUsers={data.availableUsers}
+                colors={data.colorPalette}>
+                <TaskDetail
+                    checked={checked}
+                    onCheck={check}
+                    title={title}
+                    onTitleChange={setTitle}
+                    description={description}
+                    onDescriptionChange={setDescription}
+                    priority={priority}
+                    onPriorityChange={setPriority}
+                    color={color}
+                    onColorChange={setColor}
+                    list={list}
+                    listOptions={listOptions}
+                    onListOptionChange={setList}
+                    dates={dates}
+                    repeat={repeat}
+                    onDateDelete={() => {
+                        setDates({ start: undefined, end: undefined })
+                        setRepeat({ interval: [], frequency: '', from: new Date() })
+                    }}
+                    onDateChange={({ dates, repeat }) => {
+                        setDates(dates)
+                        setRepeat(repeat)
+                    }}
+                    badges={[]}
+                    users={users}
+                    onUserAdd={handleUserAdd}
+                    onUserDelete={handleUserDelete}
+                    labels={labels}
+                    onLabelAdd={handleLabelAdd}
+                    onLabelDelete={handleLabelDelete}
+                    menu={
+                        <Menu
+                            width={200}
+                            border="none">
+                            <MenuItem>Delete</MenuItem>
+                            <MenuItem>Copy</MenuItem>
+                            <MenuItem>Cut</MenuItem>
+                            <MenuItem>Paste</MenuItem>
+                            <MenuItem>Select</MenuItem>
+                        </Menu>
+                    }
+                />
+            </CommonProvider>
+        </RichInputProvider>
+    )
+}
+
+export const DetailView = () => {
+    const [options, setOptions] = useState<RichInputOption[]>([])
+
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers)
+        } else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels)
+        } else {
+            setOptions([])
+        }
+    }
+
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            })
+        } else {
+            next()
+        }
+    }
+
+    return (
+        <RichInputProvider
+            triggers={['#', '@']}
+            options={options}
+            onWord={handleWord}
+            onTrigger={handleTrigger}>
+            <CommonProvider
+                onUserFilter={(val) => null}
+                onLabelFilter={(val) => null}
+                availableLabels={data.availableLabels}
+                availableUsers={data.availableUsers}
+                colors={data.colorPalette}>
+                <Detail
+                    item={{ ...data.sections[0].tasks[1] }}
+                    onCancel={() => console.log('close window')}
+                    onSave={(task) => console.log('save task', task)}
+                    onDelete={(task) => console.log('delete task', task)}
+                />
+            </CommonProvider>
+        </RichInputProvider>
+    )
+}
+
+
+
+export const RichInputField = () => {
+    const [options, setOptions] = useState<any>([])
+
+    const handleSave = (html) => {
+        if (html.trim() != '') {
+            
+        }
+    }
+
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ])
+                break
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ])
+                break
+        }
+    }
+
+    const handleWord = (word, cb, always = false) => {
+        const keywords = ['assign:', 'to:', 'from:', 'date:']
+        let flag = true
+
+        keywords.map((keyword) => {
+            if (word.includes(keyword)) {
+                cb({
+                    phrase: word.trim(),
+                    type: word.split(':')[0],
+                    value: word.split(':')[1].trim(),
+                })
+                flag = false
+            }
+        })
+
+        if (always || flag) cb(null)
+    }
+
+    return (
+        <View width={400}>
+            <RichInputProvider
+                triggers={['#', '@']}
+                options={options}
+                onWord={handleWord}
+                onTrigger={handleTrigger}>
+                <RichInput
+                    dontClearOnSubmit
+                    defaultValue="Research target audience..."
+                    placeholder="Task title"
+                    onEnter={handleSave}
+                    onCancel={() => null}
+                    onBlur={handleSave}
+                    onIndent={() => null}
+                    onOutdent={() => null}
+                    onUp={() => null}
+                    onDown={() => null}
+                />
+            </RichInputProvider>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

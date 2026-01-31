@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Button, UserList } from '@fold-dev/core'
+import { Button, UserList } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -17,9 +17,9 @@ export const css = [[["--f-user-list-color-heading","var(--f-color-text)"],["--f
 
 
 
-<CodeComponent filename="user-list.tsx" code="aW1wb3J0IHsgVXNlckxpc3QgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+<CodeComponent filename="user-list.tsx" code="aW1wb3J0IHsgVXNlckxpc3QgfSBmcm9tICJAZm9sZC11aS9jb3JlIjsK" />
 ```tsx
-import { UserList } from "@fold-dev/core";
+import { UserList } from "@fold-ui/core";
 ```
 
 ### Usage
@@ -27,19 +27,19 @@ import { UserList } from "@fold-dev/core";
 export const Usage = () => (<UserList users={[
         {
             name: 'Brent Fortuin',
-            description: 'brent@fold.dev',
+            description: 'brent@fold-ui.com',
             image: '/men/01.jpg',
             tools: <Button size="sm">Message</Button>,
         },
         {
             name: 'Margaret Morris',
-            description: 'margaret@fold.dev',
+            description: 'margaret@fold-ui.com',
             image: '/women/01.jpg',
             tools: <Button size="sm">Message</Button>,
         },
         {
             name: 'Kevin Manuel',
-            description: 'kevin@fold.dev',
+            description: 'kevin@fold-ui.com',
             image: '/men/02.jpg',
             tools: <Button size="sm">Message</Button>,
         },
@@ -49,7 +49,7 @@ export const Usage = () => (<UserList users={[
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFVzZXJMaXN0CiAgICAgICAgdXNlcnM9e1sKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgbmFtZTogJ0JyZW50IEZvcnR1aW4nLAogICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdicmVudEBmb2xkLmRldicsCiAgICAgICAgICAgICAgICBpbWFnZTogJy9tZW4vMDEuanBnJywKICAgICAgICAgICAgICAgIHRvb2xzOiA8QnV0dG9uIHNpemU9InNtIj5NZXNzYWdlPC9CdXR0b24+LAogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBuYW1lOiAnTWFyZ2FyZXQgTW9ycmlzJywKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnbWFyZ2FyZXRAZm9sZC5kZXYnLAogICAgICAgICAgICAgICAgaW1hZ2U6ICcvd29tZW4vMDEuanBnJywKICAgICAgICAgICAgICAgIHRvb2xzOiA8QnV0dG9uIHNpemU9InNtIj5NZXNzYWdlPC9CdXR0b24+LAogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBuYW1lOiAnS2V2aW4gTWFudWVsJywKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAna2V2aW5AZm9sZC5kZXYnLAogICAgICAgICAgICAgICAgaW1hZ2U6ICcvbWVuLzAyLmpwZycsCiAgICAgICAgICAgICAgICB0b29sczogPEJ1dHRvbiBzaXplPSJzbSI+TWVzc2FnZTwvQnV0dG9uPiwKICAgICAgICAgICAgfSwKICAgICAgICBdfQogICAgLz4KKQ==" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFVzZXJMaXN0CiAgICAgICAgdXNlcnM9e1sKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgbmFtZTogJ0JyZW50IEZvcnR1aW4nLAogICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdicmVudEBmb2xkLXVpLmNvbScsCiAgICAgICAgICAgICAgICBpbWFnZTogJy9tZW4vMDEuanBnJywKICAgICAgICAgICAgICAgIHRvb2xzOiA8QnV0dG9uIHNpemU9InNtIj5NZXNzYWdlPC9CdXR0b24+LAogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBuYW1lOiAnTWFyZ2FyZXQgTW9ycmlzJywKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnbWFyZ2FyZXRAZm9sZC11aS5jb20nLAogICAgICAgICAgICAgICAgaW1hZ2U6ICcvd29tZW4vMDEuanBnJywKICAgICAgICAgICAgICAgIHRvb2xzOiA8QnV0dG9uIHNpemU9InNtIj5NZXNzYWdlPC9CdXR0b24+LAogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBuYW1lOiAnS2V2aW4gTWFudWVsJywKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAna2V2aW5AZm9sZC11aS5jb20nLAogICAgICAgICAgICAgICAgaW1hZ2U6ICcvbWVuLzAyLmpwZycsCiAgICAgICAgICAgICAgICB0b29sczogPEJ1dHRvbiBzaXplPSJzbSI+TWVzc2FnZTwvQnV0dG9uPiwKICAgICAgICAgICAgfSwKICAgICAgICBdfQogICAgLz4KKQ==" />
 
 ```tsx
 export const Usage = () => (
@@ -57,19 +57,19 @@ export const Usage = () => (
         users={[
             {
                 name: 'Brent Fortuin',
-                description: 'brent@fold.dev',
+                description: 'brent@fold-ui.com',
                 image: '/men/01.jpg',
                 tools: <Button size="sm">Message</Button>,
             },
             {
                 name: 'Margaret Morris',
-                description: 'margaret@fold.dev',
+                description: 'margaret@fold-ui.com',
                 image: '/women/01.jpg',
                 tools: <Button size="sm">Message</Button>,
             },
             {
                 name: 'Kevin Manuel',
-                description: 'kevin@fold.dev',
+                description: 'kevin@fold-ui.com',
                 image: '/men/02.jpg',
                 tools: <Button size="sm">Message</Button>,
             },

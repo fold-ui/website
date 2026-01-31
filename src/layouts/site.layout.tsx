@@ -102,14 +102,14 @@ export default function SiteLayout(props: any) {
                     <Text
                         textAlign="center"
                         color="inherit">
-                            New! DataGrid has just been added! 
-                            Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
+                            <strong>Fold</strong> is now at <strong>fold-ui.com</strong>.
+                            <strong>v0.21.0</strong> just published! Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
                     </Text>
                     <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'currentColor' }} />
                 </View>
 
                 <Affix zIndex={100}>
-                    {(stuck) => !stuck ? null : (
+                    {(stuck) => true  ? null : (
                         <View 
                             className="navigation"
                             position="sticky"
@@ -213,7 +213,7 @@ export default function SiteLayout(props: any) {
                         alignItems="flex-start"
                         className="footer_block">
                         <LogoSolid color="var(--f-color-accent)" />
-                        <Text colorToken="accent">fold-ui.com &copy; 2025</Text>
+                        <Text colorToken="accent">Fold &copy; 2026</Text>
                        {/*  <View
                             row
                             gap={10}

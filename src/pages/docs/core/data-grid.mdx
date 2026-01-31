@@ -3,7 +3,10 @@ import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import {
     Button,
-    DataGrid, DataGridHeader, DataGridProvider, DataGridTypes,
+    DataGrid,
+    DataGridHeader,
+    DataGridProvider,
+    DataGridTypes,
     FIBin,
     Icon,
     Menu,
@@ -12,9 +15,10 @@ import {
     Portal,
     Text,
     View,
-    dataGridState, dispatchDataGridEvent,
-    useDialog
-} from '@fold-dev/core'
+    dataGridState,
+    dispatchDataGridEvent,
+    useDialog,
+} from '@fold-ui/core'
 import React, { useState } from 'react'
 import * as data from '@/dummy-data'
 
@@ -32,7 +36,7 @@ export const css = [[["--f-data-grid-gutter-width","100px"]],[["--f-data-grid-se
 
 
 
-<CodeComponent filename="data-grid.tsx" code="aW1wb3J0IHsKICBEYXRhR3JpZENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRDZWxsLAogIERhdGFHcmlkRGVmYXVsdENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRIZWFkZXJDZWxsQ29tcG9uZW50LAogIERhdGFHcmlkSGVhZGVyQ2VsbCwKICBEYXRhR3JpZEhlYWRlciwKICBEYXRhR3JpZFJvdywKICBEYXRhR3JpZFByb3ZpZGVyLAogIERhdGFHcmlkLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+<CodeComponent filename="data-grid.tsx" code="aW1wb3J0IHsKICBEYXRhR3JpZENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRDZWxsLAogIERhdGFHcmlkRGVmYXVsdENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRIZWFkZXJDZWxsQ29tcG9uZW50LAogIERhdGFHcmlkSGVhZGVyQ2VsbCwKICBEYXRhR3JpZEhlYWRlciwKICBEYXRhR3JpZFJvdywKICBEYXRhR3JpZFByb3ZpZGVyLAogIERhdGFHcmlkLAp9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
 ```tsx
 import {
   DataGridCellComponent,
@@ -44,7 +48,7 @@ import {
   DataGridRow,
   DataGridProvider,
   DataGrid,
-} from "@fold-dev/core";
+} from "@fold-ui/core";
 ```
 
 ### Usage

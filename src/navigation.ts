@@ -597,3 +597,42 @@ export const navigation = [
     experimental: true,
   },
 ];
+
+export const navigationPro = [
+  {
+    slug: "calendar",
+    title: "Calendar",
+    subtitle:
+      "The Calendar component displays dates in an interactive grid format, enabling users to navigate through months and select dates.",
+    description:
+      "Calendar components are useful for displaying date-based information and selecting dates. They serve as the foundation for date pickers, event scheduling, and booking systems.",
+    experimental: true,
+  },
+  {
+    slug: "common",
+    title: "Common",
+    subtitle:
+      "The Common components provide shared building blocks and utilities used across the Pro component library.",
+    description:
+      "Common components contain shared functionality, styles, and utilities that are leveraged by other Pro components, ensuring consistency and reducing code duplication.",
+    experimental: true,
+  },
+  {
+    slug: "kanban",
+    title: "Kanban",
+    subtitle:
+      "The Kanban component displays tasks or items in columns that represent different stages of a workflow.",
+    description:
+      "Kanban components are useful for visualizing work progress and managing tasks through different stages. They are ideal for project management, task tracking, and workflow visualization.",
+    experimental: true,
+  },
+  {
+    slug: "todo",
+    title: "Todo",
+    subtitle:
+      "The Todo component provides a list-based interface for managing and tracking tasks.",
+    description:
+      "Todo components are useful for creating task management interfaces where users can add, complete, and organize their work items. They are suited to personal productivity tools, project checklists, and reminder applications.",
+    experimental: true,
+  },
+];

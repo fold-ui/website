@@ -1,0 +1,586 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, FIBin, Footer, Icon, MenuProvider, Portal, Text, View, useDialog } from '@fold-ui/core'
+import React, { useState } from 'react'
+import {
+    CommonProvider,
+    Detail,
+    GroupDetail,
+    GroupMenu,
+    Kanban,
+    KanbanProvider,
+    KanbanSelection,
+    KanbanTypes,
+    LabelSelect,
+    ContextPopup,
+    LabelMenu,
+    RichInputOption,
+    RichInputProvider,
+    UserMenu,
+    UserSelect,
+    dispatchKanbanEvent,
+    kanbanState,
+} from '@fold-ui/pro'
+import * as data from '@/dummy-data'
+
+export const docs = {
+    title: 'Kanban',
+    subtitle: 'The Kanban component displays tasks or items in columns that represent different stages of a workflow.',
+    description:
+        'Kanban components are useful for visualizing work progress and managing tasks through different stages. They are ideal for project management, task tracking, and workflow visualization.',
+    experimental: true,
+}
+
+export const props = [{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanAddCard","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-add-card.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanAddColumn","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-add-column.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanImage","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanCardMenuButton","methods":[],"props":{"onMenuClick":{"defaultValue":null,"description":"","name":"onMenuClick","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanCard","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanColumnHeader","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"name":{"defaultValue":null,"description":"","name":"name","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"cards":{"defaultValue":null,"description":"","name":"cards","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"cardsCompleted":{"defaultValue":null,"description":"","name":"cardsCompleted","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"collapsible":{"defaultValue":null,"description":"","name":"collapsible","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onCollapseToggle":{"defaultValue":null,"description":"","name":"onCollapseToggle","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"editableName":{"defaultValue":null,"description":"","name":"editableName","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"cardCount":{"defaultValue":null,"description":"","name":"cardCount","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanColumnMenu","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanColumn","methods":[],"props":{"swimlaneIndex":{"defaultValue":null,"description":"","name":"swimlaneIndex","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-column.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanColumns","methods":[],"props":{"linedColumnDrag":{"defaultValue":null,"description":"","name":"linedColumnDrag","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"columns":{"defaultValue":null,"description":"","name":"columns","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Column[]"},"tags":{}},"swimlaneId":{"defaultValue":null,"description":"","name":"swimlaneId","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"swimlaneIndex":{"defaultValue":null,"description":"","name":"swimlaneIndex","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanSwimlaneHeader","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"onCollapse":{"defaultValue":null,"description":"","name":"onCollapse","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onTitleChange":{"defaultValue":null,"description":"","name":"onTitleChange","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onMenuClick":{"defaultValue":null,"description":"","name":"onMenuClick","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanSwimlaneMenu","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanSwimlane","methods":[],"props":{"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"linedColumnDrag":{"defaultValue":null,"description":"","name":"linedColumnDrag","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlane.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanSwimlanes","methods":[],"props":{"swimlanes":{"defaultValue":null,"description":"","name":"swimlanes","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban-swimlanes.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Swimlane[]"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"KanbanProvider","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"addColumn":{"defaultValue":null,"description":"","name":"addColumn","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"defaultSelection":{"defaultValue":null,"description":"","name":"defaultSelection","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"defaultInteraction":{"defaultValue":null,"description":"","name":"defaultInteraction","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"lined\" | \"animated\""},"tags":{}},"targetVariant":{"defaultValue":null,"description":"","name":"targetVariant","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"card":{"defaultValue":null,"description":"","name":"card","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: any) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"columnHeader":{"defaultValue":null,"description":"","name":"columnHeader","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: KanbanColumnHeaderProps) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"swimlaneHeader":{"defaultValue":null,"description":"","name":"swimlaneHeader","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: KanbanSwimlaneHeaderProps) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"__columnHighlightTimeout":{"defaultValue":null,"description":"","name":"__columnHighlightTimeout","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onCardOpen":{"defaultValue":null,"description":"","name":"onCardOpen","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onCardAdd":{"defaultValue":null,"description":"","name":"onCardAdd","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onCardUpdate":{"defaultValue":null,"description":"","name":"onCardUpdate","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onCardMove":{"defaultValue":null,"description":"","name":"onCardMove","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any, sel: any) => void"},"tags":{}},"onColumnAdd":{"defaultValue":null,"description":"","name":"onColumnAdd","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onColumnMove":{"defaultValue":null,"description":"","name":"onColumnMove","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onSwimlaneMove":{"defaultValue":null,"description":"","name":"onSwimlaneMove","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onColumnUpdate":{"defaultValue":null,"description":"","name":"onColumnUpdate","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}},"onSwimlaneUpdate":{"defaultValue":null,"description":"","name":"onSwimlaneUpdate","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(val: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"Kanban","methods":[],"props":{"swimlanes":{"defaultValue":null,"description":"","name":"swimlanes","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Swimlane[]"},"tags":{}},"toolbar":{"defaultValue":null,"description":"","name":"toolbar","declarations":[{"fileName":"fold/packages/pro/src/kanban/kanban.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(selection: any) => ReactNode"},"tags":{}}}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"Get the column & swimlane index from the id","displayName":"getColumnAndSwimlaneIndex","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"getCustomColumnGhostElement","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"getCustomSwimlaneGhostElement","methods":[],"props":{}},{"tags":{},"filePath":"packages/pro/src/kanban/index.ts","description":"","displayName":"kanbanState","methods":[],"props":{}}]
+
+export const css = [[["--f-kanban-padding","10px"],["--f-kanban-background","var(--f-color-surface-strong)"],["--f-kanban-add-background","transparent"],["--f-kanban-drag-opacity","1"]],[["--f-kanban-swimlane-minheight","100%"],["--f-kanban-swimlane-color","var(--f-color-text-weak)"],["--f-kanban-swimlane-color-background","var(--f-color-surface-stronger)"],["--f-kanban-swimlane-border-radius","var(--f-radius)"],["--f-kanban-swimlane-border","1px solid var(--f-color-border)"],["--f-kanban-swimlane-padding","var(--f-space-4)"],["--f-kanban-swimlane-collapse-icon-width","3px"],["--f-kanban-swimlane-gap","4px"]],[["--f-kanban-column-header-padding","0 3px"],["--f-kanban-column-width","300px"],["--f-kanban-column-border","0px solid var(--f-color-border)"],["--f-kanban-column-outer-padding","0 2px"],["--f-kanban-column-padding","14px 7px 7px 7px"],["--f-kanban-column-background"," var(--f-color-surface-strong)"],["--f-kanban-column-background-hover","var(--f-color-surface-stronger)"],["--f-kanban-column-header-spacing","7px"],["--f-kanban-column-header-color","var(--f-color-text-weak)"],["--f-kanban-column-description-color","var(--f-color-text-weaker)"],["--f-kanban-column-footer-padding","4px 0 0 0"],["--f-kanban-column-footer-background","var(--f-color-surface-strong)"],["--f-kanban-column-radius","var(--f-radius)"],["--f-kanban-column-header-font-size","16px"],["--f-kanban-column-header-line-height","20px"],["--f-kanban-column-header-description-font-size","12px"],["--f-kanban-column-header-description-line-height","14px"],["--f-kanban-column-header-pill-height","22px"],["--f-kanban-column-header-pill-font-size","12px"],["--f-kanban-column-header-pill-line-height","14px"]],[["--f-kanban-column-placeholder-radius","var(--f-radius)"],["--f-kanban-column-placeholder-border","var(--f-drag-lined-size) solid var(--f-color-border)"]],[["--f-kanban-add-column-margin","2px 20px 0px 5px"]],[["--f-kanban-card-background","var(--f-color-surface)"],["--f-kanban-card-bottom-border","0px"],["--f-kanban-card-border","var(--f-kanban-card-bottom-border) solid var(--f-color-border)"],["--f-kanban-card-border-hover","2px solid var(--f-color-border)"],["--f-kanban-card-radius","var(--f-radius)"],["--f-kanban-card-spacing-bottom","4px"],["--f-kanban-card-padding","12px"],["--f-kanban-card-image-padding","0"],["--f-kanban-card-content-gap","var(--f-size-2)"],["--f-kanban-card-text-padding","0"],["--f-kanban-card-gap","10px"],["--f-kanban-card-panel-padding","0"],["--f-kanban-card-panel-gap","5px"],["--f-kanban-card-select-color","var(--f-color-accent)"],["--f-kanban-card-select-width","2px"],["--f-kanban-card-color-size","6px"],["--f-kanban-card-color-margin","0 4px"]],[["--f-kanban-text-size","14px"],["--f-kanban-line-height","20px"],["--f-kanban-text-color","var(--f-color-text)"],["--f-kanban-date-text-size","12px"],["--f-kanban-date-line-height","14px"],["--f-kanban-date-text-color","var(--f-color-text)"]],[["--f-kanban-text-color-inactive","var(--f-color-text-weakest)"]],[["--f-kanban-card-menu-background","var(--f-color-surface)"],["--f-kanban-card-menu-x","5px"],["--f-kanban-card-menu-y","5px"],["--f-kanban-card-menu-hover","var(--f-color-surface-strong)"],["--f-kanban-card-menu-color","var(--f-color-text-weaker)"]]]
+
+
+
+<CodeComponent filename="kanban.tsx" code="aW1wb3J0IHsKICBLYW5iYW5BZGRDYXJkLAogIEthbmJhbkFkZENvbHVtbiwKICBLYW5iYW5JbWFnZSwKICBLYW5iYW5DYXJkTWVudUJ1dHRvbiwKICBLYW5iYW5DYXJkLAogIEthbmJhbkNvbHVtbkhlYWRlciwKICBLYW5iYW5Db2x1bW5NZW51LAogIEthbmJhbkNvbHVtbiwKICBLYW5iYW5Db2x1bW5zLAogIEthbmJhblN3aW1sYW5lSGVhZGVyLAogIEthbmJhblN3aW1sYW5lTWVudSwKICBLYW5iYW5Td2ltbGFuZSwKICBLYW5iYW5Td2ltbGFuZXMsCiAgS2FuYmFuUHJvdmlkZXIsCiAgS2FuYmFuLAogIGdldENvbHVtbkFuZFN3aW1sYW5lSW5kZXgsCiAgZ2V0Q3VzdG9tQ29sdW1uR2hvc3RFbGVtZW50LAogIGdldEN1c3RvbVN3aW1sYW5lR2hvc3RFbGVtZW50LAogIGthbmJhblN0YXRlLAp9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
+```tsx
+import {
+  KanbanAddCard,
+  KanbanAddColumn,
+  KanbanImage,
+  KanbanCardMenuButton,
+  KanbanCard,
+  KanbanColumnHeader,
+  KanbanColumnMenu,
+  KanbanColumn,
+  KanbanColumns,
+  KanbanSwimlaneHeader,
+  KanbanSwimlaneMenu,
+  KanbanSwimlane,
+  KanbanSwimlanes,
+  KanbanProvider,
+  Kanban,
+  getColumnAndSwimlaneIndex,
+  getCustomColumnGhostElement,
+  getCustomSwimlaneGhostElement,
+  kanbanState,
+} from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [swimlanes, setSwimlanes] = useState([data.swimlanes[0]]);
+    const [options, setOptions] = useState([]);
+    const [card, setCard] = useState({});
+    const [column, setColumn] = useState({});
+    const { setDialog, closeDialog } = useDialog();
+    const handleCardMove = ({ origin, target }, selection) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardMove({ origin, target }, selection);
+    };
+    const handleColumnMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnMove({ origin, target });
+    };
+    const handleSwimlaneMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneMove({ origin, target });
+    };
+    const handleCardOpen = (card) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardOpen(card);
+    };
+    const handleCardAdd = ({ value, swimlaneIndex, columnIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardAdd({ value, swimlaneIndex, columnIndex });
+    };
+    const handleCardUpdate = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardUpdate(ca);
+    };
+    const handleCardDelete = (ca) => {
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (<View row width="100%" justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button onClick={() => {
+                    kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca);
+                    closeDialog();
+                }} variant="danger">
+                        Delete
+                    </Button>
+                </View>),
+        });
+    };
+    const handleColumnAdd = ({ value, swimlaneIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnAdd({ value, swimlaneIndex });
+    };
+    const handleColumnUpdate = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnUpdate(col);
+    };
+    const handleColumnDelete = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnDelete(col);
+    };
+    const handleSwimlaneUpdate = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneUpdate(sl);
+    };
+    const handleSwimlaneDelete = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneDelete(sl);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'kanban-label':
+                return (<LabelMenu labels={payload.labels} onCancel={dismiss} onSave={(labels) => {
+                        handleCardUpdate({ ...payload, labels });
+                        dismiss();
+                    }}/>);
+            case 'kanban-user':
+                return (<UserMenu users={payload.users} onCancel={dismiss} onSave={(users) => {
+                        handleCardUpdate({ ...payload, users });
+                        dismiss();
+                    }}/>);
+            case 'kanban-menu':
+                return (<ContextPopup item={payload} onCancel={dismiss} onSave={(card) => {
+                        dismiss();
+                        handleCardUpdate({ ...payload, ...card });
+                    }} onView={() => {
+                        dismiss();
+                        setCard(payload);
+                    }} onDelete={() => {
+                        dismiss();
+                        handleCardDelete(payload);
+                    }}/>);
+            case 'kanban-column':
+                return (<GroupMenu onEdit={(column) => {
+                        setColumn({ ...column });
+                        dismiss();
+                    }} onSave={(column) => {
+                        handleColumnUpdate({ ...payload, ...column });
+                        dismiss();
+                    }} onDelete={() => {
+                        handleColumnDelete(payload);
+                        dismiss();
+                    }} group={payload}/>);
+            case 'kanban-swimlane':
+                return (<GroupMenu onEdit={(column) => {
+                        dismiss();
+                    }} onSave={(swimlane) => {
+                        handleSwimlaneUpdate({ ...payload, ...swimlane });
+                        dismiss();
+                    }} onDelete={() => {
+                        handleSwimlaneDelete(payload);
+                        dismiss();
+                    }} group={payload}/>);
+            default:
+                return null;
+        }
+    };
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers);
+        }
+        else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels);
+        }
+        else {
+            setOptions([]);
+        }
+    };
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            });
+        }
+        else {
+            next();
+        }
+    };
+    return (<RichInputProvider triggers={['#', '@']} options={options} onWord={handleWord} onTrigger={handleTrigger}>
+            <CommonProvider onUserFilter={(val) => null} onLabelFilter={(val) => null} availableLabels={data.availableLabels} availableUsers={data.availableUsers} colors={data.colorPalette}>
+                <View width="100%" height={700}>
+                    {!!card.id && (<Detail item={{ ...card }} onCancel={() => setCard({})} onSave={(card) => {
+                handleCardUpdate(card);
+                setCard({});
+            }} onDelete={(card) => {
+                handleCardDelete(card);
+                setCard({});
+            }}/>)}
+
+                    {!!column.id && (<GroupDetail item={{ ...column }} onCancel={() => {
+                setColumn({});
+            }} onSave={(column) => {
+                handleColumnUpdate({ ...column });
+                setColumn({});
+            }} onDelete={(column) => {
+                handleColumnDelete(column);
+                setColumn({});
+            }}/>)}
+
+                    <MenuProvider menu={getMenu}>
+                        <KanbanProvider id="kanban-instance-1" addColumn={true} defaultSelection={{}} defaultInteraction="animated" targetVariant={{ projects: 'focus' }} card={undefined} columnHeader={undefined} swimlaneHeader={undefined} onCardOpen={handleCardOpen} onCardAdd={handleCardAdd} onCardUpdate={handleCardUpdate} onCardMove={handleCardMove} onColumnAdd={handleColumnAdd} onColumnMove={handleColumnMove} onSwimlaneMove={handleSwimlaneMove} onColumnUpdate={handleColumnUpdate} onSwimlaneUpdate={handleSwimlaneUpdate}>
+                            <Kanban swimlanes={swimlanes} toolbar={({ selection }) => {
+            return (<View row position="fixed" bgToken="surface-inverse" colorToken="text-on-color" p="1rem 2rem" radius="var(--f-radius)" shadow="var(--f-shadow-xl)" zIndex={1000} gap={10} className="f-fadein" display={!Object.keys(selection).length ? 'none' : 'flex'} style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
+                                            <Text color="inherit">{Object.keys(selection).length} selected</Text>
+                                            <Icon icon={FIBin} className="f-buttonize" onClick={() => {
+                    setDialog({
+                        title: 'Are you sure?',
+                        description: 'This action cannot be undone.',
+                        portal: Portal,
+                        footer: (<View width="100%" row justifyContent="space-between">
+                                                                <Button onClick={() => {
+                                closeDialog();
+                                dispatchKanbanEvent('select', {
+                                    instanceId: 'kanban-instance-1',
+                                });
+                            }}>
+                                                                    Cancel
+                                                                </Button>
+                                                                <Button variant="danger" onClick={() => {
+                                kanbanState({
+                                    swimlanes,
+                                    setSwimlanes,
+                                    card,
+                                    setCard,
+                                }).handleSelectionDelete(selection);
+                                dispatchKanbanEvent('select', {
+                                    instanceId: 'kanban-instance-1',
+                                });
+                                closeDialog();
+                            }}>
+                                                                    Delete
+                                                                </Button>
+                                                            </View>),
+                    });
+                }}/>
+                                        </View>);
+        }}/>
+                        </KanbanProvider>
+                    </MenuProvider>
+                </View>
+            </CommonProvider>
+        </RichInputProvider>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3N3aW1sYW5lcywgc2V0U3dpbWxhbmVzXSA9IHVzZVN0YXRlPEthbmJhblR5cGVzLlN3aW1sYW5lW10+KFtkYXRhLnN3aW1sYW5lc1swXV0pCiAgICBjb25zdCBbb3B0aW9ucywgc2V0T3B0aW9uc10gPSB1c2VTdGF0ZTxSaWNoSW5wdXRPcHRpb25bXT4oW10pCiAgICBjb25zdCBbY2FyZCwgc2V0Q2FyZF0gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgW2NvbHVtbiwgc2V0Q29sdW1uXSA9IHVzZVN0YXRlPGFueT4oe30pCiAgICBjb25zdCB7IHNldERpYWxvZywgY2xvc2VEaWFsb2cgfSA9IHVzZURpYWxvZygpCgogICAgY29uc3QgaGFuZGxlQ2FyZE1vdmUgPSAoeyBvcmlnaW4sIHRhcmdldCB9LCBzZWxlY3Rpb246IEthbmJhblNlbGVjdGlvbltdKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDYXJkTW92ZSh7IG9yaWdpbiwgdGFyZ2V0IH0sIHNlbGVjdGlvbikKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDb2x1bW5Nb3ZlID0gKHsgb3JpZ2luLCB0YXJnZXQgfSkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ29sdW1uTW92ZSh7IG9yaWdpbiwgdGFyZ2V0IH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlU3dpbWxhbmVNb3ZlID0gKHsgb3JpZ2luLCB0YXJnZXQgfSkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlU3dpbWxhbmVNb3ZlKHsgb3JpZ2luLCB0YXJnZXQgfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDYXJkT3BlbiA9IChjYXJkKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDYXJkT3BlbihjYXJkKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNhcmRBZGQgPSAoeyB2YWx1ZSwgc3dpbWxhbmVJbmRleCwgY29sdW1uSW5kZXggfSkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ2FyZEFkZCh7IHZhbHVlLCBzd2ltbGFuZUluZGV4LCBjb2x1bW5JbmRleCB9KQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNhcmRVcGRhdGUgPSAoY2EpID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNhcmRVcGRhdGUoY2EpCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ2FyZERlbGV0ZSA9IChjYSkgPT4gewogICAgICAgIHNldERpYWxvZyh7CiAgICAgICAgICAgIHRpdGxlOiAnQXJlIHlvdSBzdXJlPycsCiAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnVGhpcyBhY3Rpb24gY2Fubm90IGJlIHVuZG9uZS4nLAogICAgICAgICAgICBmb290ZXI6ICgKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9InNwYWNlLWJldHdlZW4iPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17Y2xvc2VEaWFsb2d9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDYXJkRGVsZXRlKGNhKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xvc2VEaWFsb2coKQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICAgICAgICAgICAgICBEZWxldGUKICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgKSwKICAgICAgICB9KQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNvbHVtbkFkZCA9ICh7IHZhbHVlLCBzd2ltbGFuZUluZGV4IH0pID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNvbHVtbkFkZCh7IHZhbHVlLCBzd2ltbGFuZUluZGV4IH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ29sdW1uVXBkYXRlID0gKGNvbCkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ29sdW1uVXBkYXRlKGNvbCkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDb2x1bW5EZWxldGUgPSAoY29sKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDb2x1bW5EZWxldGUoY29sKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVN3aW1sYW5lVXBkYXRlID0gKHNsKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVTd2ltbGFuZVVwZGF0ZShzbCkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVTd2ltbGFuZURlbGV0ZSA9IChzbCkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlU3dpbWxhbmVEZWxldGUoc2wpCiAgICB9CgogICAgY29uc3QgZ2V0TWVudSA9ICh7IGRhdGE6IHsgdGFyZ2V0LCBwYXlsb2FkIH0sIGRpc21pc3MgfSkgPT4gewogICAgICAgIHN3aXRjaCAodGFyZ2V0KSB7CiAgICAgICAgICAgIGNhc2UgJ2thbmJhbi1sYWJlbCc6CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDxMYWJlbE1lbnUKICAgICAgICAgICAgICAgICAgICAgICAgbGFiZWxzPXtwYXlsb2FkLmxhYmVsc30KICAgICAgICAgICAgICAgICAgICAgICAgb25DYW5jZWw9e2Rpc21pc3N9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KGxhYmVscykgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZFVwZGF0ZSh7IC4uLnBheWxvYWQsIGxhYmVscyB9KQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgY2FzZSAna2FuYmFuLXVzZXInOgogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICA8VXNlck1lbnUKICAgICAgICAgICAgICAgICAgICAgICAgdXNlcnM9e3BheWxvYWQudXNlcnN9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXtkaXNtaXNzfQogICAgICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyh1c2VycykgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZFVwZGF0ZSh7IC4uLnBheWxvYWQsIHVzZXJzIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBjYXNlICdrYW5iYW4tbWVudSc6CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDxDb250ZXh0UG9wdXAKICAgICAgICAgICAgICAgICAgICAgICAgaXRlbT17cGF5bG9hZH0KICAgICAgICAgICAgICAgICAgICAgICAgb25DYW5jZWw9e2Rpc21pc3N9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KGNhcmQpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZFVwZGF0ZSh7IC4uLnBheWxvYWQsIC4uLmNhcmQgfSkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25WaWV3PXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldENhcmQocGF5bG9hZCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZERlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIGNhc2UgJ2thbmJhbi1jb2x1bW4nOgogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICA8R3JvdXBNZW51CiAgICAgICAgICAgICAgICAgICAgICAgIG9uRWRpdD17KGNvbHVtbikgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q29sdW1uKHsgLi4uY29sdW1uIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoY29sdW1uKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVDb2x1bW5VcGRhdGUoeyAuLi5wYXlsb2FkLCAuLi5jb2x1bW4gfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ29sdW1uRGVsZXRlKHBheWxvYWQpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgZ3JvdXA9e3BheWxvYWR9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgY2FzZSAna2FuYmFuLXN3aW1sYW5lJzoKICAgICAgICAgICAgICAgIHJldHVybiAoCiAgICAgICAgICAgICAgICAgICAgPEdyb3VwTWVudQogICAgICAgICAgICAgICAgICAgICAgICBvbkVkaXQ9eyhjb2x1bW4pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KHN3aW1sYW5lKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVTd2ltbGFuZVVwZGF0ZSh7IC4uLnBheWxvYWQsIC4uLnN3aW1sYW5lIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVN3aW1sYW5lRGVsZXRlKHBheWxvYWQpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgZ3JvdXA9e3BheWxvYWR9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgZGVmYXVsdDoKICAgICAgICAgICAgICAgIHJldHVybiBudWxsCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVRyaWdnZXIgPSAod29yZCkgPT4gewogICAgICAgIGlmICh3b3JkLnRyaW0oKS5jaGFyQXQoMCkgPT0gJ0AnKSB7CiAgICAgICAgICAgIHNldE9wdGlvbnMoZGF0YS5yaWNoSW5wdXRVc2VycykKICAgICAgICB9IGVsc2UgaWYgKHdvcmQudHJpbSgpLmNoYXJBdCgwKSA9PSAnIycpIHsKICAgICAgICAgICAgc2V0T3B0aW9ucyhkYXRhLnJpY2hJbnB1dExhYmVscykKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBzZXRPcHRpb25zKFtdKQogICAgICAgIH0KICAgIH0KCiAgICBjb25zdCBoYW5kbGVXb3JkID0gKHdvcmQsIG5leHQpID0+IHsKICAgICAgICBpZiAod29yZC5pbmNsdWRlcygnZGF0ZTonKSkgewogICAgICAgICAgICBuZXh0KHsKICAgICAgICAgICAgICAgIHBocmFzZTogd29yZC50cmltKCksCiAgICAgICAgICAgICAgICB0eXBlOiB3b3JkLnNwbGl0KCc6JylbMF0sCiAgICAgICAgICAgICAgICB2YWx1ZTogd29yZC5zcGxpdCgnOicpWzFdLnRyaW0oKSwKICAgICAgICAgICAgfSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBuZXh0KCkKICAgICAgICB9CiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8UmljaElucHV0UHJvdmlkZXIKICAgICAgICAgICAgdHJpZ2dlcnM9e1snIycsICdAJ119CiAgICAgICAgICAgIG9wdGlvbnM9e29wdGlvbnN9CiAgICAgICAgICAgIG9uV29yZD17aGFuZGxlV29yZH0KICAgICAgICAgICAgb25UcmlnZ2VyPXtoYW5kbGVUcmlnZ2VyfT4KICAgICAgICAgICAgPENvbW1vblByb3ZpZGVyCiAgICAgICAgICAgICAgICBvblVzZXJGaWx0ZXI9eyh2YWwpID0+IG51bGx9CiAgICAgICAgICAgICAgICBvbkxhYmVsRmlsdGVyPXsodmFsKSA9PiBudWxsfQogICAgICAgICAgICAgICAgYXZhaWxhYmxlTGFiZWxzPXtkYXRhLmF2YWlsYWJsZUxhYmVsc30KICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgY29sb3JzPXtkYXRhLmNvbG9yUGFsZXR0ZX0+CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGhlaWdodD17NzAwfT4KICAgICAgICAgICAgICAgICAgICB7ISFjYXJkLmlkICYmICgKICAgICAgICAgICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgICAgICAgICAgaXRlbT17eyAuLi5jYXJkIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17KCkgPT4gc2V0Q2FyZCh7fSl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyhjYXJkKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZFVwZGF0ZShjYXJkKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldENhcmQoe30pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eyhjYXJkKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZERlbGV0ZShjYXJkKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldENhcmQoe30pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICl9CgogICAgICAgICAgICAgICAgICAgIHshIWNvbHVtbi5pZCAmJiAoCiAgICAgICAgICAgICAgICAgICAgICAgIDxHcm91cERldGFpbAogICAgICAgICAgICAgICAgICAgICAgICAgICAgaXRlbT17eyAuLi5jb2x1bW4gfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q29sdW1uKHt9KQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KGNvbHVtbikgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUNvbHVtblVwZGF0ZSh7IC4uLmNvbHVtbiB9KQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldENvbHVtbih7fSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KGNvbHVtbikgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUNvbHVtbkRlbGV0ZShjb2x1bW4pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q29sdW1uKHt9KQogICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICApfQoKICAgICAgICAgICAgICAgICAgICA8TWVudVByb3ZpZGVyIG1lbnU9e2dldE1lbnV9PgogICAgICAgICAgICAgICAgICAgICAgICA8S2FuYmFuUHJvdmlkZXIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlkPSJrYW5iYW4taW5zdGFuY2UtMSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFkZENvbHVtbj17dHJ1ZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHRTZWxlY3Rpb249e3t9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGVmYXVsdEludGVyYWN0aW9uPSJhbmltYXRlZCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRhcmdldFZhcmlhbnQ9e3sgcHJvamVjdHM6ICdmb2N1cycgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNhcmQ9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbkhlYWRlcj17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgc3dpbWxhbmVIZWFkZXI9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2FyZE9wZW49e2hhbmRsZUNhcmRPcGVufQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DYXJkQWRkPXtoYW5kbGVDYXJkQWRkfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DYXJkVXBkYXRlPXtoYW5kbGVDYXJkVXBkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DYXJkTW92ZT17aGFuZGxlQ2FyZE1vdmV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNvbHVtbkFkZD17aGFuZGxlQ29sdW1uQWRkfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25Db2x1bW5Nb3ZlPXtoYW5kbGVDb2x1bW5Nb3ZlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25Td2ltbGFuZU1vdmU9e2hhbmRsZVN3aW1sYW5lTW92ZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ29sdW1uVXBkYXRlPXtoYW5kbGVDb2x1bW5VcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvblN3aW1sYW5lVXBkYXRlPXtoYW5kbGVTd2ltbGFuZVVwZGF0ZX0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8S2FuYmFuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3dpbWxhbmVzPXtzd2ltbGFuZXN9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdG9vbGJhcj17KHsgc2VsZWN0aW9uIH0pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9zaXRpb249ImZpeGVkIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2UtaW52ZXJzZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LW9uLWNvbG9yIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9IjFyZW0gMnJlbSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9InZhcigtLWYtcmFkaXVzKSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaGFkb3c9InZhcigtLWYtc2hhZG93LXhsKSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezEwMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9ImYtZmFkZWluIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc3BsYXk9eyFPYmplY3Qua2V5cyhzZWxlY3Rpb24pLmxlbmd0aCA/ICdub25lJyA6ICdmbGV4J30KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT17eyBib3R0b206IDEwLCBsZWZ0OiAnNTAlJywgdHJhbnNmb3JtOiAndHJhbnNsYXRlWCgtNTAlKScgfX0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQgY29sb3I9ImluaGVyaXQiPntPYmplY3Qua2V5cyhzZWxlY3Rpb24pLmxlbmd0aH0gc2VsZWN0ZWQ8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb24KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbj17RklCaW59CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldERpYWxvZyh7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGl0bGU6ICdBcmUgeW91IHN1cmU/JywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogJ1RoaXMgYWN0aW9uIGNhbm5vdCBiZSB1bmRvbmUuJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0YWw6IFBvcnRhbCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb290ZXI6ICgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0ic3BhY2UtYmV0d2VlbiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbG9zZURpYWxvZygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc3BhdGNoS2FuYmFuRXZlbnQoJ3NlbGVjdCcsIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluc3RhbmNlSWQ6ICdrYW5iYW4taW5zdGFuY2UtMScsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQ2FuY2VsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrYW5iYW5TdGF0ZSh7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzd2ltbGFuZXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRTd2ltbGFuZXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYXJkLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q2FyZCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSkuaGFuZGxlU2VsZWN0aW9uRGVsZXRlKHNlbGVjdGlvbikKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGF0Y2hLYW5iYW5FdmVudCgnc2VsZWN0JywgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW5zdGFuY2VJZDogJ2thbmJhbi1pbnN0YW5jZS0xJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xvc2VEaWFsb2coKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIERlbGV0ZQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvS2FuYmFuUHJvdmlkZXI+CiAgICAgICAgICAgICAgICAgICAgPC9NZW51UHJvdmlkZXI+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvQ29tbW9uUHJvdmlkZXI+CiAgICAgICAgPC9SaWNoSW5wdXRQcm92aWRlcj4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    const [swimlanes, setSwimlanes] = useState<KanbanTypes.Swimlane[]>([data.swimlanes[0]])
+    const [options, setOptions] = useState<RichInputOption[]>([])
+    const [card, setCard] = useState<any>({})
+    const [column, setColumn] = useState<any>({})
+    const { setDialog, closeDialog } = useDialog()
+
+    const handleCardMove = ({ origin, target }, selection: KanbanSelection[]) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardMove({ origin, target }, selection)
+    }
+
+    const handleColumnMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnMove({ origin, target })
+    }
+
+    const handleSwimlaneMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneMove({ origin, target })
+    }
+
+    const handleCardOpen = (card) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardOpen(card)
+    }
+
+    const handleCardAdd = ({ value, swimlaneIndex, columnIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardAdd({ value, swimlaneIndex, columnIndex })
+    }
+
+    const handleCardUpdate = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardUpdate(ca)
+    }
+
+    const handleCardDelete = (ca) => {
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (
+                <View
+                    row
+                    width="100%"
+                    justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button
+                        onClick={() => {
+                            kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca)
+                            closeDialog()
+                        }}
+                        variant="danger">
+                        Delete
+                    </Button>
+                </View>
+            ),
+        })
+    }
+
+    const handleColumnAdd = ({ value, swimlaneIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnAdd({ value, swimlaneIndex })
+    }
+
+    const handleColumnUpdate = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnUpdate(col)
+    }
+
+    const handleColumnDelete = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnDelete(col)
+    }
+
+    const handleSwimlaneUpdate = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneUpdate(sl)
+    }
+
+    const handleSwimlaneDelete = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneDelete(sl)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'kanban-label':
+                return (
+                    <LabelMenu
+                        labels={payload.labels}
+                        onCancel={dismiss}
+                        onSave={(labels) => {
+                            handleCardUpdate({ ...payload, labels })
+                            dismiss()
+                        }}
+                    />
+                )
+            case 'kanban-user':
+                return (
+                    <UserMenu
+                        users={payload.users}
+                        onCancel={dismiss}
+                        onSave={(users) => {
+                            handleCardUpdate({ ...payload, users })
+                            dismiss()
+                        }}
+                    />
+                )
+            case 'kanban-menu':
+                return (
+                    <ContextPopup
+                        item={payload}
+                        onCancel={dismiss}
+                        onSave={(card) => {
+                            dismiss()
+                            handleCardUpdate({ ...payload, ...card })
+                        }}
+                        onView={() => {
+                            dismiss()
+                            setCard(payload)
+                        }}
+                        onDelete={() => {
+                            dismiss()
+                            handleCardDelete(payload)
+                        }}
+                    />
+                )
+            case 'kanban-column':
+                return (
+                    <GroupMenu
+                        onEdit={(column) => {
+                            setColumn({ ...column })
+                            dismiss()
+                        }}
+                        onSave={(column) => {
+                            handleColumnUpdate({ ...payload, ...column })
+                            dismiss()
+                        }}
+                        onDelete={() => {
+                            handleColumnDelete(payload)
+                            dismiss()
+                        }}
+                        group={payload}
+                    />
+                )
+            case 'kanban-swimlane':
+                return (
+                    <GroupMenu
+                        onEdit={(column) => {
+                            
+                            dismiss()
+                        }}
+                        onSave={(swimlane) => {
+                            handleSwimlaneUpdate({ ...payload, ...swimlane })
+                            dismiss()
+                        }}
+                        onDelete={() => {
+                            handleSwimlaneDelete(payload)
+                            dismiss()
+                        }}
+                        group={payload}
+                    />
+                )
+            default:
+                return null
+        }
+    }
+
+    const handleTrigger = (word) => {
+        if (word.trim().charAt(0) == '@') {
+            setOptions(data.richInputUsers)
+        } else if (word.trim().charAt(0) == '#') {
+            setOptions(data.richInputLabels)
+        } else {
+            setOptions([])
+        }
+    }
+
+    const handleWord = (word, next) => {
+        if (word.includes('date:')) {
+            next({
+                phrase: word.trim(),
+                type: word.split(':')[0],
+                value: word.split(':')[1].trim(),
+            })
+        } else {
+            next()
+        }
+    }
+
+    return (
+        <RichInputProvider
+            triggers={['#', '@']}
+            options={options}
+            onWord={handleWord}
+            onTrigger={handleTrigger}>
+            <CommonProvider
+                onUserFilter={(val) => null}
+                onLabelFilter={(val) => null}
+                availableLabels={data.availableLabels}
+                availableUsers={data.availableUsers}
+                colors={data.colorPalette}>
+                <View
+                    width="100%"
+                    height={700}>
+                    {!!card.id && (
+                        <Detail
+                            item={{ ...card }}
+                            onCancel={() => setCard({})}
+                            onSave={(card) => {
+                                handleCardUpdate(card)
+                                setCard({})
+                            }}
+                            onDelete={(card) => {
+                                handleCardDelete(card)
+                                setCard({})
+                            }}
+                        />
+                    )}
+
+                    {!!column.id && (
+                        <GroupDetail
+                            item={{ ...column }}
+                            onCancel={() => {
+                                setColumn({})
+                            }}
+                            onSave={(column) => {
+                                handleColumnUpdate({ ...column })
+                                setColumn({})
+                            }}
+                            onDelete={(column) => {
+                                handleColumnDelete(column)
+                                setColumn({})
+                            }}
+                        />
+                    )}
+
+                    <MenuProvider menu={getMenu}>
+                        <KanbanProvider
+                            id="kanban-instance-1"
+                            addColumn={true}
+                            defaultSelection={{}}
+                            defaultInteraction="animated"
+                            targetVariant={{ projects: 'focus' }}
+                            card={undefined}
+                            columnHeader={undefined}
+                            swimlaneHeader={undefined}
+                            onCardOpen={handleCardOpen}
+                            onCardAdd={handleCardAdd}
+                            onCardUpdate={handleCardUpdate}
+                            onCardMove={handleCardMove}
+                            onColumnAdd={handleColumnAdd}
+                            onColumnMove={handleColumnMove}
+                            onSwimlaneMove={handleSwimlaneMove}
+                            onColumnUpdate={handleColumnUpdate}
+                            onSwimlaneUpdate={handleSwimlaneUpdate}>
+                            <Kanban
+                                swimlanes={swimlanes}
+                                toolbar={({ selection }) => {
+                                    return (
+                                        <View
+                                            row
+                                            position="fixed"
+                                            bgToken="surface-inverse"
+                                            colorToken="text-on-color"
+                                            p="1rem 2rem"
+                                            radius="var(--f-radius)"
+                                            shadow="var(--f-shadow-xl)"
+                                            zIndex={1000}
+                                            gap={10}
+                                            className="f-fadein"
+                                            display={!Object.keys(selection).length ? 'none' : 'flex'}
+                                            style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
+                                            <Text color="inherit">{Object.keys(selection).length} selected</Text>
+                                            <Icon
+                                                icon={FIBin}
+                                                className="f-buttonize"
+                                                onClick={() => {
+                                                    setDialog({
+                                                        title: 'Are you sure?',
+                                                        description: 'This action cannot be undone.',
+                                                        portal: Portal,
+                                                        footer: (
+                                                            <View
+                                                                width="100%"
+                                                                row
+                                                                justifyContent="space-between">
+                                                                <Button
+                                                                    onClick={() => {
+                                                                        closeDialog()
+                                                                        dispatchKanbanEvent('select', {
+                                                                            instanceId: 'kanban-instance-1',
+                                                                        })
+                                                                    }}>
+                                                                    Cancel
+                                                                </Button>
+                                                                <Button
+                                                                    variant="danger"
+                                                                    onClick={() => {
+                                                                        kanbanState({
+                                                                            swimlanes,
+                                                                            setSwimlanes,
+                                                                            card,
+                                                                            setCard,
+                                                                        }).handleSelectionDelete(selection)
+                                                                        dispatchKanbanEvent('select', {
+                                                                            instanceId: 'kanban-instance-1',
+                                                                        })
+                                                                        closeDialog()
+                                                                    }}>
+                                                                    Delete
+                                                                </Button>
+                                                            </View>
+                                                        ),
+                                                    })
+                                                }}
+                                            />
+                                        </View>
+                                    )
+                                }}
+                            />
+                        </KanbanProvider>
+                    </MenuProvider>
+                </View>
+            </CommonProvider>
+        </RichInputProvider>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

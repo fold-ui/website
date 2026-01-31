@@ -1,9 +1,9 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Link, View } from '@fold-dev/core'
+import { Link, View } from '@fold-ui/core'
 import React from 'react'
-import { CsvImporter } from '@fold-dev/core'
+import { CsvImporter } from '../'
 
 export const docs = {
     title: 'CSV Importer',
@@ -19,7 +19,7 @@ export const css = [[["--f-csv-importer-padding","1rem"],["--f-csv-importer-gap"
 
 
 
-<CodeComponent filename="csv-importer.tsx" code="aW1wb3J0IHsKICBDc3ZJbXBvcnRlckNvbHVtbk1hcFJvdywKICBDc3ZJbXBvcnRlckNvbHVtbk1hcCwKICBDc3ZJbXBvcnRlckRhdGFDbGVhbiwKICBDc3ZJbXBvcnRlckRvbmUsCiAgQ3N2SW1wb3J0ZXJGb290ZXIsCiAgQ3N2SW1wb3J0ZXJIZWFkZXJTZWxlY3QsCiAgQ3N2SW1wb3J0ZXJTdGVwcywKICBDc3ZJbXBvcnRlclVwbG9hZCwKICBDc3ZJbXBvcnRlclZhbGlkYXRpb25Qb3B1cCwKICBDc3ZJbXBvcnRlclByb3ZpZGVyLAogIENzdkltcG9ydGVyLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+<CodeComponent filename="csv-importer.tsx" code="aW1wb3J0IHsKICBDc3ZJbXBvcnRlckNvbHVtbk1hcFJvdywKICBDc3ZJbXBvcnRlckNvbHVtbk1hcCwKICBDc3ZJbXBvcnRlckRhdGFDbGVhbiwKICBDc3ZJbXBvcnRlckRvbmUsCiAgQ3N2SW1wb3J0ZXJGb290ZXIsCiAgQ3N2SW1wb3J0ZXJIZWFkZXJTZWxlY3QsCiAgQ3N2SW1wb3J0ZXJTdGVwcywKICBDc3ZJbXBvcnRlclVwbG9hZCwKICBDc3ZJbXBvcnRlclZhbGlkYXRpb25Qb3B1cCwKICBDc3ZJbXBvcnRlclByb3ZpZGVyLAogIENzdkltcG9ydGVyLAp9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
 ```tsx
 import {
   CsvImporterColumnMapRow,
@@ -33,30 +33,20 @@ import {
   CsvImporterValidationPopup,
   CsvImporterProvider,
   CsvImporter,
-} from "@fold-dev/core";
+} from "@fold-ui/core";
 ```
 
 ### Usage
 
 export const Usage = () => {
-    return (
-        <CsvImporter 
-            step={0} 
-            separator="," 
-            onComplete={(data) => console.log('data', data)} 
-            schema={[
-                { key: 'year', label: 'Year', type: 'string' },
-                { key: 'variable', label: 'Variable', type: 'string' },
-            ]} 
-            toolbar={
-                <View row gap={5} justifyContent="flex-start">
+    return (<CsvImporter step={0} separator="," onComplete={(data) => console.log('data', data)} schema={[
+            { key: 'year', label: 'Year', type: 'string' },
+            { key: 'variable', label: 'Variable', type: 'string' },
+        ]} toolbar={<View row gap={5} justifyContent="flex-start">
                     <Link href="https://drive.google.com/uc?id=1x2IdSNcHGLmot9i1h90gwMJr5lULC2QV&export=download" target="_blank">
                         Download CSV file ↗
                     </Link>
-                </View>
-            } 
-        />
-    );
+                </View>}/>);
 };
 
 <div className="story-block">
@@ -72,9 +62,49 @@ export const Usage = () => {
             step={0}
             separator=","
             onComplete={(data) => console.log('data', data)}
+            
+            
+            
+            
             schema={[
                 { key: 'year', label: 'Year', type: 'string' },
-                { key: 'variable', label: 'Variable', type: 'string' }, 
+                { key: 'variable', label: 'Variable', type: 'string' },
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             ]}
             toolbar={
                 <View

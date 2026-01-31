@@ -13,7 +13,7 @@ import {
     AccordionPanel,
     Breadcrumb,
     BreadcrumbItem,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { LifebuoyIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 
@@ -34,7 +34,7 @@ export default function Faq(props) {
                 specific question has not been addressed or if you require additional information, please feel free to
                 reach out to us at our{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank">
                     GitHub
                 </Link>{' '}
@@ -61,7 +61,7 @@ export default function Faq(props) {
                         Currently, only ES6 Modules are supported. However, we are actively seeking feedback on how we
                         can accommodate a broader range of users. Please let us on know at our{' '}
                         <Link
-                            href="https://github.com/fold-dev/fold/discussions"
+                            href="https://github.com/fold-ui/fold/discussions"
                             target="_blank"
                             fontSize="inherit">
                             repository
@@ -74,7 +74,7 @@ export default function Faq(props) {
                     <AccordionPanel>
                         Please visit at our{' '}
                         <Link
-                            href="https://github.com/fold-dev/fold"
+                            href="https://github.com/fold-ui/fold"
                             target="_blank"
                             fontSize="inherit">
                             repository
@@ -98,7 +98,7 @@ export default function Faq(props) {
                     <AccordionPanel>
                         Absolutely! Please visit at our{' '}
                         <Link
-                            href="https://github.com/fold-dev/fold"
+                            href="https://github.com/fold-ui/fold"
                             target="_blank"
                             fontSize="inherit">
                             repository
@@ -115,7 +115,7 @@ export default function Faq(props) {
                     <AccordionPanel>
                         Please see our{' '}
                         <Link
-                            href="https://github.com/orgs/fold-dev/projects/8"
+                            href="https://github.com/orgs/fold-ui/projects/8"
                             target="_blank"
                             fontSize="inherit">
                             Roadmap

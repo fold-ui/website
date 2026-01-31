@@ -13,8 +13,8 @@ import {
     Text,
     View,
     addAlpha
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import { useRouter } from 'next/router'
 import React from 'react'
 import {
@@ -47,7 +47,7 @@ export default function Introduction(props) {
                         Please consider these docs a work in progress. We're adding more detail all the time, but if you
                         have any questions - please feel free to ask them on{' '}
                         <Link
-                            href="https://github.com/fold-dev/fold/discussions"
+                            href="https://github.com/fold-ui/fold/discussions"
                             target="_blank">
                             GitHub
                         </Link>{' '}
@@ -64,7 +64,7 @@ export default function Introduction(props) {
                 We've just launched and would love your feedback. If you've found bugs, have ideas or generally want to
                 say hello, please check out our{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank"
                     fontSize="inherit">
                     GitHub
@@ -162,7 +162,7 @@ export default function Introduction(props) {
             <Text>
                 If you've come across a bug or an issue, please don't hesitate to{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/issues"
+                    href="https://github.com/fold-ui/fold/issues"
                     target="_blank"
                     fontSize="inherit">
                     open a new issue
@@ -176,7 +176,7 @@ export default function Introduction(props) {
                 We'd love to get your feedback, be it suggestions, feature requests, or general thoughts on your
                 experience. If you believe that creating a new issue isn't the best choice, don't hesitate to initiate a{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank"
                     fontSize="inherit">
                     discussion
@@ -189,7 +189,7 @@ export default function Introduction(props) {
             <Text>
                 Please note that we have a{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/blob/main/CODE_OF_CONDUCT.md"
+                    href="https://github.com/fold-ui/fold/blob/main/CODE_OF_CONDUCT.md"
                     target="_blank"
                     fontSize="inherit">
                     Code of Conduct
@@ -203,7 +203,7 @@ export default function Introduction(props) {
             <Text>
                 This project is licensed under the MIT License - see the{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/blob/main/LICENSE"
+                    href="https://github.com/fold-ui/fold/blob/main/LICENSE"
                     target="_blank"
                     fontSize="inherit">
                     license
@@ -216,14 +216,14 @@ export default function Introduction(props) {
             <Text>
                 If you encounter any issues or have questions, feel free to{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/issues"
+                    href="https://github.com/fold-ui/fold/issues"
                     target="_blank"
                     fontSize="inherit">
                     open an issue
                 </Link>{' '}
                 or start a{' '}
                 <Link
-                    href="https://github.com/fold-dev/fold/discussions"
+                    href="https://github.com/fold-ui/fold/discussions"
                     target="_blank"
                     fontSize="inherit">
                     discussion

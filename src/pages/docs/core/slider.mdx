@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Slider, Text, useSlider } from '@fold-dev/core'
+import { Slider, Text, useSlider } from '@fold-ui/core'
 import React, { useState } from 'react'
 
 export const docs = {
@@ -18,9 +18,9 @@ export const css = [[["--f-slider-marker","var(--f-color-surface)"],["--f-slider
 
 
 
-<CodeComponent filename="slider.tsx" code="aW1wb3J0IHsgdXNlU2xpZGVyLCBTbGlkZXJIYW5kbGUsIFNsaWRlciB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+<CodeComponent filename="slider.tsx" code="aW1wb3J0IHsgdXNlU2xpZGVyLCBTbGlkZXJIYW5kbGUsIFNsaWRlciB9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
 ```tsx
-import { useSlider, SliderHandle, Slider } from "@fold-dev/core";
+import { useSlider, SliderHandle, Slider } from "@fold-ui/core";
 ```
 
 ### Usage
@@ -247,9 +247,9 @@ export const WithColorAndLabels = () => {
                 {Math.round(value[0] * 100) / 100} & {Math.round(value[1] * 100) / 100} with color and labels
             </Text>
             <Slider showTooltip markers={11} onChange={setValue} values={value} min={0} max={1} anchor={0} labels tooltipValue={(value) => Math.round(value * 100) + ' %'} labelValue={(value) => Math.round(value * 10) + ' %'} style={{
-            '--f-slider-handle-background-color': 'var(--f-color-electric-400)',
-            '--f-slider-fill-background': 'var(--f-color-electric-300)',
-            '--f-slider-handle-background-color-hover': 'var(--f-color-electric-600)',
+            '--f-slider-handle-background-color': 'var(--f-color-blue-400)',
+            '--f-slider-fill-background': 'var(--f-color-blue-300)',
+            '--f-slider-handle-background-color-hover': 'var(--f-color-blue-600)',
         }}/>
         </>);
 };
@@ -258,7 +258,7 @@ export const WithColorAndLabels = () => {
 <WithColorAndLabels />
 </div>
 
-<CodeComponent filename="WithColorAndLabels.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhDb2xvckFuZExhYmVscyA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmFsdWUsIHNldFZhbHVlIH0gPSB1c2VTbGlkZXIoWzAuNiwgMC45XSkKCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAge01hdGgucm91bmQodmFsdWVbMF0gKiAxMDApIC8gMTAwfSAmIHtNYXRoLnJvdW5kKHZhbHVlWzFdICogMTAwKSAvIDEwMH0gd2l0aCBjb2xvciBhbmQgbGFiZWxzCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPFNsaWRlcgogICAgICAgICAgICAgICAgc2hvd1Rvb2x0aXAKICAgICAgICAgICAgICAgIG1hcmtlcnM9ezExfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICAgICAgdmFsdWVzPXt2YWx1ZX0KICAgICAgICAgICAgICAgIG1pbj17MH0KICAgICAgICAgICAgICAgIG1heD17MX0KICAgICAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgICAgIGxhYmVscwogICAgICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAgICAgICAgIGxhYmVsVmFsdWU9eyh2YWx1ZSkgPT4gTWF0aC5yb3VuZCh2YWx1ZSAqIDEwKSArICcgJSd9CiAgICAgICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgICAgICctLWYtc2xpZGVyLWhhbmRsZS1iYWNrZ3JvdW5kLWNvbG9yJzogJ3ZhcigtLWYtY29sb3ItZWxlY3RyaWMtNDAwKScsCiAgICAgICAgICAgICAgICAgICAgJy0tZi1zbGlkZXItZmlsbC1iYWNrZ3JvdW5kJzogJ3ZhcigtLWYtY29sb3ItZWxlY3RyaWMtMzAwKScsCiAgICAgICAgICAgICAgICAgICAgJy0tZi1zbGlkZXItaGFuZGxlLWJhY2tncm91bmQtY29sb3ItaG92ZXInOiAndmFyKC0tZi1jb2xvci1lbGVjdHJpYy02MDApJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC8+CiAgICApCn0=" />
+<CodeComponent filename="WithColorAndLabels.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhDb2xvckFuZExhYmVscyA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmFsdWUsIHNldFZhbHVlIH0gPSB1c2VTbGlkZXIoWzAuNiwgMC45XSkKCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAge01hdGgucm91bmQodmFsdWVbMF0gKiAxMDApIC8gMTAwfSAmIHtNYXRoLnJvdW5kKHZhbHVlWzFdICogMTAwKSAvIDEwMH0gd2l0aCBjb2xvciBhbmQgbGFiZWxzCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPFNsaWRlcgogICAgICAgICAgICAgICAgc2hvd1Rvb2x0aXAKICAgICAgICAgICAgICAgIG1hcmtlcnM9ezExfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICAgICAgdmFsdWVzPXt2YWx1ZX0KICAgICAgICAgICAgICAgIG1pbj17MH0KICAgICAgICAgICAgICAgIG1heD17MX0KICAgICAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgICAgIGxhYmVscwogICAgICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAgICAgICAgIGxhYmVsVmFsdWU9eyh2YWx1ZSkgPT4gTWF0aC5yb3VuZCh2YWx1ZSAqIDEwKSArICcgJSd9CiAgICAgICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgICAgICctLWYtc2xpZGVyLWhhbmRsZS1iYWNrZ3JvdW5kLWNvbG9yJzogJ3ZhcigtLWYtY29sb3ItYmx1ZS00MDApJywKICAgICAgICAgICAgICAgICAgICAnLS1mLXNsaWRlci1maWxsLWJhY2tncm91bmQnOiAndmFyKC0tZi1jb2xvci1ibHVlLTMwMCknLAogICAgICAgICAgICAgICAgICAgICctLWYtc2xpZGVyLWhhbmRsZS1iYWNrZ3JvdW5kLWNvbG9yLWhvdmVyJzogJ3ZhcigtLWYtY29sb3ItYmx1ZS02MDApJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC8+CiAgICApCn0=" />
 
 ```tsx
 export const WithColorAndLabels = () => {
@@ -281,9 +281,9 @@ export const WithColorAndLabels = () => {
                 tooltipValue={(value) => Math.round(value * 100) + ' %'}
                 labelValue={(value) => Math.round(value * 10) + ' %'}
                 style={{
-                    '--f-slider-handle-background-color': 'var(--f-color-electric-400)',
-                    '--f-slider-fill-background': 'var(--f-color-electric-300)',
-                    '--f-slider-handle-background-color-hover': 'var(--f-color-electric-600)',
+                    '--f-slider-handle-background-color': 'var(--f-color-blue-400)',
+                    '--f-slider-fill-background': 'var(--f-color-blue-300)',
+                    '--f-slider-handle-background-color-hover': 'var(--f-color-blue-600)',
                 }}
             />
         </>

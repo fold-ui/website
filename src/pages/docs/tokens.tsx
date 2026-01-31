@@ -11,7 +11,7 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     Stack,
-} from '@fold-dev/core'
+} from '@fold-ui/core'
 import { LifebuoyIcon } from '@heroicons/react/24/outline'
 import React, { useMemo } from 'react'
 import { useTokens } from './design-system'
@@ -110,16 +110,16 @@ export default function Tokens(props) {
                 filename="App.tsx"
                 code={` 
     // NodeJS module
-    import * as Token from '@fold-dev/design/tokens'
+    import * as Token from '@fold-ui/design/tokens'
 
     // ES6 modules
-    import { ColorBlue400 } from '@fold-dev/design/tokens-es6'    
+    import { ColorBlue400 } from '@fold-ui/design/tokens-es6'    
                 `}
             />
             <Text as="blockquote">
                 The provided list is not exhaustive, but encompasses the tokens most commonly used. You can locate all
                 the tokens in our repository on{' '}
-                <Link href="https://github.com/fold-dev/fold/tree/main/packages/design/tokens" target="_blank">Github</Link>.
+                <Link href="https://github.com/fold-ui/fold/tree/main/packages/design/tokens" target="_blank">Github</Link>.
             </Text>
             <Heading
                 as="h3"

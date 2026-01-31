@@ -5,8 +5,8 @@ import {
     AccordionItem,
     AccordionPanel,
     Breadcrumb, BreadcrumbItem, Button, Heading, Icon, IconLib, Link, Notification, NotificationContent, NotificationIcon, Text, View
-} from '@fold-dev/core'
-import * as Token from '@fold-dev/design/tokens'
+} from '@fold-ui/core'
+import * as Token from '@fold-ui/design/tokens'
 import React from 'react'
 import { CodeComponent } from '../../components/code.component'
 import { GraphicLeft } from '../../components/graphic.component'

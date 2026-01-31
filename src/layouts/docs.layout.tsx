@@ -58,7 +58,7 @@ import {
     PiSignpost,
     PiTwitterLogo
 } from 'react-icons/pi'
-import { navigation } from '../navigation'
+import { navigation, navigationPro } from '../navigation'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 
 export const CircleIcon = ({
@@ -574,7 +574,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.19.0
+                                                    v0.21.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -586,6 +586,43 @@ export default function DocsLayout(props: any) {
                                                 style={{ textTransform: 'capitalize' }}
                                                 onClick={() =>
                                                     router.push('/docs/core/' + component.slug, {
+                                                        scroll: false,
+                                                    })
+                                                }
+                                                suffix={
+                                                    <View
+                                                        gap={5}
+                                                        row>
+                                                        {component.experimental && (
+                                                            <Pill
+                                                                size="xs"
+                                                                subtle>
+                                                                BETA
+                                                            </Pill>
+                                                        )}
+                                                    </View>
+                                                }>
+                                                {component.slug.replace('-', ' ')}
+                                            </NavigationItem>
+                                        ))}
+                                        <NavigationDivider />
+                                        <NavigationHeading
+                                            suffix={            
+                                                <Pill
+                                                    size="xs"
+                                                    subtle>
+                                                    v0.21.0
+                                                </Pill>                                               
+                                            }>
+                                            Pro Components
+                                        </NavigationHeading>
+                                        {navigationPro.map((component: any, index: number) => (
+                                            <NavigationItem
+                                                active={url == component.slug}
+                                                key={index}
+                                                style={{ textTransform: 'capitalize' }}
+                                                onClick={() =>
+                                                    router.push('/docs/pro/' + component.slug, {
                                                         scroll: false,
                                                     })
                                                 }

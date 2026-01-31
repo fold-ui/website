@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Breadcrumb, BreadcrumbItem, IconLib } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, IconLib } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -18,9 +18,9 @@ export const css = [[["--f-breadcrumb-background-color","transparent"],["--f-bre
 
 
 
-<CodeComponent filename="breadcrumb.tsx" code="aW1wb3J0IHsgQnJlYWRjcnVtYkl0ZW0sIEJyZWFkY3J1bWIgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+<CodeComponent filename="breadcrumb.tsx" code="aW1wb3J0IHsgQnJlYWRjcnVtYkl0ZW0sIEJyZWFkY3J1bWIgfSBmcm9tICJAZm9sZC11aS9jb3JlIjsK" />
 ```tsx
-import { BreadcrumbItem, Breadcrumb } from "@fold-dev/core";
+import { BreadcrumbItem, Breadcrumb } from "@fold-ui/core";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ export const WithCustomIconAndActiveLink = () => {
     return (<Breadcrumb separator={<IconLib icon="chevron-right"/>}>
             <BreadcrumbItem>Website</BreadcrumbItem>
             <BreadcrumbItem>Blog</BreadcrumbItem>
-            <BreadcrumbItem active to="https://fold.dev" target="_blank">
+            <BreadcrumbItem active to="https://fold-ui.com" target="_blank">
                 What is a breadcrumb?
             </BreadcrumbItem>
         </Breadcrumb>);
@@ -66,7 +66,7 @@ export const WithCustomIconAndActiveLink = () => {
 <WithCustomIconAndActiveLink />
 </div>
 
-<CodeComponent filename="WithCustomIconAndActiveLink.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhDdXN0b21JY29uQW5kQWN0aXZlTGluayA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPEJyZWFkY3J1bWIgc2VwYXJhdG9yPXs8SWNvbkxpYiBpY29uPSJjaGV2cm9uLXJpZ2h0IiAvPn0+CiAgICAgICAgICAgIDxCcmVhZGNydW1iSXRlbT5XZWJzaXRlPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICAgICAgPEJyZWFkY3J1bWJJdGVtPkJsb2c8L0JyZWFkY3J1bWJJdGVtPgogICAgICAgICAgICA8QnJlYWRjcnVtYkl0ZW0KICAgICAgICAgICAgICAgIGFjdGl2ZQogICAgICAgICAgICAgICAgdG89Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayI+CiAgICAgICAgICAgICAgICBXaGF0IGlzIGEgYnJlYWRjcnVtYj8KICAgICAgICAgICAgPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICA8L0JyZWFkY3J1bWI+CiAgICApCn0=" />
+<CodeComponent filename="WithCustomIconAndActiveLink.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhDdXN0b21JY29uQW5kQWN0aXZlTGluayA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPEJyZWFkY3J1bWIgc2VwYXJhdG9yPXs8SWNvbkxpYiBpY29uPSJjaGV2cm9uLXJpZ2h0IiAvPn0+CiAgICAgICAgICAgIDxCcmVhZGNydW1iSXRlbT5XZWJzaXRlPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICAgICAgPEJyZWFkY3J1bWJJdGVtPkJsb2c8L0JyZWFkY3J1bWJJdGVtPgogICAgICAgICAgICA8QnJlYWRjcnVtYkl0ZW0KICAgICAgICAgICAgICAgIGFjdGl2ZQogICAgICAgICAgICAgICAgdG89Imh0dHBzOi8vZm9sZC11aS5jb20iCiAgICAgICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayI+CiAgICAgICAgICAgICAgICBXaGF0IGlzIGEgYnJlYWRjcnVtYj8KICAgICAgICAgICAgPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICA8L0JyZWFkY3J1bWI+CiAgICApCn0=" />
 
 ```tsx
 export const WithCustomIconAndActiveLink = () => {
@@ -76,7 +76,7 @@ export const WithCustomIconAndActiveLink = () => {
             <BreadcrumbItem>Blog</BreadcrumbItem>
             <BreadcrumbItem
                 active
-                to="https://fold.dev"
+                to="https://fold-ui.com"
                 target="_blank">
                 What is a breadcrumb?
             </BreadcrumbItem>
