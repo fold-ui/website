@@ -305,6 +305,14 @@ body {
     only screen and (max-device-width: 667px),
     only screen and (max-width: 480px) {
 
+    .full-width-mobile {
+        width: 100% !important;
+    }
+
+    .hide-mobile {
+        display: none !important;
+    }
+
     .go {
         padding: 2rem;
     }

@@ -46,13 +46,14 @@ export const HeroComponent = () => {
                         lineHeight={1}
                         letterSpacing={-2}
                         width="60%"
-                        className="hero__heading">
+                        className="hero__heading full-width-mobile">
                         Zero dependency React components for product teams.
                     </Heading>
 
                     <Heading
                         as="h4"
                         colorToken="base-500"
+                        className="full-width-mobile"
                         fontWeight={400}
                         width="60%">
                         Powerful, fully customizable React components for scaling your project to the next level. 

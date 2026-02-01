@@ -239,6 +239,7 @@ const LogoViewer = () => {
     return (
         <div
             ref={mountRef}
+            className="hide-mobile"
             style={{
                 width: '100%',
                 height: '100%',
