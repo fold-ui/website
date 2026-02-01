@@ -161,6 +161,7 @@ const LogoViewer = () => {
         // --- Controls & Interaction ---
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableDamping = true
+        controls.enableZoom = false
 
         let autoRotate = true
         let resumeTimeout

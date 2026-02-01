@@ -12,7 +12,7 @@ export const HeroComponent = () => {
             m="-140px 0 0 0"
             position="relative"
             style={{  overflow: 'hidden' }}
-            className="hero-background gradient">
+            className="hero-background">
 
             <LogoViewer />
 
@@ -24,7 +24,7 @@ export const HeroComponent = () => {
                 width="100%"
                 p="2rem 0 550px 0"
                 justifyContent="stretch"
-                className="hero">
+                className="hero f-pointer-events-none">
                 <View
                     column
                     alignItems="flex-start"
@@ -62,7 +62,8 @@ export const HeroComponent = () => {
                     <View
                         row
                         gap={20}
-                        colorToken="white">
+                        colorToken="white"
+                        style={{ pointerEvents: 'all' }}>
                         <Button
                             as="a"
                             variant="accent"
@@ -92,6 +93,7 @@ export const HeroComponent = () => {
 
                     <Text
                         size="sm"
+                        style={{ pointerEvents: 'all' }}
                         colorToken="base-600">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
