@@ -1,4 +1,4 @@
-import { Button, Divider, Heading, Link, LogoSolid, Text, View } from '@fold-ui/core'
+import { Button, Divider, Heading, Link, LogoSolid, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useRef, useEffect, useCallback } from 'react'
@@ -34,20 +34,30 @@ export const HeroComponent = () => {
                     m="0 auto"
                     p="5rem 1rem 0 0rem"
                     position="relative">
-                    <LogoSolid 
-                        color="var(--f-color-accent)" 
-                        customSize={50}
-                    />
+                    <View 
+                        row
+                        gap="1rem">
+                        <LogoSolid 
+                            color="var(--f-color-accent-600)" 
+                            customSize={50}
+                        />
+                        <Pill 
+                            subtle
+                            size="sm"
+                            color="#4932f5">
+                            v0.21.0
+                        </Pill>
+                    </View>
 
                     <Heading
                         colorToken="white"
-                        fontWeight="var(--f-font-weight-semibold)"
-                        fontSize="5.5rem"
+                        fontWeight="var(--f-font-weight-medium)"
+                        fontSize="8rem"
                         lineHeight={1}
-                        letterSpacing={-2}
-                        width="60%"
+                        letterSpacing={-5}
+                        width="75%"
                         className="hero__heading full-width-mobile">
-                        Zero dependency React components for product teams.
+                        Zero dependency React components.
                     </Heading>
 
                     <Heading
