@@ -3,6 +3,7 @@ import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useRef, useEffect, useCallback } from 'react'
 import LogoViewer from './logo-viewer.component';
+import { ThreeComponent } from './three.component';
 
 export const HeroComponent = () => {
     return (
@@ -14,7 +15,8 @@ export const HeroComponent = () => {
             style={{  overflow: 'hidden' }}
             className="hero-background">
 
-            <LogoViewer />
+            {/* <LogoViewer /> */}
+            <ThreeComponent />
 
             <View
                 column
@@ -51,21 +53,21 @@ export const HeroComponent = () => {
 
                     <Heading
                         colorToken="white"
-                        fontWeight="var(--f-font-weight-medium)"
-                        fontSize="8rem"
+                        fontWeight="var(--f-font-weight-normal)"
+                        fontSize="9rem"
                         lineHeight={1}
                         letterSpacing={-5}
-                        width="75%"
+                        width="65%"
                         className="hero__heading full-width-mobile">
-                        Zero dependency React components.
+                        Build at the speed of light.
                     </Heading>
 
                     <Heading
                         as="h4"
-                        colorToken="base-500"
+                        colorToken="base-300"
                         className="full-width-mobile"
                         fontWeight={400}
-                        width="60%">
+                        width="50%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
                         Supercharge your dev workflow by using Fold's zero-dependency UI components.
                     </Heading>

@@ -23,7 +23,7 @@ import {
 } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { useEffect, useState } from 'react'
-import { PiRocket } from 'react-icons/pi'
+import { PiRocket, PiSparkle } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
 
 export default function SiteLayout(props: any) {
@@ -90,7 +90,7 @@ export default function SiteLayout(props: any) {
 
                 <View
                     row
-                    p="1rem"
+                    p="0.75rem 1rem"
                     gap={10}
                     zIndex={10000}
                     width="100%"
@@ -102,10 +102,9 @@ export default function SiteLayout(props: any) {
                     <Text
                         textAlign="center"
                         color="inherit">
-                            <strong>Fold</strong> is now at <strong>fold-ui.com</strong>.
-                            <strong>v0.21.0</strong> just published! Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
+                            New <strong>Kanban</strong>, <strong>Todo</strong> & <strong>Calendar</strong> components! Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
                     </Text>
-                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'currentColor' }} />
+                    <Icon icon={PiSparkle} style={{ transform: 'rotate(45deg)', color: 'currentColor' }} size="lg" />
                 </View>
 
                 <Affix zIndex={100}>
