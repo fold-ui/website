@@ -37,7 +37,7 @@ export default function Document() {
                     href="/favicon.png"
                 />
 
-                <meta property="og:title" content="Fold" />
+                <meta property="og:title" content="Zero gravity UI components." />
                 <meta property="og:url" content="https://fold-ui.com" />
                 <meta property="og:image" content="https://fold-ui.com/og.png" />
                 <meta property="og:image:type" content="image/png" />
