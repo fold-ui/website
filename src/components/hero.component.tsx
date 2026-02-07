@@ -59,7 +59,7 @@ export const HeroComponent = () => {
                         fontSize="9rem"
                         lineHeight={1}
                         letterSpacing={-5}
-                        width="65%"
+                        width="75%"
                         className="hero__heading full-width-mobile">
                         Zero gravity React components.
                     </Heading>
