@@ -42,6 +42,7 @@ export const HeroComponent = () => {
                         <Logo color="var(--f-color-base-100)" />
                         <Text
                             size="xl"
+                            letterSpacing={-1}
                             colorToken="base-100">
                             FoldUI
                         </Text>
