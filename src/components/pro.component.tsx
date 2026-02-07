@@ -1182,12 +1182,11 @@ export const ProComponent = () => {
             zIndex={10}
             position="relative"
             m="-475px 0 0 0"
-            className="pro">
-                            
+            className="pro">                            
             <View
                 bgToken="surface"
                 width="86%"
-                shadow="var(--f-shadow-menu)"
+                shadow="0 50px 100px -12px rgba(0, 0, 0, 0.15)"
                 border="1px solid var(--f-color-border)"
                 p="0rem"
                 style={{ overflow: 'hidden' }}

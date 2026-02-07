@@ -14,7 +14,6 @@ import {
     Link,
     List,
     Logo,
-    LogoSolid,
     Main,
     Navigation,
     NavigationDivider,
@@ -330,7 +329,7 @@ export default function DocsLayout(props: any) {
                                     <Link
                                         href="/"
                                         row>
-                                        <LogoSolid size="sm" color="var(--f-color-accent)" />
+                                        <Logo size="sm" color="var(--f-color-accent)" />
                                     </Link>
                                     <Heading
                                         as="h4"
@@ -832,7 +831,7 @@ export default function DocsLayout(props: any) {
                                     <Link
                                         href="/"
                                         row>
-                                        <LogoSolid size="sm" />
+                                        <Logo size="sm" />
                                     </Link>
                                     <Heading
                                         as="h4"

@@ -1,4 +1,4 @@
-import { Button, Divider, Heading, Link, LogoSolid, Pill, Text, View } from '@fold-ui/core'
+import { Button, Divider, Heading, Link, Logo, LogoSolid, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useRef, useEffect, useCallback } from 'react'
@@ -39,10 +39,12 @@ export const HeroComponent = () => {
                     <View 
                         row
                         gap="1rem">
-                        <LogoSolid 
-                            color="var(--f-color-accent-600)" 
-                            customSize={50}
-                        />
+                        <Logo color="var(--f-color-base-100)" />
+                        <Text
+                            size="xl"
+                            colorToken="base-100">
+                            FoldUI
+                        </Text>
                         <Pill 
                             subtle
                             size="sm"
@@ -53,13 +55,13 @@ export const HeroComponent = () => {
 
                     <Heading
                         colorToken="white"
-                        fontWeight="var(--f-font-weight-normal)"
+                        fontWeight="var(--f-font-weight-light)"
                         fontSize="9rem"
                         lineHeight={1}
                         letterSpacing={-5}
                         width="65%"
                         className="hero__heading full-width-mobile">
-                        Build at the speed of light.
+                        Zero gravity React components.
                     </Heading>
 
                     <Heading
@@ -79,7 +81,8 @@ export const HeroComponent = () => {
                         style={{ pointerEvents: 'all' }}>
                         <Button
                             as="a"
-                            variant="accent"
+                            border="none"
+                            bgToken="accent-600"
                             radius="var(--f-radius-full)"
                             p="0 2rem"
                             colorToken="accent-100"

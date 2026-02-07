@@ -2,28 +2,24 @@ import {
     Affix,
     Button,
     Cookie,
-    Divider,
     Flexer,
     FoldProvider,
     Header,
-    Heading,
     Icon,
     Li,
     Link,
     List,
-    LogoSolid,
+    Logo,
     Navigation,
     NavigationItem,
-    Pill,
     SkipNavMain,
     Text,
     View,
     useCacheValue,
     useVisibility
 } from '@fold-ui/core'
-import * as Token from '@fold-ui/design/tokens'
 import { useEffect, useState } from 'react'
-import { PiRocket, PiSparkle } from 'react-icons/pi'
+import { PiSparkle } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
 
 export default function SiteLayout(props: any) {
@@ -133,7 +129,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent-50)" />
+                                        <Logo color="var(--f-color-accent-50)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation
@@ -211,7 +207,7 @@ export default function SiteLayout(props: any) {
                         gap={20}
                         alignItems="flex-start"
                         className="footer_block">
-                        <LogoSolid color="var(--f-color-accent)" />
+                        <Logo color="var(--f-color-accent)" />
                         <Text colorToken="accent">Fold &copy; 2026</Text>
                        {/*  <View
                             row

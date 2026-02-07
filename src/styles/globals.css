@@ -8,8 +8,7 @@ body {
     font-size: 14px;
     background-color: var(--f-color-background) !important;
     scroll-behavior: smooth;
-    font-feature-settings: 'liga' 1, 'calt' 1, 'cv10' 10, 'cv06' 6, 'cv12' 12, 'cv13' 13, 'ss01' 1, 'cv01' 1, 'cv02' 2,
-        'cv03' 3, 'cv04' 4, 'cv09' 9, 'cv08' 8 !important;
+    font-feature-settings: 'dlig' 1, 'calt' 1, 'case' 1, 'ccmp' 1, 'cv10' 1, 'cv06' 1, 'cv12' 1, 'cv13' 1;
 }
 
 /* shinji */
