@@ -4,6 +4,7 @@ import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useRef, useEffect, useCallback } from 'react'
 import LogoViewer from './logo-viewer.component';
 import { ThreeComponent } from './three.component';
+import { PatternComponent } from './pattern.component';
 
 export const HeroComponent = () => {
     return (
@@ -16,7 +17,8 @@ export const HeroComponent = () => {
             className="hero-background">
 
             {/* <LogoViewer /> */}
-            <ThreeComponent />
+            {/* <ThreeComponent /> */}
+            <PatternComponent /> 
 
             <View
                 column
@@ -29,7 +31,6 @@ export const HeroComponent = () => {
                 className="hero f-pointer-events-none">
                 <View
                     column
-                    alignItems="flex-start"
                     flex={1}
                     gap={40}
                     width="85%"
@@ -55,22 +56,24 @@ export const HeroComponent = () => {
                     </View>
 
                     <Heading
+                        textAlign="center"
                         colorToken="white"
                         fontWeight="var(--f-font-weight-light)"
-                        fontSize="9rem"
+                        fontSize="8rem"
                         lineHeight={1}
                         letterSpacing={-5}
-                        width="65%"
+                        width="100%"
                         className="hero__heading full-width-mobile">
                         Zero gravity UI components.
                     </Heading>
 
                     <Heading
+                        textAlign="center"
                         as="h4"
                         colorToken="base-300"
                         className="full-width-mobile"
                         fontWeight={400}
-                        width="50%">
+                        width="80%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
                         Supercharge your dev workflow by using Fold's zero-dependency UI components.
                     </Heading>
