@@ -1,0 +1,52 @@
+/**
+ * Do not edit directly
+ * Generated on Sat, 21 Feb 2026 06:34:46 GMT
+ */
+
+[data-theme='light'] {
+  --f-radius: 0.75rem;
+  --f-focus: 2px solid #51a2ff;
+  --f-color-background: #f6f7f8;
+  --f-color-accent: #2b7fff;
+  --f-color-accent-subtle: #8ec5ff;
+  --f-color-accent-text: #dbeafe;
+  --f-color-accent-weak: #eff6ff;
+  --f-color-success: #00d5be;
+  --f-color-success-subtle: #46ecd5;
+  --f-color-success-text: #cbfbf1;
+  --f-color-success-weak: #f0fdfa;
+  --f-color-neutral: #99a1af;
+  --f-color-neutral-subtle: #d1d5dc;
+  --f-color-neutral-text: #f3f4f6;
+  --f-color-neutral-weak: #f9fafb;
+  --f-color-caution: #fdc700;
+  --f-color-caution-subtle: #ffdf20;
+  --f-color-caution-text: #fef9c2;
+  --f-color-caution-weak: #fefce8;
+  --f-color-warning: #ff8904;
+  --f-color-warning-subtle: #ffb86a;
+  --f-color-warning-text: #ffedd4;
+  --f-color-warning-weak: #fff7ed;
+  --f-color-danger: #ff6467;
+  --f-color-danger-subtle: #ffa2a2;
+  --f-color-danger-text: #ffe2e2;
+  --f-color-danger-weak: #fef2f2;
+  --f-color-highlight: #7c86ff;
+  --f-color-highlight-subtle: #c6d2ff;
+  --f-color-highlight-text: #e0e7ff;
+  --f-color-highlight-weak: #eef2ff;
+  --f-color-text: #2f333b;
+  --f-color-text-weak: #4e535b;
+  --f-color-text-weaker: #6c727e;
+  --f-color-text-weakest: #9aa0ad;
+  --f-color-text-link: #2b7fff;
+  --f-color-text-on-color: #fdfcfc;
+  --f-color-surface: #fdfcfc;
+  --f-color-surface-strong: #eff0f1;
+  --f-color-surface-stronger: #e3e4e7;
+  --f-color-surface-strongest: #d0d5df;
+  --f-color-surface-highlight: #eff6ff;
+  --f-color-surface-inverse: #2f333b;
+  --f-color-border: #e3e4e7;
+  --f-color-border-strong: #d0d5df;
+}

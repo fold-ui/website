@@ -28,10 +28,8 @@ function Home() {
             <Divider />
             <FAQComponent />
             <Divider />      
-            */} 
             <SupportComponent />
             <Divider />
-            {/* 
             <GoComponent />   
             */}
         </>

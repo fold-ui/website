@@ -205,240 +205,50 @@ export default function SiteLayout(props: any) {
                         flex={1}
                         column
                         gap={20}
-                        alignItems="flex-start"
                         className="footer_block">
                         <Logo color="var(--f-color-accent)" />
                         <Text colorToken="accent">Fold &copy; 2026</Text>
-                       {/*  <View
+                        <View 
                             row
-                            gap={10}
-                            justifyContent="flex-start">
-                            <SocialIcon
-                                url="https://github.com/fold-ui/fold"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-50)"
-                                bgColor="var(--f-color-accent)"
-                            />
-                            <SocialIcon
-                                url="https://twitter.com/fold_dev"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-50)"
-                                bgColor="var(--f-color-accent)"
-                            />
-                            <SocialIcon
-                                url="https://www.linkedin.com/company/fold-ui"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-50)"
-                                bgColor="var(--f-color-accent)"
-                            />
-                        </View> */}
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        className="footer_block"
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent">
-                            Navigation
-                        </Text>
-                        <List flex={1}>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/"
-                                    size="xl"
-                                    fontWeight={400}
-                                    colorToken="text"
-                                    textDecoration="none">
-                                    Home
-                                </Text>
-                            </Li>
-                            {/* 
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/#core"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    Core
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/#pro"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    Pro
-                                </Text>
-                            </Li> 
-                            */}
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/#support"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    Support
-                                </Text>
-                            </Li>
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        className="footer_block"
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent">
-                            Helpful Links
-                        </Text>
-                        <List flex={1}>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/docs"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    Documentation
-                                </Text>
-                            </Li>
-                            <Li>
+                            gap="1rem">
+
                                 <Text
                                     as="a"
                                     href="https://github.com/fold-ui/fold"
                                     target="_blank"
-                                    size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="text">
                                     GitHub
                                 </Text>
-                            </Li>
-                            <Li>
                                 <Text
                                     as="a"
-                                    href="/docs/releases"
+                                    href="/docs"
                                     target="_blank"
-                                    size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="text">
-                                    Releases
+                                    Documentation
                                 </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="https://github.com/orgs/fold-ui/projects/8/views/2"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    Roadmap
-                                </Text>
-                            </Li>
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        className="footer_block"
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent">
-                            Legal
-                        </Text>
-                        <List flex={1}>
-                            <Li>
                                 <Text
                                     as="a"
                                     target="_blank"
                                     href="/privacy-policy"
-                                    size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="text">
                                     Privacy Policy
                                 </Text>
-                            </Li>
-                            <Li>
                                 <Text
                                     as="a"
                                     target="_blank"
                                     href="/terms-of-use"
-                                    size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="text">
                                     Terms of Use
                                 </Text>
-                            </Li>
-                            {/* 
-                            <Li>
-                                <Text
-                                    as="a"
-                                    target="_blank"
-                                    href="/license"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="text">
-                                    License
-                                </Text>
-                            </Li>
-                            */}
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={0.5}
-                        gap={20}
-                        alignItems="flex-end"
-                        className="footer_buttons">
-                        <Button
-                            as="a"
-                            radius="var(--f-radius-full)"
-                            width={120}
-                            variant="accent"
-                            colorToken="white"
-                            target="_blank"
-                            href="/docs">
-                            Get Started
-                        </Button>
-                        <Button
-                            width={150}
-                            radius="var(--f-radius-full)"
-                            as="a"
-                            variant="accent"
-                            colorToken="white"
-                            target="_blank"
-                            href="https://fold-ui.com/docs">
-                            Documentation
-                        </Button>
+                        </View>
                     </View>
                 </View>
             </FoldProvider>

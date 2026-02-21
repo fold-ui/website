@@ -50,7 +50,7 @@ export const HeroComponent = () => {
                         <Pill 
                             subtle
                             size="sm"
-                            color="#4932f5">
+                            color="#3263f5">
                             v0.22.0
                         </Pill>
                     </View>
