@@ -1451,14 +1451,16 @@ export const CoreComponent = () => {
                     className="core__hero">
                     <Text
                         textAlign="center"
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="accent">
-                        Open Source
+                        // style={{ textTransform: 'uppercase' }}
+                        // letterSpacing={5}
+                        // colorToken="accent"
+                        colorToken="base-500">
+                        We 💙 OSS
                     </Text>
                     <Heading
                         textAlign="center"
-                        fontWeight={400}
+                        fontWeight={600}
+                        fontSize="3rem"
                         width="80%">
                         Leverage Fold's 85+ components to power your next project. 
                         Fold is completely free (MIT), and will always remain that way.
@@ -1616,15 +1618,17 @@ export const CoreComponent = () => {
                         justifyContent="flex-start"
                         p="3rem">
                         <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent"
+                            // style={{ textTransform: 'uppercase' }}
+                            // letterSpacing={5}
+                            // colorToken="accent"
+                            colorToken="base-500"
                             id="features">
                             Lightweight
                         </Text>
                         <Heading
+                            fontSize="3rem"
                             colorToken="text"
-                            fontWeight={400}>
+                            fontWeight={600}>
                             Zero Dependencies
                         </Heading>
                         <Text
@@ -1674,15 +1678,17 @@ export const CoreComponent = () => {
                         p="3rem"
                         height="100%">
                         <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent"
+                            // style={{ textTransform: 'uppercase' }}
+                            // letterSpacing={5}
+                            // colorToken="accent"
+                            colorToken="base-500"
                             id="features">
                             Themable
                         </Text>
                         <Heading
+                            fontSize="3rem"
                             colorToken="text"
-                            fontWeight={400}>
+                            fontWeight={600}>
                             Dark Mode
                         </Heading>
                         <Text
@@ -1728,15 +1734,18 @@ export const CoreComponent = () => {
                         justifyContent="flex-start"
                         p="3rem">
                         <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent"
+                            //style={{ textTransform: 'uppercase' }}
+                            //letterSpacing={5}
+                            //colorToken="accent"
+                            colorToken="base-500"
                             id="features">
                             Design System
                         </Text>
                         <Heading
+                            fontSize="3rem"
                             colorToken="text"
-                            fontWeight={400}>
+                            lineHeight="3rem"
+                            fontWeight={600}>
                             Learn about the principals that underpin Fold's Design System.
                         </Heading>
                         <Text
@@ -1785,15 +1794,17 @@ export const CoreComponent = () => {
                         p="3rem"
                         position="relative">
                         <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent"
+                            // style={{ textTransform: 'uppercase' }}
+                            // letterSpacing={5}
+                            // colorToken="accent"
+                            colorToken="base-500"
                             id="features">
                             Developer Friendly
                         </Text>
                         <Heading
+                            fontSize="3rem"
                             colorToken="text"
-                            fontWeight={400}>
+                            fontWeight={600}>
                             Great DX
                         </Heading>
                         <Text
