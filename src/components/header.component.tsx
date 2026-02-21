@@ -18,7 +18,7 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                 className="hero-background"
                 width="100%"
                 justifyContent="stretch">
-                {!!subtitle && (
+               {/*  {!!subtitle && (
                     <Text
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
@@ -26,7 +26,7 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                         colorToken="accent">
                         {subtitle}
                     </Text>
-                )}
+                )} */}
                 <Heading
                     huge
                     colorToken="base-100"
