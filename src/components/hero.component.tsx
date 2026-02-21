@@ -87,7 +87,6 @@ export const HeroComponent = () => {
                             as="a"
                             border="none"
                             bgToken="accent-600"
-                            radius="var(--f-radius-full)"
                             p="0 2rem"
                             colorToken="accent-100"
                             href="#core"
