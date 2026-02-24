@@ -1459,7 +1459,7 @@ export const CoreComponent = () => {
                     </Text>
                     <Heading
                         textAlign="center"
-                        fontWeight={600}
+                        fontWeight={300}
                         fontSize="3rem"
                         width="80%">
                         Leverage Fold's 85+ components to power your next project. 
@@ -1628,7 +1628,7 @@ export const CoreComponent = () => {
                         <Heading
                             fontSize="3rem"
                             colorToken="text"
-                            fontWeight={600}>
+                            fontWeight={300}>
                             Zero Dependencies
                         </Heading>
                         <Text
@@ -1649,12 +1649,12 @@ export const CoreComponent = () => {
                         <View 
                             height="fit-content"
                             width="fit-content"
-                            style={{ bottom: -130, right: -90, overflow: 'hidden' }}
+                            style={{ bottom: -400, right: -400, overflow: 'hidden', opacity: 0.25 }}
                             position="absolute">
                             <img 
                                 src="lines.svg" 
-                                width="413" 
-                                height="434" 
+                                width="913" 
+                                height="934" 
                                 className="lines"
                             />
                         </View>
@@ -1688,7 +1688,7 @@ export const CoreComponent = () => {
                         <Heading
                             fontSize="3rem"
                             colorToken="text"
-                            fontWeight={600}>
+                            fontWeight={300}>
                             Dark Mode
                         </Heading>
                         <Text
@@ -1745,7 +1745,7 @@ export const CoreComponent = () => {
                             fontSize="3rem"
                             colorToken="text"
                             lineHeight="3rem"
-                            fontWeight={600}>
+                            fontWeight={300}>
                             Learn about the principals that underpin Fold's Design System.
                         </Heading>
                         <Text
@@ -1804,7 +1804,7 @@ export const CoreComponent = () => {
                         <Heading
                             fontSize="3rem"
                             colorToken="text"
-                            fontWeight={600}>
+                            fontWeight={300}>
                             Great DX
                         </Heading>
                         <Text
