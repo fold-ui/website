@@ -84,7 +84,7 @@ export const FAQAccordion = (props) => (
                 What support channels are available?
             </AccordionHeading>
             <AccordionPanel>
-                Email us at <Link target="_blank" href="mailto:support@fold-ui.com">support@fold-ui.com</Link>, or post a message to the private <Link target="_blank" href="https://groups.google.com/a/fold-ui.com/g/pro">Fold Pro Google Group</Link>, or start a <Link target="_blank" href="https://github.com/fold-ui/fold/discussions">GitHub Discussion</Link>.
+                Email us at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>, or post a message to the private <Link target="_blank" href="https://groups.google.com/a/fold-ui.com/g/pro">Fold Pro Google Group</Link>, or start a <Link target="_blank" href="https://github.com/fold-ui/fold/discussions">GitHub Discussion</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -123,7 +123,7 @@ export const FAQAccordion = (props) => (
         <AccordionItem>
             <AccordionHeading>I have another question?</AccordionHeading>
             <AccordionPanel>
-                For any other questions, please email <Link target="_blank" href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.
+                For any other questions, please email <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
             </AccordionPanel>
         </AccordionItem>
     </Accordion>
@@ -415,7 +415,7 @@ export const PricingComponent = () => {
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak">
-                            <Link href="support@fold-ui.com" target="_blank">Contact us</Link> for distributable OEM license options.
+                            <Link href="support@fold.dev" target="_blank">Contact us</Link> for distributable OEM license options.
                         </Text>
 
                     </Card>
@@ -507,7 +507,7 @@ export const PricingComponent = () => {
                         <Text
                             size="sm"
                             m="1rem 0 0 0">
-                            Need more than 10 developers? <Link href="mailto:support@fold-ui.com" size="sm">Contact us</Link>.
+                            Need more than 10 developers? <Link href="mailto:support@fold.dev" size="sm">Contact us</Link>.
                         </Text>                        
                         <Flexer />
                         <Button
@@ -526,7 +526,7 @@ export const PricingComponent = () => {
 
                 <View lineHeight={2}>
                     <Text colorToken="base-600" textAlign="center">
-                        Please email <Link href="mailto:support@fold-ui.com" colorToken="accent-400">support@fold-ui.com</Link> if you are unsure which license applies to you.
+                        Please email <Link href="mailto:support@fold.dev" colorToken="accent-400">support@fold.dev</Link> if you are unsure which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
                         Purchasing a license is subject to the <Link href="/license" target="_blank">license agreement</Link>.

@@ -35,11 +35,11 @@ export default function TermsOfUse(props){
                 <p>These Terms shall be governed by and construed in accordance with the laws of South Africa, without regard to its conflict of law provisions.</p>
 
                 <h2>Contact Us</h2>
-                <p>If you have any questions about these Terms, please contact us at <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link>.</p>
+                <p>If you have any questions about these Terms, please contact us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.</p>
 
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
-                <p>Email: <Link href="mailto:support@fold-ui.com">support@fold-ui.com</Link></p>
+                <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
             </ContentContainerComponent>
         </>
     )

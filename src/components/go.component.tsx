@@ -52,7 +52,7 @@ export const GoComponent = () => {
                         We offer tailored design and development services to businesses in need of that expert touch working with Fold Core, and Fold Pro.
                     </Heading>
                     <Link
-                        href="mailto:support@fold-ui.com"
+                        href="mailto:support@fold.dev"
                         textDecoration="none"
                         className="f-underline"
                         m="0 -1rem 0 0"

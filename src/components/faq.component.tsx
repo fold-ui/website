@@ -75,7 +75,7 @@ export const FAQComponent = () => {
                             SaaS is for teams that have a product that users pay for.
                             We are more than happy to assist with any questions you may have.
                             Please <Link
-                                href="support@fold-ui.com"
+                                href="support@fold.dev"
                                 target="_blank"
                                 fontSize="inherit"
                                 colorToken="accent">

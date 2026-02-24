@@ -729,7 +729,7 @@ export default function DocsLayout(props: any) {
                                         </Pill>
                                     </Link>
                                     <Link
-                                        href="mailto:support@fold-ui.com"
+                                        href="mailto:support@fold.dev"
                                         style={{ textWrap: 'nowrap' }}>
                                         <Pill
                                             p="0"
