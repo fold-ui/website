@@ -206,8 +206,8 @@ export default function SiteLayout(props: any) {
                         column
                         gap={20}
                         className="footer_block">
-                        <Logo color="var(--f-color-accent)" />
-                        <Text colorToken="accent">Fold &copy; 2026</Text>
+                        <Logo color="var(--f-color-text)" />
+                        <Text>Fold &copy; 2026</Text>
                         <View 
                             row
                             gap="1rem">
