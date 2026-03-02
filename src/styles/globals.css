@@ -553,12 +553,15 @@ body {
 }
 
 .gradient {
-    background-color: var(--f-color-zinc-900) !important;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.1;
+    /* background-color: var(--f-color-zinc-900) !important; */
     background-image: url('../../public/gradient.svg') !important;
     background-size: 100% auto !important;
-    background-position: center -75% !important;
-    justify-content: flex-start;
-    position: relative;
+    background-position: center center% !important;
+    z-index: 2;
 }
 
 .grid-squares {

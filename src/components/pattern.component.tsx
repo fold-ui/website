@@ -21,6 +21,15 @@ export const PatternComponent = (props) => (
             />
         </View>
 
+        <View
+            className="hide-mobile"
+            position="absolute"
+            zIndex={1}
+            style={{ inset: 0, overflow: 'hidden' }}>
+            <div className="grid-squares" />
+            <div className="gradient" />
+        </View>
+
         <View 
             row
             justifyContent="flex-start"
