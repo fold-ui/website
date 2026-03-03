@@ -93,7 +93,7 @@ export default function SiteLayout(props: any) {
                     position="relative"
                     //bg="linear-gradient(8deg, var(--f-color-violet-600), var(--f-color-indigo-600))"
                     colorToken="accent"
-                    style={{ borderBottom: '1px solid var(--f-color-zinc-800)' }}
+                    style={{ borderBottom: '1px solid var(--f-color-slate-800)' }}
                     >
                     <Text
                         textAlign="center"

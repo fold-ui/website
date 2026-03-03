@@ -113,7 +113,7 @@ export const HeroComponent = () => {
                     <Text
                         size="sm"
                         style={{ pointerEvents: 'all' }}
-                        colorToken="base-600">
+                        colorToken="accent-800">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
@@ -127,6 +127,7 @@ export const HeroComponent = () => {
                     </Text>
                 </View>
             </View>
+               
             <Divider />
         </View>
     )

@@ -28,6 +28,16 @@ export const PatternComponent = (props) => (
             style={{ inset: 0, overflow: 'hidden' }}>
             <div className="grid-squares" />
             <div className="gradient" />
+                
+            <View 
+                position="absolute"
+                width="100%"
+                height={200}
+                zIndex={5}
+                style={{ bottom: 0, left: 0  }}
+                className="hide-on-mobile"
+                bg="linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)"
+            />   
         </View>
 
         <View 

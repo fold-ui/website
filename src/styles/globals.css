@@ -577,7 +577,7 @@ body {
         repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0 1px, transparent 1px var(--size));
     background-size: var(--size) var(--size);
     background-repeat: repeat;
-    z-index: 1;
+    z-index: 2;
 }
 
 .shooting-stars {
