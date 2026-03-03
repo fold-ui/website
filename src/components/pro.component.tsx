@@ -1187,7 +1187,7 @@ export const ProComponent = () => {
                 bgToken="surface"
                 width="86%"
                 shadow="0 50px 100px -12px rgba(0, 0, 0, 0.15)"
-                border="1px solid var(--f-color-border)"
+                border="1px solid var(--f-color-base-800)"
                 p="0rem"
                 style={{ overflow: 'hidden' }}
                 radius="var(--f-radius)"
