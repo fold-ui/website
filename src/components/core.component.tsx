@@ -970,7 +970,7 @@ export const Code = ({ snippet }) => {
 }
 
 export const Picker = () => {
-    const [color, setColor] = useState(Token.ColorCyan400)
+    const [color, setColor] = useState("#155DFC")
 
     return (
         <ColorPicker

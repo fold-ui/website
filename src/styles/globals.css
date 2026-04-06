@@ -9,7 +9,7 @@
 html,
 body {
     height: 100%;
-    font-size: 14px;
+    font-size: 13px;
     background-color: var(--f-color-background) !important;
     scroll-behavior: smooth;
     font-feature-settings: 'dlig' 1, 'calt' 1, 'case' 1, 'ccmp' 1, 'cv10' 1, 'cv06' 1, 'cv12' 1, 'cv13' 1;

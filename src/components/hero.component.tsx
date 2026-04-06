@@ -51,7 +51,7 @@ export const HeroComponent = () => {
                             subtle
                             size="sm"
                             color="#3263f5">
-                            v0.22.0
+                            v0.23.0
                         </Pill>
                     </View>
 
@@ -61,7 +61,7 @@ export const HeroComponent = () => {
                         fontWeight={300}
                         fontSize="6.5rem"
                         lineHeight={1}
-                        letterSpacing={-5}
+                        letterSpacing={-3}
                         width="100%"
                         className="hero__heading full-width-mobile">
                         Zero gravity UI components.
@@ -73,7 +73,7 @@ export const HeroComponent = () => {
                         colorToken="base-300"
                         className="full-width-mobile"
                         fontWeight={400}
-                        width="80%">
+                        width="60%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
                         Supercharge your dev workflow by using Fold's zero-dependency UI components.
                     </Heading>
@@ -113,7 +113,7 @@ export const HeroComponent = () => {
                     <Text
                         size="sm"
                         style={{ pointerEvents: 'all' }}
-                        colorToken="accent-800">
+                        colorToken="accent-600">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
