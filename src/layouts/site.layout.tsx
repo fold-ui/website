@@ -3,7 +3,7 @@ import {
     Button,
     Cookie,
     Flexer,
-    FoldProvider,
+    AppProvider,
     Header,
     Icon,
     Li,
@@ -59,7 +59,7 @@ export default function SiteLayout(props: any) {
 
     return (
         <>
-            <FoldProvider license="fake-license-code">
+            <AppProvider license="fake-license-code">
                 <style id="custom-styles" />
 
                 <SkipNavMain />
@@ -251,7 +251,7 @@ export default function SiteLayout(props: any) {
                         </View>
                     </View>
                 </View>
-            </FoldProvider>
+            </AppProvider>
         </>
     )
 }

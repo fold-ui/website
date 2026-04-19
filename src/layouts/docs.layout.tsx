@@ -6,7 +6,7 @@ import {
     Content,
     DarkModeToggle,
     Flexer,
-    FoldProvider,
+    AppProvider,
     Header,
     Heading,
     Icon,
@@ -285,7 +285,7 @@ export default function DocsLayout(props: any) {
 
             <SkipNav>Skip To Content</SkipNav>
 
-            <FoldProvider license="fake-license-code">
+            <AppProvider license="fake-license-code">
                 {/* 
                 <View
                     row
@@ -573,7 +573,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.23.0
+                                                    v0.24.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -610,7 +610,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.23.0
+                                                    v0.24.0
                                                 </Pill>                                               
                                             }>
                                             Pro Components
@@ -914,7 +914,7 @@ export default function DocsLayout(props: any) {
                         </Main>
                     </Content>
                 </App>
-            </FoldProvider>
+            </AppProvider>
         </>
     )
 }

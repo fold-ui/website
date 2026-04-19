@@ -35,7 +35,7 @@ export const HeroComponent = () => {
                     gap={40}
                     width="85%"
                     m="0 auto"
-                    p="5rem 1rem 0 0rem"
+                    p="6rem 1rem 0 0rem"
                     position="relative">
                     <View 
                         row
@@ -49,9 +49,9 @@ export const HeroComponent = () => {
                         </Text>
                         <Pill 
                             subtle
-                            size="sm"
-                            color="#3263f5">
-                            v0.23.0
+                            color="#532FEC"
+                            size="sm">
+                            v0.24.0
                         </Pill>
                     </View>
 
@@ -59,7 +59,7 @@ export const HeroComponent = () => {
                         textAlign="center"
                         colorToken="white"
                         fontWeight={300}
-                        fontSize="6.5rem"
+                        fontSize="7.5rem"
                         lineHeight={1}
                         letterSpacing={-3}
                         width="100%"
@@ -113,7 +113,7 @@ export const HeroComponent = () => {
                     <Text
                         size="sm"
                         style={{ pointerEvents: 'all' }}
-                        colorToken="accent-600">
+                        colorToken="accent-500">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"

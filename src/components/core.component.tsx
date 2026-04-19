@@ -1152,6 +1152,7 @@ const All = () => {
                             animated
                             shadow="none"
                             width="100%"
+                            border="1px solid var(--f-color-border)"
                             selected={option}
                             onOptionChange={setOption}>
                             <Option>System</Option>
@@ -1605,122 +1606,6 @@ export const CoreComponent = () => {
                 <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
-                    flex={2}
-                    position="relative"
-                    style={{ overflow: 'hidden' }}
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
-                    <View
-                        column
-                        gap="2rem"
-                        className="dotted"
-                        alignItems="flex-start"
-                        alignContent="flex-start"
-                        justifyContent="flex-start"
-                        p="3rem">
-                        <Text
-                            // style={{ textTransform: 'uppercase' }}
-                            // letterSpacing={5}
-                            // colorToken="accent"
-                            colorToken="base-500"
-                            id="features">
-                            Lightweight
-                        </Text>
-                        <Heading
-                            fontSize="3rem"
-                            colorToken="text"
-                            fontWeight={300}>
-                            Zero Dependencies
-                        </Heading>
-                        <Text
-                            size="lg"
-                            colorToken="text-weak"
-                            fontWeight={400}
-                            width="70%">
-                            Stop spending time groking build sizes and resolving dependency conflicts. Fold has no other dependencies, other than React and ReactDOM.
-                        </Text>
-                        <Link
-                            href="/docs/faq"
-                            target="_blank"
-                            color="var(--f-color-text)"
-                            className="f-underline"
-                            textDecoration="none">
-                            Read More ↗
-                        </Link>
-                        <View 
-                            height="fit-content"
-                            width="fit-content"
-                            style={{ bottom: -400, right: -400, overflow: 'hidden', opacity: 0.25 }}
-                            position="absolute">
-                            <img 
-                                src="lines.svg" 
-                                width="913" 
-                                height="934" 
-                                className="lines"
-                            />
-                        </View>
-                    </View>
-                </View>
-
-                <View 
-                    border="1px solid var(--f-color-border)"
-                    radius="var(--f-radius)"
-                    flex={1}
-                    style={{ overflow: 'hidden' }}
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
-                    <View
-                        column
-                        gap="2rem"
-                        className="dotted"
-                        position="relative"
-                        alignItems="flex-start"
-                        alignContent="flex-start"
-                        justifyContent="flex-start"
-                        p="3rem"
-                        height="100%">
-                        <Text
-                            // style={{ textTransform: 'uppercase' }}
-                            // letterSpacing={5}
-                            // colorToken="accent"
-                            colorToken="base-500"
-                            id="features">
-                            Themable
-                        </Text>
-                        <Heading
-                            fontSize="3rem"
-                            colorToken="text"
-                            fontWeight={300}>
-                            Dark Mode
-                        </Heading>
-                        <Text
-                            size="lg"
-                            colorToken="text-weak"
-                            fontWeight={400}>
-                            Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
-                        </Text>
-                    </View>
-                    <View 
-                        height="fit-content"
-                        width="fit-content"
-                        style={{ bottom: 20, right: 20 }}
-                        position="absolute">
-                        <DarkModeButton />
-                    </View>
-                </View>
-            </View>
-
-            <View
-                row
-                gap="3rem"
-                width="85%"
-                m="3rem auto 6rem auto"
-                radius="var(--f-radius)"
-                position="relative"
-                className="features"
-                style={{ overflow: 'hidden' }}
-                alignItems="stretch">
-                <View 
-                    border="1px solid var(--f-color-border)"
-                    radius="var(--f-radius)"
                     flex={1}
                     style={{ overflow: 'hidden' }}
                     bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
@@ -1845,6 +1730,122 @@ export const CoreComponent = () => {
                                 dangerouslySetInnerHTML={{ __html: html }}
                             />
                         </View>
+                    </View>
+                </View>
+            </View>
+
+            <View
+                row
+                gap="3rem"
+                width="85%"
+                m="3rem auto 9rem auto"
+                radius="var(--f-radius)"
+                position="relative"
+                className="features"
+                style={{ overflow: 'hidden' }}
+                alignItems="stretch">
+                <View 
+                    border="1px solid var(--f-color-border)"
+                    radius="var(--f-radius)"
+                    flex={2}
+                    position="relative"
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        gap="2rem"
+                        className="dotted"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem">
+                        <Text
+                            // style={{ textTransform: 'uppercase' }}
+                            // letterSpacing={5}
+                            // colorToken="accent"
+                            colorToken="base-500"
+                            id="features">
+                            Lightweight
+                        </Text>
+                        <Heading
+                            fontSize="3rem"
+                            colorToken="text"
+                            fontWeight={300}>
+                            Zero Dependencies
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}
+                            width="70%">
+                            Stop spending time groking build sizes and resolving dependency conflicts. Fold has no other dependencies, other than React and ReactDOM.
+                        </Text>
+                        <Link
+                            href="/docs/faq"
+                            target="_blank"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Read More ↗
+                        </Link>
+                      {/*   <View 
+                            height="fit-content"
+                            width="fit-content"
+                            style={{ bottom: -400, right: -400, overflow: 'hidden', opacity: 0.25 }}
+                            position="absolute">
+                            <img 
+                                src="lines.svg" 
+                                width="913" 
+                                height="934" 
+                                className="lines"
+                            />
+                        </View> */}
+                    </View>
+                </View>
+
+                <View 
+                    border="1px solid var(--f-color-border)"
+                    radius="var(--f-radius)"
+                    flex={1}
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        gap="2rem"
+                        className="dotted"
+                        position="relative"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem"
+                        height="100%">
+                        <Text
+                            // style={{ textTransform: 'uppercase' }}
+                            // letterSpacing={5}
+                            // colorToken="accent"
+                            colorToken="base-500"
+                            id="features">
+                            Themable
+                        </Text>
+                        <Heading
+                            fontSize="3rem"
+                            colorToken="text"
+                            fontWeight={300}>
+                            Dark Mode
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
+                        </Text>
+                    </View>
+                    <View 
+                        height="fit-content"
+                        width="fit-content"
+                        style={{ bottom: 20, right: 20 }}
+                        position="absolute">
+                        <DarkModeButton />
                     </View>
                 </View>
             </View>

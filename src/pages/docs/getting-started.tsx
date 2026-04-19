@@ -57,18 +57,18 @@ export default function GettingStarted(props) {
             />
             <Heading as="h4">Context Provider</Heading>
             <Text>
-                Include <code>FoldProvider</code> in the root if your app.
+                Include <code>AppProvider</code> in the root if your app.
             </Text>
             <CodeComponent
                 code={`
     import React from 'react'
-    import { FoldProvider } from '@fold-ui/core'
+    import { AppProvider } from '@fold-ui/core'
 
     function App() {
         return (
-            <FoldProvider>
+            <AppProvider>
                 <YourApp />
-            </FoldProvider>
+            </AppProvider>
         )
     }
                 `}
@@ -85,7 +85,7 @@ export default function GettingStarted(props) {
             <CodeComponent
                 code={`
     import React from 'react'
-    import { FoldProvider } from '@fold-ui/core'
+    import { AppProvider } from '@fold-ui/core'
 
     function MyComponent() {
         return (

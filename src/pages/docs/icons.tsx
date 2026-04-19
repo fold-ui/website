@@ -48,7 +48,7 @@ export default function Icons(props) {
                 incorporate your own icons. The following example demonstrates how you can achieve this.
             </Text>
             <Text as="blockquote">
-                Make sure you call the helper methods before including <code>{`<FoldContext />`}</code>.
+                Make sure you call the helper methods before including <code>{`<AppContext />`}</code>.
             </Text>
             <CodeComponent
                 minHeight="fit-content"
@@ -64,9 +64,9 @@ export default function Icons(props) {
 
     function App() {
         return (
-            <FoldProvider>
+            <AppProvider>
                 My super new icon: <IconLib icon="super-new-icon" />
-            </FoldProvider>
+            </AppProvider>
         )
     }
                 `}
