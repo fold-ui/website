@@ -2,7 +2,7 @@ import { View } from "@fold-ui/core";
 
 export const PatternComponent = (props) => (
     <>
-        <View
+ {/*        <View
             row
             justifyContent="flex-end"
             alignContent="flex-end"
@@ -19,7 +19,7 @@ export const PatternComponent = (props) => (
                     transform: 'translate(25%, 30%)',
                 }}
             />
-        </View>
+        </View> */}
 
         <View
             className="hide-mobile"
@@ -39,7 +39,7 @@ export const PatternComponent = (props) => (
                 bg="linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)"
             />   
         </View>
-
+{/* 
         <View 
             row
             justifyContent="flex-start"
@@ -57,6 +57,6 @@ export const PatternComponent = (props) => (
                     transform: 'translate(-60%, -25%)',
                 }}
             />
-        </View>
+        </View> */}
     </>
 )

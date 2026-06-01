@@ -17,7 +17,7 @@ export const HeroComponent = () => {
             className="hero-background">
 
             {/* <LogoViewer /> */}
-            {/* <ThreeComponent /> */}
+            <ThreeComponent />
             <PatternComponent /> 
 
             <View
@@ -30,6 +30,7 @@ export const HeroComponent = () => {
                 justifyContent="stretch"
                 className="hero f-pointer-events-none">
                 <View
+                    alignItems="flex-start"
                     column
                     flex={1}
                     gap={40}
@@ -56,19 +57,19 @@ export const HeroComponent = () => {
                     </View>
 
                     <Heading
-                        textAlign="center"
+                        textAlign="left"
                         colorToken="white"
                         fontWeight={300}
                         fontSize="7.5rem"
                         lineHeight={1}
                         letterSpacing={-3}
-                        width="100%"
+                        width="50%"
                         className="hero__heading full-width-mobile">
                         Zero gravity UI components.
                     </Heading>
 
                     <Heading
-                        textAlign="center"
+                        textAlign="left"
                         as="h4"
                         colorToken="base-300"
                         className="full-width-mobile"

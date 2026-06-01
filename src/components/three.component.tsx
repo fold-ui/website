@@ -13,7 +13,7 @@ export const ThreeComponent = () => {
 
         // --- Dot Globe Construction ---
         const dotCount = 1000
-        const baseRadius = 10
+        const baseRadius = 9
         const rotationSpeed = 0.0005
         const geometry = new THREE.BufferGeometry()
         const positions = new Float32Array(dotCount * 3)
@@ -29,7 +29,8 @@ export const ThreeComponent = () => {
         const height = container.clientHeight
         const scene = new THREE.Scene()
 
-        scene.background = new THREE.Color(0x12131b)
+        //scene.background = new THREE.Color(0x12131b)
+        scene.background = new THREE.Color(0x1D1E29)
 
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
         camera.position.z = 20
