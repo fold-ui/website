@@ -30,7 +30,7 @@ export const ThreeComponent = () => {
         const scene = new THREE.Scene()
 
         //scene.background = new THREE.Color(0x12131b)
-        scene.background = new THREE.Color(0x1D1E29)
+        scene.background = new THREE.Color(0x161721)
 
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
         camera.position.z = 20
