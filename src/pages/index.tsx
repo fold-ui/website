@@ -190,14 +190,15 @@ function Home() {
                             <Text
                                 style={{ textTransform: 'uppercase' }}
                                 colorToken="text-weaker">
-                                Open-source React UI
+                                Zero Gravity UI Components
                             </Text>
                             <Heading
                                 fontWeight="var(--f-font-weight-light)"
                                 fontSize="var(--f-font-size-large)">
-                                Build product interfaces from components you can inspect, theme and change. &nbsp;
+                                Product UI without dependency hell.&nbsp;
                                 <Text as="span" colorToken="text-weak" fontSize="inherit">
-                                    Fold covers everyday controls and the complicated parts of data and planning, with typed APIs and no extra runtime dependencies.
+                                Fold is an OSS React library for everyday controls, data grids and advanced interactions. 
+                                Lightspeed DX, with no runtime dependencies beyond React.
                                 </Text>
                             </Heading>
                         </View>

@@ -1205,25 +1205,26 @@ export const All = () => {
                     width="100%">
                     <Pill
                         size="sm"
+                        subtle
                         color={Token.ColorPink500}>
                         React
                     </Pill>
                     <Pill
-                        solid
+                        subtle
                         size="sm"
-                        color={Token.ColorPurple100}>
+                        color={Token.ColorIndigo500}>
                         UI
                     </Pill>
                     <Pill
-                        solid
+                        subtle
                         size="sm"
-                        color={Token.ColorBlue300}>
+                        color={Token.ColorBlue500}>
                         Components
                     </Pill>
                     <Pill
-                        solid
+                        subtle
                         size="sm"
-                        color={Token.ColorTeal100}>
+                        color={Token.ColorTeal500}>
                         TypeScript
                     </Pill>
                 </View>
