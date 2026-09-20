@@ -1,0 +1,73 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { FlickeringGrid, Heading, Text, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Flickering Grid',
+    subtitle: 'The FlickeringGrid component renders a softly animated field of squares.',
+    description:
+        'The canvas animation responds to its container size and pauses its drawing work while outside the viewport.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/flickering-grid/index.ts","description":"","displayName":"FlickeringGrid","methods":[],"props":{"squareSize":{"defaultValue":{"value":"4"},"description":"","name":"squareSize","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"gridGap":{"defaultValue":{"value":"6"},"description":"","name":"gridGap","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"flickerChance":{"defaultValue":{"value":"0.003"},"description":"","name":"flickerChance","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"color":{"defaultValue":{"value":"rgb(0, 0, 0)"},"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/index.d.ts","name":"HTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"maxOpacity":{"defaultValue":{"value":"0.3"},"description":"","name":"maxOpacity","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"speed":{"defaultValue":{"value":"50"},"description":"","name":"speed","declarations":[{"fileName":"fold/packages/core/src/flickering-grid/flickering-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = [[["--f-flickering-grid-width","110%"],["--f-flickering-grid-height","110%"]]]
+
+
+
+<CodeComponent filename="flickering-grid.tsx" code="aW1wb3J0IHsgRmxpY2tlcmluZ0dyaWQgfSBmcm9tICJAZm9sZC11aS9wcm8iOwo=" />
+```tsx
+import { FlickeringGrid } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => (<View position="relative" width="100%" height={320} radius="var(--f-radius-xl)" bg="var(--f-color-surface)" style={{ overflow: 'hidden' }}>
+        <FlickeringGrid squareSize={5} gridGap={4} flickerChance={0.04} color="#8b84ff" maxOpacity={0.4} style={{ position: 'absolute', inset: 0 }}/>
+        <View column position="relative" zIndex={1} height="100%" alignItems="center" justifyContent="center" gap={10}>
+            <Heading as="h2">Signals in motion</Heading>
+            <Text>The grid adds quiet texture to an empty surface.</Text>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszMjB9CiAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cy14bCkiCiAgICAgICAgYmc9InZhcigtLWYtY29sb3Itc3VyZmFjZSkiCiAgICAgICAgc3R5bGU9e3sgb3ZlcmZsb3c6ICdoaWRkZW4nIH19PgogICAgICAgIDxGbGlja2VyaW5nR3JpZAogICAgICAgICAgICBzcXVhcmVTaXplPXs1fQogICAgICAgICAgICBncmlkR2FwPXs0fQogICAgICAgICAgICBmbGlja2VyQ2hhbmNlPXswLjA0fQogICAgICAgICAgICBjb2xvcj0iIzhiODRmZiIKICAgICAgICAgICAgbWF4T3BhY2l0eT17MC40fQogICAgICAgICAgICBzdHlsZT17eyBwb3NpdGlvbjogJ2Fic29sdXRlJywgaW5zZXQ6IDAgfX0KICAgICAgICAvPgogICAgICAgIDxWaWV3CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgICAgIHpJbmRleD17MX0KICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJjZW50ZXIiCiAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJjZW50ZXIiCiAgICAgICAgICAgIGdhcD17MTB9PgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDIiPlNpZ25hbHMgaW4gbW90aW9uPC9IZWFkaW5nPgogICAgICAgICAgICA8VGV4dD5UaGUgZ3JpZCBhZGRzIHF1aWV0IHRleHR1cmUgdG8gYW4gZW1wdHkgc3VyZmFjZS48L1RleHQ+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Usage = () => (
+    <View
+        position="relative"
+        width="100%"
+        height={320}
+        radius="var(--f-radius-xl)"
+        bg="var(--f-color-surface)"
+        style={{ overflow: 'hidden' }}>
+        <FlickeringGrid
+            squareSize={5}
+            gridGap={4}
+            flickerChance={0.04}
+            color="#8b84ff"
+            maxOpacity={0.4}
+            style={{ position: 'absolute', inset: 0 }}
+        />
+        <View
+            column
+            position="relative"
+            zIndex={1}
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            gap={10}>
+            <Heading as="h2">Signals in motion</Heading>
+            <Text>The grid adds quiet texture to an empty surface.</Text>
+        </View>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

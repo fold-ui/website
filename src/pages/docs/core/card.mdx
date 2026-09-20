@@ -28,26 +28,26 @@ export const docs = {
         'Cards are platforms for presenting content related to a specific subject, they are designed to facilitate quick scanning for important and actionable information.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"Card","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"CardList","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"CardListItem","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold/packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"Card","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"CardList","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/index.ts","description":"","displayName":"CardListItem","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold/packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
 
-export const css = [[["--f-card-color-background","var(--f-color-surface)"],["--f-card-color-solid-background","var(--f-color-surface-inverse)"],["--f-card-border-radius","var(--f-radius)"],["--f-card-border-color","var(--f-color-border)"],["--f-card-shadow","var(--f-shadow-card)"]]]
+export const css = [[["--f-card-color-background","var(--f-color-surface)"],["--f-card-color-solid-background","var(--f-color-surface-inverse)"],["--f-card-border-radius","var(--f-radius)"],["--f-card-border-color","var(--f-color-border)"],["--f-card-shadow","var(--f-shadow-sm)"]]]
 
 
 
-<CodeComponent filename="card.tsx" code="aW1wb3J0IHsgQ2FyZCwgQ2FyZExpc3QsIENhcmRMaXN0SXRlbSB9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
+<CodeComponent filename="card.tsx" code="aW1wb3J0IHsgQ2FyZCwgQ2FyZExpc3QsIENhcmRMaXN0SXRlbSB9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
 ```tsx
-import { Card, CardList, CardListItem } from "@fold-ui/core";
+import { Card, CardList, CardListItem } from "@fold-ui/pro";
 ```
 
 ### Usage
 
-export const Usage = () => (<Card width={300} footer={<>
+export const Usage = () => (<Card width={300} footer={<View width="100%">
                 <Divider />
                 <ButtonGroup p={15} justifyContent="stretch" width="100%">
                     <Button>Book Now</Button>
                     <Button>Add to Wishlist</Button>
                 </ButtonGroup>
-            </>} header={<Image width="100%" height={150} src="/photos/05.jpg"/>}>
+            </View>} header={<Image width="100%" height={150} src="/photos/05.jpg"/>}>
         <View p={20}>
             <Stack direction="vertical" spacing={10}>
                 <View row gap={5} justifyContent="flex-start">
@@ -74,14 +74,14 @@ export const Usage = () => (<Card width={300} footer={<>
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPENhcmQKICAgICAgICB3aWR0aD17MzAwfQogICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgIDw+CiAgICAgICAgICAgICAgICA8RGl2aWRlciAvPgogICAgICAgICAgICAgICAgPEJ1dHRvbkdyb3VwCiAgICAgICAgICAgICAgICAgICAgcD17MTV9CiAgICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9InN0cmV0Y2giCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24+Qm9vayBOb3c8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8QnV0dG9uPkFkZCB0byBXaXNobGlzdDwvQnV0dG9uPgogICAgICAgICAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICAgICAgPC8+CiAgICAgICAgfQogICAgICAgIGhlYWRlcj17CiAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgfT4KICAgICAgICA8VmlldyBwPXsyMH0+CiAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8UGlsbAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JCbHVlNDAwfQogICAgICAgICAgICAgICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iPgogICAgICAgICAgICAgICAgICAgICAgICBjby13b3JraW5nCiAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgICAgIDxQaWxsCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDQwMH0KICAgICAgICAgICAgICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9InNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3RlCiAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgyIj5QZXJmZWN0IEdldGF3YXk8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VGV4dD5BIG9uY2UgaW4gYSBsaWZldGltZSBvcHBvcnR1bml0eSB0byBsaXZlIGFuZCB3b3JrIHJlbW90ZWx5IGluIGEgYnJlYXRodGFraW5nIGxvY2F0aW9uITwvVGV4dD4KICAgICAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgIGZvbnRXZWlnaHQ9ImJvbGQiPgogICAgICAgICAgICAgICAgICAgICQgNDU2LDAwCiAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImFjY2VudCI+CiAgICAgICAgICAgICAgICAgICAgVGVybXMgJiBjb25kaXRpb25zIGFwcGx5CiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgPC9WaWV3PgogICAgPC9DYXJkPgop" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPENhcmQKICAgICAgICB3aWR0aD17MzAwfQogICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgIDxWaWV3IHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgIDxEaXZpZGVyIC8+CiAgICAgICAgICAgICAgICA8QnV0dG9uR3JvdXAKICAgICAgICAgICAgICAgICAgICBwPXsxNX0KICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0ic3RyZXRjaCIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbj5Cb29rIE5vdzwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24+QWRkIHRvIFdpc2hsaXN0PC9CdXR0b24+CiAgICAgICAgICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgfQogICAgICAgIGhlYWRlcj17CiAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgfT4KICAgICAgICA8VmlldyBwPXsyMH0+CiAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8UGlsbAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JCbHVlNDAwfQogICAgICAgICAgICAgICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iPgogICAgICAgICAgICAgICAgICAgICAgICBjby13b3JraW5nCiAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgICAgIDxQaWxsCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDQwMH0KICAgICAgICAgICAgICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9InNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3RlCiAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgyIj5QZXJmZWN0IEdldGF3YXk8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VGV4dD5BIG9uY2UgaW4gYSBsaWZldGltZSBvcHBvcnR1bml0eSB0byBsaXZlIGFuZCB3b3JrIHJlbW90ZWx5IGluIGEgYnJlYXRodGFraW5nIGxvY2F0aW9uITwvVGV4dD4KICAgICAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgIGZvbnRXZWlnaHQ9ImJvbGQiPgogICAgICAgICAgICAgICAgICAgICQgNDU2LDAwCiAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImFjY2VudCI+CiAgICAgICAgICAgICAgICAgICAgVGVybXMgJiBjb25kaXRpb25zIGFwcGx5CiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgPC9WaWV3PgogICAgPC9DYXJkPgop" />
 
 ```tsx
 export const Usage = () => (
     <Card
         width={300}
         footer={
-            <>
+            <View width="100%">
                 <Divider />
                 <ButtonGroup
                     p={15}
@@ -90,7 +90,7 @@ export const Usage = () => (
                     <Button>Book Now</Button>
                     <Button>Add to Wishlist</Button>
                 </ButtonGroup>
-            </>
+            </View>
         }
         header={
             <Image

@@ -12,15 +12,15 @@ export const docs = {
         'Toast components are useful for conveying non-essential confirmations or notifications, offering easily digestible feedback to the user.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"Toast","methods":[],"props":{"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"message":{"defaultValue":null,"description":"","name":"message","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"showDismiss":{"defaultValue":null,"description":"","name":"showDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"showProgress":{"defaultValue":null,"description":"","name":"showProgress","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ToastAnchor"},"tags":{}},"delay":{"defaultValue":null,"description":"","name":"delay","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"toastComponent":{"defaultValue":null,"description":"","name":"toastComponent","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"ueid":{"defaultValue":null,"description":"","name":"ueid","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"containerProps":{"defaultValue":null,"description":"","name":"containerProps","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"ToastContainer","methods":[],"props":{}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"Toast","methods":[],"props":{"paused":{"defaultValue":null,"description":"","name":"paused","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"message":{"defaultValue":null,"description":"","name":"message","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"showDismiss":{"defaultValue":null,"description":"","name":"showDismiss","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"showProgress":{"defaultValue":null,"description":"","name":"showProgress","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"dontPauseOnHover":{"defaultValue":null,"description":"","name":"dontPauseOnHover","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ToastAnchor"},"tags":{}},"delay":{"defaultValue":null,"description":"","name":"delay","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"toastComponent":{"defaultValue":null,"description":"","name":"toastComponent","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"ueid":{"defaultValue":null,"description":"","name":"ueid","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"containerProps":{"defaultValue":null,"description":"","name":"containerProps","declarations":[{"fileName":"fold/packages/core/src/toast/toast.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"CoreViewProps"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/toast/index.ts","description":"","displayName":"ToastContainer","methods":[],"props":{}}]
 
-export const css = [[["--f-toast-border-radius","var(--f-radius)"],["--f-toast-color","var(--f-color-text-on-color)"],["--f-toast-background-color","var(--f-color-surface-inverse)"],["--f-toast-max-width","100%"],["--f-toast-padding","var(--f-space-3)"]]]
+export const css = [[["--f-toast-border-radius","var(--f-radius)"],["--f-toast-color","var(--f-color-text)"],["--f-toast-border","1px solid var(--f-color-border)"],["--f-toast-background-color","var(--f-color-surface)"],["--f-toast-max-width","100%"],["--f-toast-padding","var(--f-space-3)"],["--f-toast-width","min(22rem, calc(100vw - 2rem))"],["--f-toast-stack-gap","0.35rem"],["--f-toast-stack-overlap","2.5rem"]]]
 
 
 
-<CodeComponent filename="toast.tsx" code="aW1wb3J0IHsgVG9hc3QsIFRvYXN0Q29udGFpbmVyIH0gZnJvbSAiQGZvbGQtdWkvY29yZSI7Cg==" />
+<CodeComponent filename="toast.tsx" code="aW1wb3J0IHsgVG9hc3QsIFRvYXN0Q29udGFpbmVyIH0gZnJvbSAiQGZvbGQtdWkvcHJvIjsK" />
 ```tsx
-import { Toast, ToastContainer } from "@fold-ui/core";
+import { Toast, ToastContainer } from "@fold-ui/pro";
 ```
 
 ### Usage
@@ -150,11 +150,6 @@ export const Anchors = () => {
     const handleClick = () => {
         const anchors = [
             'bottom-right',
-            'bottom-center',
-            'bottom-left',
-            'top-left',
-            'top-right',
-            'top-center',
         ];
         showToast({
             message: 'Converting your document to PDF format.',
@@ -171,7 +166,7 @@ export const Anchors = () => {
 <Anchors />
 </div>
 
-<CodeComponent filename="Anchors.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvcnMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHNob3dUb2FzdCB9ID0gdXNlVG9hc3QoKQoKICAgIGNvbnN0IGhhbmRsZUNsaWNrID0gKCkgPT4gewogICAgICAgIGNvbnN0IGFuY2hvcnM6IFRvYXN0QW5jaG9yW10gPSBbCiAgICAgICAgICAgICdib3R0b20tcmlnaHQnLAogICAgICAgICAgICAnYm90dG9tLWNlbnRlcicsCiAgICAgICAgICAgICdib3R0b20tbGVmdCcsCiAgICAgICAgICAgICd0b3AtbGVmdCcsCiAgICAgICAgICAgICd0b3AtcmlnaHQnLAogICAgICAgICAgICAndG9wLWNlbnRlcicsCiAgICAgICAgXQoKICAgICAgICBzaG93VG9hc3QoewogICAgICAgICAgICBtZXNzYWdlOiAnQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuJywKICAgICAgICAgICAgcHJlZml4OiA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPiwKICAgICAgICAgICAgYW5jaG9yOiBhbmNob3JzW01hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIGFuY2hvcnMubGVuZ3RoKV0sCiAgICAgICAgICAgIHNob3dQcm9ncmVzczogdHJ1ZSwKICAgICAgICAgICAgZGVsYXk6IDQwMDAsCiAgICAgICAgfSkKICAgIH0KCiAgICByZXR1cm4gPEJ1dHRvbiBvbkNsaWNrPXtoYW5kbGVDbGlja30+U2hvdyBUb2FzdCBNZXNzYWdlPC9CdXR0b24+Cn0=" />
+<CodeComponent filename="Anchors.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvcnMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHNob3dUb2FzdCB9ID0gdXNlVG9hc3QoKQoKICAgIGNvbnN0IGhhbmRsZUNsaWNrID0gKCkgPT4gewogICAgICAgIGNvbnN0IGFuY2hvcnM6IFRvYXN0QW5jaG9yW10gPSBbCiAgICAgICAgICAgICdib3R0b20tcmlnaHQnLAogICAgICAgICAgICAKICAgICAgICAgICAgCiAgICAgICAgICAgIAogICAgICAgICAgICAKICAgICAgICAgICAgCiAgICAgICAgXQoKICAgICAgICBzaG93VG9hc3QoewogICAgICAgICAgICBtZXNzYWdlOiAnQ29udmVydGluZyB5b3VyIGRvY3VtZW50IHRvIFBERiBmb3JtYXQuJywKICAgICAgICAgICAgcHJlZml4OiA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPiwKICAgICAgICAgICAgYW5jaG9yOiBhbmNob3JzW01hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIGFuY2hvcnMubGVuZ3RoKV0sCiAgICAgICAgICAgIHNob3dQcm9ncmVzczogdHJ1ZSwKICAgICAgICAgICAgZGVsYXk6IDQwMDAsCiAgICAgICAgfSkKICAgIH0KCiAgICByZXR1cm4gPEJ1dHRvbiBvbkNsaWNrPXtoYW5kbGVDbGlja30+U2hvdyBUb2FzdCBNZXNzYWdlPC9CdXR0b24+Cn0=" />
 
 ```tsx
 export const Anchors = () => {
@@ -180,11 +175,11 @@ export const Anchors = () => {
     const handleClick = () => {
         const anchors: ToastAnchor[] = [
             'bottom-right',
-            'bottom-center',
-            'bottom-left',
-            'top-left',
-            'top-right',
-            'top-center',
+            
+            
+            
+            
+            
         ]
 
         showToast({

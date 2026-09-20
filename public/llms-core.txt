@@ -4425,7 +4425,7 @@ import {
     useDialog,
 } from '@fold-ui/core'
 import React, { useState } from 'react'
-import * as data from '../../../../dummy-data'
+import * as data from '@/dummy-data'
 ```
 
 ### Usage

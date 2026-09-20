@@ -1,0 +1,85 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-ui/design/tokens'
+import { PieChart, PieChartSlice, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Pie Chart',
+    subtitle: 'The PieChart component shows how parts contribute to a whole.',
+    description:
+        'Pie charts are useful for displaying proportional data at a glance. Set an `innerRadius` to render a donut instead. It is rendered with plain SVG and carries no charting dependencies.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/pie-chart/index.ts","description":"","displayName":"PieChart","methods":[],"props":{"data":{"defaultValue":null,"description":"The slices to render. Values are summed to determine each slice's angle.","name":"data","declarations":[{"fileName":"fold/packages/core/src/pie-chart/pie-chart.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"PieChartSlice[]"},"tags":{}},"radius":{"defaultValue":null,"description":"Diameter of the chart, in pixels.\nCSS radius","name":"radius","declarations":[{"fileName":"fold/packages/core/src/pie-chart/pie-chart.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"innerRadius":{"defaultValue":null,"description":"Inner radius, in pixels. A value greater than 0 renders a donut.","name":"innerRadius","declarations":[{"fileName":"fold/packages/core/src/pie-chart/pie-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"title":{"defaultValue":null,"description":"Optional title rendered above the chart.","name":"title","declarations":[{"fileName":"fold/packages/core/src/pie-chart/pie-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"showLegend":{"defaultValue":null,"description":"Render the legend beside the chart.","name":"showLegend","declarations":[{"fileName":"fold/packages/core/src/pie-chart/pie-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="pie-chart.tsx" code="aW1wb3J0IHsgUGllQ2hhcnQgfSBmcm9tICJAZm9sZC11aS9wcm8iOwo=" />
+```tsx
+import { PieChart } from "@fold-ui/pro";
+```
+
+### Pie Chart Slice[]
+
+const data = [
+    { legend: 'Direct', color: Token.ColorAccent500, value: 40 },
+    { legend: 'Referral', color: Token.ColorBlue500, value: 25 },
+    { legend: 'Organic', color: Token.ColorGreen500, value: 20 },
+    { legend: 'Social', color: Token.ColorPurple500, value: 15 },
+];
+export const Usage = () => (<View width="100%">
+        <PieChart radius={160} data={data}/>
+    </View>);
+
+<div className="story-block">
+<PieChartSlice[] />
+</div>
+
+<CodeComponent filename="PieChartSlice[].tsx" code="Y29uc3QgZGF0YTogUGllQ2hhcnRTbGljZVtdID0gWwogICAgeyBsZWdlbmQ6ICdEaXJlY3QnLCBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsIHZhbHVlOiA0MCB9LAogICAgeyBsZWdlbmQ6ICdSZWZlcnJhbCcsIGNvbG9yOiBUb2tlbi5Db2xvckJsdWU1MDAsIHZhbHVlOiAyNSB9LAogICAgeyBsZWdlbmQ6ICdPcmdhbmljJywgY29sb3I6IFRva2VuLkNvbG9yR3JlZW41MDAsIHZhbHVlOiAyMCB9LAogICAgeyBsZWdlbmQ6ICdTb2NpYWwnLCBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsIHZhbHVlOiAxNSB9LApdCgpleHBvcnQgY29uc3QgVXNhZ2UgPSAoKSA9PiAoCiAgICA8VmlldyB3aWR0aD0iMTAwJSI+CiAgICAgICAgPFBpZUNoYXJ0CiAgICAgICAgICAgIHJhZGl1cz17MTYwfQogICAgICAgICAgICBkYXRhPXtkYXRhfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+const data: PieChartSlice[] = [
+    { legend: 'Direct', color: Token.ColorAccent500, value: 40 },
+    { legend: 'Referral', color: Token.ColorBlue500, value: 25 },
+    { legend: 'Organic', color: Token.ColorGreen500, value: 20 },
+    { legend: 'Social', color: Token.ColorPurple500, value: 15 },
+]
+
+export const Usage = () => (
+    <View width="100%">
+        <PieChart
+            radius={160}
+            data={data}
+        />
+    </View>
+)
+```
+### Donut
+
+export const Donut = () => (<View width="100%">
+        <PieChart radius={160} innerRadius={55} data={data}/>
+    </View>);
+
+<div className="story-block">
+<Donut />
+</div>
+
+<CodeComponent filename="Donut.tsx" code="ZXhwb3J0IGNvbnN0IERvbnV0ID0gKCkgPT4gKAogICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgIDxQaWVDaGFydAogICAgICAgICAgICByYWRpdXM9ezE2MH0KICAgICAgICAgICAgaW5uZXJSYWRpdXM9ezU1fQogICAgICAgICAgICBkYXRhPXtkYXRhfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Donut = () => (
+    <View width="100%">
+        <PieChart
+            radius={160}
+            innerRadius={55}
+            data={data}
+        />
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

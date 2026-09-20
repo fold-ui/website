@@ -1,0 +1,79 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { AnimatedGridPattern, Heading, Text, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Animated Grid Pattern',
+    subtitle: 'The AnimatedGridPattern component creates a perspective grid with softly fading squares.',
+    description:
+        'Use it as a decorative background inside calls to action, hero content, and other positioned surfaces.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/animated-grid-pattern/index.ts","description":"","displayName":"AnimatedGridPattern","methods":[],"props":{"width":{"defaultValue":{"value":"40"},"description":"","name":"width","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":{"value":"40"},"description":"","name":"height","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"x":{"defaultValue":{"value":"-1"},"description":"","name":"x","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"y":{"defaultValue":{"value":"-1"},"description":"","name":"y","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"strokeDasharray":{"defaultValue":{"value":"0"},"description":"","name":"strokeDasharray","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/index.d.ts","name":"SVGAttributes"}],"required":false,"type":{"name":"number"},"tags":{}},"numSquares":{"defaultValue":{"value":"50"},"description":"","name":"numSquares","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"gridColor":{"defaultValue":{"value":"var(--f-animated-grid-pattern-grid-color)"},"description":"","name":"gridColor","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"squareColor":{"defaultValue":{"value":"var(--f-animated-grid-pattern-square-color)"},"description":"","name":"squareColor","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"maxOpacity":{"defaultValue":{"value":"0.5"},"description":"","name":"maxOpacity","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"duration":{"defaultValue":{"value":"4"},"description":"","name":"duration","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"repeatDelay":{"defaultValue":{"value":"0.5"},"description":"","name":"repeatDelay","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/animated-grid-pattern/animated-grid-pattern.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AnimatedGridPatternStyle"},"tags":{}}}}]
+
+export const css = [[["--f-animated-grid-pattern-grid-color","rgb(129 140 248 / 30%)"],["--f-animated-grid-pattern-square-color","rgb(199 210 254 / 70%)"],["--f-animated-grid-pattern-square-max-opacity","0.5"],["--f-animated-grid-pattern-animation-duration","8.5s"],["--f-animated-grid-pattern-perspective","900px"],["--f-animated-grid-pattern-transform","rotateY(25deg) skewX(10deg) skewY(10deg)"]]]
+
+
+
+<CodeComponent filename="animated-grid-pattern.tsx" code="aW1wb3J0IHsgQW5pbWF0ZWRHcmlkUGF0dGVybiB9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
+```tsx
+import { AnimatedGridPattern } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => (<View position="relative" width="100%" height={360} radius="var(--f-radius-xl)" bgToken="brand-700" style={{ overflow: 'hidden' }}>
+        <AnimatedGridPattern width={44} height={44} numSquares={24} maxOpacity={0.24} duration={5} repeatDelay={1}/>
+        <View column position="relative" zIndex={1} height="100%" alignItems="center" justifyContent="center" gap={10}>
+            <Heading as="h2" colorToken="base-100">
+                Ready in minutes
+            </Heading>
+            <Text colorToken="base-200">Animated squares bring depth to important content.</Text>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszNjB9CiAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cy14bCkiCiAgICAgICAgYmdUb2tlbj0iYnJhbmQtNzAwIgogICAgICAgIHN0eWxlPXt7IG92ZXJmbG93OiAnaGlkZGVuJyB9fT4KICAgICAgICA8QW5pbWF0ZWRHcmlkUGF0dGVybgogICAgICAgICAgICB3aWR0aD17NDR9CiAgICAgICAgICAgIGhlaWdodD17NDR9CiAgICAgICAgICAgIG51bVNxdWFyZXM9ezI0fQogICAgICAgICAgICBtYXhPcGFjaXR5PXswLjI0fQogICAgICAgICAgICBkdXJhdGlvbj17NX0KICAgICAgICAgICAgcmVwZWF0RGVsYXk9ezF9CiAgICAgICAgLz4KICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIgogICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgYWxpZ25JdGVtcz0iY2VudGVyIgogICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iY2VudGVyIgogICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoMiIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImJhc2UtMTAwIj4KICAgICAgICAgICAgICAgIFJlYWR5IGluIG1pbnV0ZXMKICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICA8VGV4dCBjb2xvclRva2VuPSJiYXNlLTIwMCI+QW5pbWF0ZWQgc3F1YXJlcyBicmluZyBkZXB0aCB0byBpbXBvcnRhbnQgY29udGVudC48L1RleHQ+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Usage = () => (
+    <View
+        position="relative"
+        width="100%"
+        height={360}
+        radius="var(--f-radius-xl)"
+        bgToken="brand-700"
+        style={{ overflow: 'hidden' }}>
+        <AnimatedGridPattern
+            width={44}
+            height={44}
+            numSquares={24}
+            maxOpacity={0.24}
+            duration={5}
+            repeatDelay={1}
+        />
+        <View
+            column
+            position="relative"
+            zIndex={1}
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            gap={10}>
+            <Heading
+                as="h2"
+                colorToken="base-100">
+                Ready in minutes
+            </Heading>
+            <Text colorToken="base-200">Animated squares bring depth to important content.</Text>
+        </View>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

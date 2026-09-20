@@ -133,7 +133,7 @@ export const HeroComponent = () => {
                             subtle
                             color="#532FEC"
                             size="sm">
-                            v0.25.4
+                            v0.26.0
                         </Pill>
                     </View>
 

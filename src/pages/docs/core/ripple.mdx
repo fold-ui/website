@@ -1,0 +1,76 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Heading, Ripple, Text, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Ripple',
+    subtitle: 'The Ripple component creates a layered field of softly pulsing circles.',
+    description:
+        'Use Ripple as a decorative background for hero content, calls to action, and other prominent surfaces.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/ripple/index.ts","description":"","displayName":"Ripple","methods":[],"props":{"mainCircleSize":{"defaultValue":{"value":"210"},"description":"","name":"mainCircleSize","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"mainCircleOpacity":{"defaultValue":{"value":"0.24"},"description":"","name":"mainCircleOpacity","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"numCircles":{"defaultValue":{"value":"8"},"description":"","name":"numCircles","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"color":{"defaultValue":{"value":"rgba(255, 255, 255, 0.15)"},"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"duration":{"defaultValue":{"value":"5"},"description":"","name":"duration","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/ripple/ripple.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"RippleStyle"},"tags":{}}}}]
+
+export const css = [[["--f-ripple-color","rgb(255 255 255 / 15%)"],["--f-ripple-background","rgb(238 242 255 / 1%)"],["--f-ripple-border-width","1px"],["--f-ripple-duration","5s"]]]
+
+
+
+<CodeComponent filename="ripple.tsx" code="aW1wb3J0IHsgUmlwcGxlIH0gZnJvbSAiQGZvbGQtdWkvcHJvIjsK" />
+```tsx
+import { Ripple } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => (<View position="relative" width="100%" height={360} radius="var(--f-radius-xl)" bgToken="base-900" style={{ overflow: 'hidden' }}>
+        <Ripple mainCircleSize={120} numCircles={10} color="#ffffffaf"/>
+        <View column position="relative" zIndex={1} height="100%" alignItems="center" justifyContent="center" gap={10}>
+            <Heading as="h2" colorToken="base-100">
+                Focus outward
+            </Heading>
+            <Text colorToken="base-100">Concentric motion adds depth without distracting from content.</Text>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszNjB9CiAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cy14bCkiCiAgICAgICAgYmdUb2tlbj0iYmFzZS05MDAiCiAgICAgICAgc3R5bGU9e3sgb3ZlcmZsb3c6ICdoaWRkZW4nIH19PgogICAgICAgIDxSaXBwbGUKICAgICAgICAgICAgbWFpbkNpcmNsZVNpemU9ezEyMH0KICAgICAgICAgICAgbnVtQ2lyY2xlcz17MTB9CiAgICAgICAgICAgIGNvbG9yPSIjZmZmZmZmYWYiCiAgICAgICAgLz4KICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIgogICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgYWxpZ25JdGVtcz0iY2VudGVyIgogICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iY2VudGVyIgogICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoMiIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImJhc2UtMTAwIj4KICAgICAgICAgICAgICAgIEZvY3VzIG91dHdhcmQKICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICA8VGV4dCBjb2xvclRva2VuPSJiYXNlLTEwMCI+Q29uY2VudHJpYyBtb3Rpb24gYWRkcyBkZXB0aCB3aXRob3V0IGRpc3RyYWN0aW5nIGZyb20gY29udGVudC48L1RleHQ+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Usage = () => (
+    <View
+        position="relative"
+        width="100%"
+        height={360}
+        radius="var(--f-radius-xl)"
+        bgToken="base-900"
+        style={{ overflow: 'hidden' }}>
+        <Ripple
+            mainCircleSize={120}
+            numCircles={10}
+            color="#ffffffaf"
+        />
+        <View
+            column
+            position="relative"
+            zIndex={1}
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            gap={10}>
+            <Heading
+                as="h2"
+                colorToken="base-100">
+                Focus outward
+            </Heading>
+            <Text colorToken="base-100">Concentric motion adds depth without distracting from content.</Text>
+        </View>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

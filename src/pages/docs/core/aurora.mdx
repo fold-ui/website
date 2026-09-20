@@ -1,0 +1,75 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Aurora, Heading, Text, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Aurora',
+    subtitle: 'The Aurora component creates a softly animated, color-derived background.',
+    description:
+        'Use Aurora behind hero content, calls to action, or other large surfaces that benefit from ambient motion.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/aurora/index.ts","description":"","displayName":"Aurora","methods":[],"props":{"baseColor":{"defaultValue":{"value":"#fdfdff"},"description":"","name":"baseColor","declarations":[{"fileName":"fold/packages/core/src/aurora/aurora.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"variant":{"defaultValue":{"value":"sweep"},"description":"","name":"variant","declarations":[{"fileName":"fold/packages/core/src/aurora/aurora.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AuroraVariant"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/aurora/aurora.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AuroraStyle"},"tags":{}}}}]
+
+export const css = [[["--f-aurora-height","300%"]]]
+
+
+
+<CodeComponent filename="aurora.tsx" code="aW1wb3J0IHsgQXVyb3JhIH0gZnJvbSAiQGZvbGQtdWkvcHJvIjsK" />
+```tsx
+import { Aurora } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => (<View position="relative" width="100%" height={360} radius="var(--f-radius-xl)" style={{ overflow: 'hidden' }}>
+        <Aurora baseColor="#f4f2ff" variant="orbit" style={{ '--f-aurora-height': '100%' }}/>
+        <View column position="relative" zIndex={1} height="100%" alignItems="center" justifyContent="center" gap={10}>
+            <Heading as="h2" colorToken="base-900">
+                Ambient by design
+            </Heading>
+            <Text colorToken="base-700">One base color generates the complete aurora palette.</Text>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszNjB9CiAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cy14bCkiCiAgICAgICAgc3R5bGU9e3sgb3ZlcmZsb3c6ICdoaWRkZW4nIH19PgogICAgICAgIDxBdXJvcmEKICAgICAgICAgICAgYmFzZUNvbG9yPSIjZjRmMmZmIgogICAgICAgICAgICB2YXJpYW50PSJvcmJpdCIKICAgICAgICAgICAgc3R5bGU9e3sgJy0tZi1hdXJvcmEtaGVpZ2h0JzogJzEwMCUnIH19CiAgICAgICAgLz4KICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIgogICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgYWxpZ25JdGVtcz0iY2VudGVyIgogICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iY2VudGVyIgogICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoMiIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImJhc2UtOTAwIj4KICAgICAgICAgICAgICAgIEFtYmllbnQgYnkgZGVzaWduCiAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgPFRleHQgY29sb3JUb2tlbj0iYmFzZS03MDAiPk9uZSBiYXNlIGNvbG9yIGdlbmVyYXRlcyB0aGUgY29tcGxldGUgYXVyb3JhIHBhbGV0dGUuPC9UZXh0PgogICAgICAgIDwvVmlldz4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <View
+        position="relative"
+        width="100%"
+        height={360}
+        radius="var(--f-radius-xl)"
+        style={{ overflow: 'hidden' }}>
+        <Aurora
+            baseColor="#f4f2ff"
+            variant="orbit"
+            style={{ '--f-aurora-height': '100%' }}
+        />
+        <View
+            column
+            position="relative"
+            zIndex={1}
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            gap={10}>
+            <Heading
+                as="h2"
+                colorToken="base-900">
+                Ambient by design
+            </Heading>
+            <Text colorToken="base-700">One base color generates the complete aurora palette.</Text>
+        </View>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

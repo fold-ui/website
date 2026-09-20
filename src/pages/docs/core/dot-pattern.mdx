@@ -1,0 +1,72 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { DotPattern, Heading, Text, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Dot Pattern',
+    subtitle: 'The DotPattern component renders a configurable SVG dot field.',
+    description: 'An optional ripple mask adds subtle motion while the SVG remains resolution independent at any size.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/dot-pattern/index.ts","description":"","displayName":"DotPattern","methods":[],"props":{"width":{"defaultValue":{"value":"16"},"description":"","name":"width","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":{"value":"16"},"description":"","name":"height","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"x":{"defaultValue":{"value":"0"},"description":"","name":"x","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"y":{"defaultValue":{"value":"0"},"description":"","name":"y","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"cx":{"defaultValue":{"value":"1"},"description":"","name":"cx","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"cy":{"defaultValue":{"value":"1"},"description":"","name":"cy","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"cr":{"defaultValue":{"value":"1"},"description":"","name":"cr","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"color":{"defaultValue":{"value":"var(--f-dot-pattern-color)"},"description":"","name":"color","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"string"},"tags":{}},"animated":{"defaultValue":{"value":"true"},"description":"","name":"animated","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"boolean"},"tags":{}},"duration":{"defaultValue":{"value":"6"},"description":"","name":"duration","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"numRipples":{"defaultValue":{"value":"4"},"description":"","name":"numRipples","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"maxRadius":{"defaultValue":{"value":"800"},"description":"","name":"maxRadius","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"baseOpacity":{"defaultValue":{"value":"0.3"},"description":"","name":"baseOpacity","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"rippleOpacity":{"defaultValue":{"value":"0.5"},"description":"","name":"rippleOpacity","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"number"},"tags":{}},"originX":{"defaultValue":{"value":"50%"},"description":"","name":"originX","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"string"},"tags":{}},"originY":{"defaultValue":{"value":"50%"},"description":"","name":"originY","parent":{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"},"declarations":[{"fileName":"fold/packages/core/src/dot-pattern/dot-pattern.tsx","name":"DotPatternProps"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-dot-pattern-color","rgb(161 161 170 / 80%)"]]]
+
+
+
+<CodeComponent filename="dot-pattern.tsx" code="aW1wb3J0IHsgRG90UGF0dGVybiB9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
+```tsx
+import { DotPattern } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => (<View position="relative" width="100%" height={320} radius="var(--f-radius-xl)" bg="var(--f-color-surface-strong)" style={{ overflow: 'hidden' }}>
+        <DotPattern width={12} height={12} color="var(--f-color-accent)" baseOpacity={0.12} rippleOpacity={0.55} duration={7}/>
+        <View column position="relative" zIndex={1} height="100%" alignItems="center" justifyContent="center" gap={10}>
+            <Heading as="h2">A field of focus</Heading>
+            <Text>Animated ripples draw attention without obscuring content.</Text>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszMjB9CiAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cy14bCkiCiAgICAgICAgYmc9InZhcigtLWYtY29sb3Itc3VyZmFjZS1zdHJvbmcpIgogICAgICAgIHN0eWxlPXt7IG92ZXJmbG93OiAnaGlkZGVuJyB9fT4KICAgICAgICA8RG90UGF0dGVybgogICAgICAgICAgICB3aWR0aD17MTJ9CiAgICAgICAgICAgIGhlaWdodD17MTJ9CiAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWFjY2VudCkiCiAgICAgICAgICAgIGJhc2VPcGFjaXR5PXswLjEyfQogICAgICAgICAgICByaXBwbGVPcGFjaXR5PXswLjU1fQogICAgICAgICAgICBkdXJhdGlvbj17N30KICAgICAgICAvPgogICAgICAgIDxWaWV3CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiCiAgICAgICAgICAgIHpJbmRleD17MX0KICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJjZW50ZXIiCiAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJjZW50ZXIiCiAgICAgICAgICAgIGdhcD17MTB9PgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDIiPkEgZmllbGQgb2YgZm9jdXM8L0hlYWRpbmc+CiAgICAgICAgICAgIDxUZXh0PkFuaW1hdGVkIHJpcHBsZXMgZHJhdyBhdHRlbnRpb24gd2l0aG91dCBvYnNjdXJpbmcgY29udGVudC48L1RleHQ+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Usage = () => (
+    <View
+        position="relative"
+        width="100%"
+        height={320}
+        radius="var(--f-radius-xl)"
+        bg="var(--f-color-surface-strong)"
+        style={{ overflow: 'hidden' }}>
+        <DotPattern
+            width={12}
+            height={12}
+            color="var(--f-color-accent)"
+            baseOpacity={0.12}
+            rippleOpacity={0.55}
+            duration={7}
+        />
+        <View
+            column
+            position="relative"
+            zIndex={1}
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            gap={10}>
+            <Heading as="h2">A field of focus</Heading>
+            <Text>Animated ripples draw attention without obscuring content.</Text>
+        </View>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

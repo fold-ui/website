@@ -342,6 +342,7 @@ export default function DocsLayout(props: any) {
                                 <View
                                     flex={1}
                                     width="100%"
+                                    className="f-scrollbar"
                                     style={{ overflowY: 'scroll' }}>
                                     <Navigation
                                         style={{ 
@@ -573,7 +574,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.25.4
+                                                    v0.26.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -610,7 +611,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.25.4
+                                                    v0.26.0
                                                 </Pill>                                               
                                             }>
                                             Pro Components
@@ -854,7 +855,7 @@ export default function DocsLayout(props: any) {
                                 width="100%"
                                 justifyContent="flex-start"
                                 alignItems="flex-start"
-                                className="scroll-content">
+                                className="scroll-content f-scrollbar">
                                 <View
                                     p={0}
                                     flex={1}

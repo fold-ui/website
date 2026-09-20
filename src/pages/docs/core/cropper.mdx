@@ -11,15 +11,15 @@ export const docs = {
         'Image cropper components have become a common feature in modern web and mobile applications, enabling users to upload and fine-tune images. They are particularly useful for profile images & social media websites.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/cropper/index.ts","description":"","displayName":"Cropper","methods":[],"props":{"defaultRotation":{"defaultValue":null,"description":"","name":"defaultRotation","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"defaultZoom":{"defaultValue":null,"description":"","name":"defaultZoom","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"rotationIncrement":{"defaultValue":null,"description":"","name":"rotationIncrement","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"zoomIncrement":{"defaultValue":null,"description":"","name":"zoomIncrement","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"zoomMax":{"defaultValue":null,"description":"","name":"zoomMax","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"customToolbar":{"defaultValue":null,"description":"","name":"customToolbar","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(png: string) => void"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/cropper/index.ts","description":"","displayName":"Cropper","methods":[],"props":{"aspectRatio":{"defaultValue":null,"description":"","name":"aspectRatio","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"defaultRotation":{"defaultValue":null,"description":"","name":"defaultRotation","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"defaultZoom":{"defaultValue":null,"description":"","name":"defaultZoom","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"rotationIncrement":{"defaultValue":null,"description":"","name":"rotationIncrement","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"zoomIncrement":{"defaultValue":null,"description":"","name":"zoomIncrement","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"zoomMax":{"defaultValue":null,"description":"","name":"zoomMax","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"customToolbar":{"defaultValue":null,"description":"","name":"customToolbar","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"fold/packages/core/src/cropper/cropper.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(png: string) => void"},"tags":{}}}}]
 
 export const css = [[["--f-cropper-border-radius","var(--f-radius)"],["--f-cropper-background-color","var(--f-color-surface-inverse)"],["--f-cropper-mask-border-radius","var(--f-radius)"],["--f-cropper-mask-opacity","0.75"],["--f-cropper-mask-color","var(--f-color-background)"],["--f-cropper-error-background-color","var(--f-color-surface-inverse)"],["--f-cropper-error-icon-color","var(--f-color-text-on-color)"]]]
 
 
 
-<CodeComponent filename="cropper.tsx" code="aW1wb3J0IHsgQ3JvcHBlciB9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
+<CodeComponent filename="cropper.tsx" code="aW1wb3J0IHsgQ3JvcHBlciB9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
 ```tsx
-import { Cropper } from "@fold-ui/core";
+import { Cropper } from "@fold-ui/pro";
 ```
 
 ### Usage
@@ -54,8 +54,9 @@ export const CustomToolbar = () => {
     return (<View width="100%" style={{ maxWidth: 500 }} height={400}>
             <Cropper defaultZoom={1} src="/photos/01.jpg" onSave={(pngDataUrl) => console.log('Here is the dataUrl!')} customToolbar={({ rotate, zoom, save }) => (<View width="100%">
                         <Range step={1} min={0} max={10} value={value} onChange={(e) => {
-                setValue(e.target.value);
-                zoom(e.target.value);
+                const nextValue = Number(e.target.value);
+                setValue(nextValue);
+                zoom(nextValue);
             }}/>
                     </View>)}/>
         </View>);
@@ -65,7 +66,7 @@ export const CustomToolbar = () => {
 <CustomToolbar />
 </div>
 
-<CodeComponent filename="CustomToolbar.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVRvb2xiYXIgPSAoKSA9PiB7CiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKDEpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICBoZWlnaHQ9ezQwMH0+CiAgICAgICAgICAgIDxDcm9wcGVyCiAgICAgICAgICAgICAgICBkZWZhdWx0Wm9vbT17MX0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICBvblNhdmU9eyhwbmdEYXRhVXJsKSA9PiBjb25zb2xlLmxvZygnSGVyZSBpcyB0aGUgZGF0YVVybCEnKX0KICAgICAgICAgICAgICAgIGN1c3RvbVRvb2xiYXI9eyh7IHJvdGF0ZSwgem9vbSwgc2F2ZSB9KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8UmFuZ2UKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0ZXA9ezF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3ZhbHVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VmFsdWUoZS50YXJnZXQudmFsdWUpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgem9vbShlLnRhcmdldC52YWx1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="CustomToolbar.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVRvb2xiYXIgPSAoKSA9PiB7CiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKDEpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICBoZWlnaHQ9ezQwMH0+CiAgICAgICAgICAgIDxDcm9wcGVyCiAgICAgICAgICAgICAgICBkZWZhdWx0Wm9vbT17MX0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICBvblNhdmU9eyhwbmdEYXRhVXJsKSA9PiBjb25zb2xlLmxvZygnSGVyZSBpcyB0aGUgZGF0YVVybCEnKX0KICAgICAgICAgICAgICAgIGN1c3RvbVRvb2xiYXI9eyh7IHJvdGF0ZSwgem9vbSwgc2F2ZSB9KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8UmFuZ2UKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0ZXA9ezF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3ZhbHVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgbmV4dFZhbHVlID0gTnVtYmVyKGUudGFyZ2V0LnZhbHVlKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFZhbHVlKG5leHRWYWx1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB6b29tKG5leHRWYWx1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const CustomToolbar = () => {
@@ -88,8 +89,9 @@ export const CustomToolbar = () => {
                             max={10}
                             value={value}
                             onChange={(e) => {
-                                setValue(e.target.value)
-                                zoom(e.target.value)
+                                const nextValue = Number(e.target.value)
+                                setValue(nextValue)
+                                zoom(nextValue)
                             }}
                         />
                     </View>

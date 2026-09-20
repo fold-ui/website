@@ -1,0 +1,113 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-ui/design/tokens'
+import { BarChart, BarChartGroup, View } from '@fold-ui/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Bar Chart',
+    subtitle: 'The BarChart component compares values across categories, grouped by series.',
+    description:
+        'Bar charts are useful for comparing discrete quantities side by side. Bars sharing a label are grouped together and coloured per series. It is rendered with plain SVG and carries no charting dependencies.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/bar-chart/index.ts","description":"","displayName":"BarChart","methods":[],"props":{"data":{"defaultValue":null,"description":"One or more groups of bars. Bars are grouped by their shared `label`.","name":"data","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"BarChartGroup[]"},"tags":{}},"title":{"defaultValue":null,"description":"Optional title rendered above the chart.","name":"title","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"header":{"defaultValue":null,"description":"Optional content rendered to the right of the title (before the legends).","name":"header","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"height":{"defaultValue":null,"description":"Height of the plot area, in pixels.\nCSS height","name":"height","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"grid":{"defaultValue":null,"description":"Render background gridlines.","name":"grid","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"ticks":{"defaultValue":null,"description":"Number of value (Y) ticks.","name":"ticks","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"radius":{"defaultValue":null,"description":"Corner radius applied to the top of each bar.\nCSS radius","name":"radius","declarations":[{"fileName":"fold/packages/core/src/bar-chart/bar-chart.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="bar-chart.tsx" code="aW1wb3J0IHsgQmFyQ2hhcnQgfSBmcm9tICJAZm9sZC11aS9wcm8iOwo=" />
+```tsx
+import { BarChart } from "@fold-ui/pro";
+```
+
+### Bar Chart Group
+
+const spend = {
+    legend: 'Spend',
+    color: Token.ColorAccent500,
+    values: [
+        { label: 'January', count: 1 },
+        { label: 'February', count: 1.5 },
+        { label: 'March', count: 2 },
+        { label: 'April', count: 1.2 },
+    ],
+};
+const conversions = {
+    legend: 'Conversions',
+    color: Token.ColorPurple500,
+    values: [
+        { label: 'January', count: 2 },
+        { label: 'February', count: 1.75 },
+        { label: 'March', count: 1.5 },
+        { label: 'April', count: 2.4 },
+    ],
+};
+export const Usage = () => (<View width="100%">
+        <BarChart title="Grouped" data={[spend, conversions]}/>
+    </View>);
+
+<div className="story-block">
+<BarChartGroup />
+</div>
+
+<CodeComponent filename="BarChartGroup.tsx" code="Y29uc3Qgc3BlbmQ6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdTcGVuZCcsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAxIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNSB9LAogICAgICAgIHsgbGFiZWw6ICdNYXJjaCcsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDEuMiB9LAogICAgXSwKfQoKY29uc3QgY29udmVyc2lvbnM6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdDb252ZXJzaW9ucycsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNzUgfSwKICAgICAgICB7IGxhYmVsOiAnTWFyY2gnLCBjb3VudDogMS41IH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDIuNCB9LAogICAgXSwKfQoKZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgIDxCYXJDaGFydAogICAgICAgICAgICB0aXRsZT0iR3JvdXBlZCIKICAgICAgICAgICAgZGF0YT17W3NwZW5kLCBjb252ZXJzaW9uc119CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+const spend: BarChartGroup = {
+    legend: 'Spend',
+    color: Token.ColorAccent500,
+    values: [
+        { label: 'January', count: 1 },
+        { label: 'February', count: 1.5 },
+        { label: 'March', count: 2 },
+        { label: 'April', count: 1.2 },
+    ],
+}
+
+const conversions: BarChartGroup = {
+    legend: 'Conversions',
+    color: Token.ColorPurple500,
+    values: [
+        { label: 'January', count: 2 },
+        { label: 'February', count: 1.75 },
+        { label: 'March', count: 1.5 },
+        { label: 'April', count: 2.4 },
+    ],
+}
+
+export const Usage = () => (
+    <View width="100%">
+        <BarChart
+            title="Grouped"
+            data={[spend, conversions]}
+        />
+    </View>
+)
+```
+### Single Series
+
+export const SingleSeries = () => (<View width="100%">
+        <BarChart title="Spend" data={[spend]}/>
+    </View>);
+
+<div className="story-block">
+<SingleSeries />
+</div>
+
+<CodeComponent filename="SingleSeries.tsx" code="ZXhwb3J0IGNvbnN0IFNpbmdsZVNlcmllcyA9ICgpID0+ICgKICAgIDxWaWV3IHdpZHRoPSIxMDAlIj4KICAgICAgICA8QmFyQ2hhcnQKICAgICAgICAgICAgdGl0bGU9IlNwZW5kIgogICAgICAgICAgICBkYXRhPXtbc3BlbmRdfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const SingleSeries = () => (
+    <View width="100%">
+        <BarChart
+            title="Spend"
+            data={[spend]}
+        />
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

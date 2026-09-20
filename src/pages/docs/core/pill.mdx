@@ -15,13 +15,13 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/pill/index.ts","description":"","displayName":"Pill","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"span\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"solid":{"defaultValue":null,"description":"","name":"solid","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"CSS hex color value","name":"color","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
 
-export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-border-color","var(--f-color-border)"],["--f-pill-color","var(--f-color-text)"],["--f-pill-color-subtle","var(--f-color-text-weak)"],["--f-pill-color-color","var(--f-color-text-on-color)"],["--f-pill-background-color","var(--f-color-surface-strong)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-background-color-solid","var(--f-color-surface-inverse)"]]]
+export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius)"],["--f-pill-border-color","var(--f-color-border)"],["--f-pill-color","var(--f-color-text)"],["--f-pill-color-subtle","var(--f-color-text-weak)"],["--f-pill-color-color","var(--f-color-text-on-color)"],["--f-pill-background-color","var(--f-color-surface-strong)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-background-color-solid","var(--f-color-surface-inverse)"]]]
 
 
 
-<CodeComponent filename="pill.tsx" code="aW1wb3J0IHsgUGlsbCB9IGZyb20gIkBmb2xkLXVpL2NvcmUiOwo=" />
+<CodeComponent filename="pill.tsx" code="aW1wb3J0IHsgUGlsbCB9IGZyb20gIkBmb2xkLXVpL3BybyI7Cg==" />
 ```tsx
-import { Pill } from "@fold-ui/core";
+import { Pill } from "@fold-ui/pro";
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ export const WithPrefixAndSuffix = () => (<Stack spacing={5} wrap="wrap">
             Patrick Anthony
         </Pill>
         <Pill prefix={<IconLib icon="user" size="sm"/>} suffix={<IconLib icon="bin" size="sm"/>}>
-            Johannes du Plessis
+            John Seymour
         </Pill>
     </Stack>);
 
@@ -100,7 +100,7 @@ export const WithPrefixAndSuffix = () => (<Stack spacing={5} wrap="wrap">
 <WithPrefixAndSuffix />
 </div>
 
-<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sKICAgICAgICBzcGFjaW5nPXs1fQogICAgICAgIHdyYXA9IndyYXAiPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIENyYWlnIFBhdGhlcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IkV0aWVubmUgRHJleWVyIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBFdGllbm5lIERyZXllcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfQogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBQYXRyaWNrIEFudGhvbnkKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgcHJlZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0idXNlciIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0KICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgSm9oYW5uZXMgZHUgUGxlc3NpcwogICAgICAgIDwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sKICAgICAgICBzcGFjaW5nPXs1fQogICAgICAgIHdyYXA9IndyYXAiPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIENyYWlnIFBhdGhlcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IkV0aWVubmUgRHJleWVyIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBFdGllbm5lIERyZXllcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfQogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBQYXRyaWNrIEFudGhvbnkKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgcHJlZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0idXNlciIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0KICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgSm9obiBTZXltb3VyCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
 
 ```tsx
 export const WithPrefixAndSuffix = () => (
@@ -155,7 +155,7 @@ export const WithPrefixAndSuffix = () => (
                     size="sm"
                 />
             }>
-            Johannes du Plessis
+            John Seymour
         </Pill>
     </Stack>
 )

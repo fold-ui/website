@@ -1,3 +1,42 @@
+export const navigationPro = [
+  {
+    slug: "calendar",
+    title: "Calendar",
+    subtitle:
+      "The Calendar component displays dates in an interactive grid format, enabling users to navigate through months and select dates.",
+    description:
+      "Calendar components are useful for displaying date-based information and selecting dates. They serve as the foundation for date pickers, event scheduling, and booking systems.",
+    experimental: true,
+  },
+  {
+    slug: "common",
+    title: "Common",
+    subtitle:
+      "The Common components provide shared building blocks and utilities used across the Pro component library.",
+    description:
+      "Common components contain shared functionality, styles, and utilities that are leveraged by other Pro components, ensuring consistency and reducing code duplication.",
+    experimental: true,
+  },
+  {
+    slug: "kanban",
+    title: "Kanban",
+    subtitle:
+      "The Kanban component displays tasks or items in columns that represent different stages of a workflow.",
+    description:
+      "Kanban components are useful for visualizing work progress and managing tasks through different stages. They are ideal for project management, task tracking, and workflow visualization.",
+    experimental: true,
+  },
+  {
+    slug: "todo",
+    title: "Todo",
+    subtitle:
+      "The Todo component provides a list-based interface for managing and tracking tasks.",
+    description:
+      "Todo components are useful for creating task management interfaces where users can add, complete, and organize their work items. They are suited to personal productivity tools, project checklists, and reminder applications.",
+    experimental: true,
+  },
+];
+
 export const navigation = [
   {
     slug: "accordion",
@@ -24,6 +63,14 @@ export const navigation = [
       "Alerts can serve various purposes, such as presenting information related to errors, indicating the completion of unrelated actions, or providing updates on the status of a system.",
   },
   {
+    slug: "animated-grid-pattern",
+    title: "Animated Grid Pattern",
+    subtitle:
+      "The AnimatedGridPattern component creates a perspective grid with softly fading squares.",
+    description:
+      "Use it as a decorative background inside calls to action, hero content, and other positioned surfaces.",
+  },
+  {
     slug: "aspect-ratio",
     title: "Aspect Ratio",
     subtitle:
@@ -48,6 +95,14 @@ export const navigation = [
       "The Audio component may contain one or more audio sources, represented using the src prop & is a thin wrapper around the native audio element.",
   },
   {
+    slug: "aurora",
+    title: "Aurora",
+    subtitle:
+      "The Aurora component creates a softly animated, color-derived background.",
+    description:
+      "Use Aurora behind hero content, calls to action, or other large surfaces that benefit from ambient motion.",
+  },
+  {
     slug: "avatar",
     title: "Avatar",
     subtitle:
@@ -61,6 +116,14 @@ export const navigation = [
     subtitle: "The Badge serves as a small label or indicator for UI elements.",
     description:
       "The Badge component is useful for conveying important information the user should be aware of, such as unread message counts, notifications, etc. It should be in close proximity to the relative element.",
+  },
+  {
+    slug: "bar-chart",
+    title: "Bar Chart",
+    subtitle:
+      "The BarChart component compares values across categories, grouped by series.",
+    description:
+      "Bar charts are useful for comparing discrete quantities side by side. Bars sharing a label are grouped together and coloured per series. It is rendered with plain SVG and carries no charting dependencies.",
   },
   {
     slug: "breadcrumb",
@@ -144,18 +207,20 @@ export const navigation = [
   },
   {
     slug: "csv-importer",
-    title: 'CSV Importer',
-    subtitle: 'Make sense of imported data by correctly mapping columns with the CSV Importer.',
+    title: "CSV Importer",
+    subtitle:
+      "Make sense of imported data by correctly mapping columns with the CSV Importer.",
     description:
-        'The CSV Importer component offers a streamlined way of onboarding complex data - ideal for customer success, onboarding & data teams.',
-},
+      "The CSV Importer component offers a streamlined way of onboarding complex data - ideal for customer success, onboarding & data teams.",
+    experimental: true,
+  },
   {
     slug: "data-grid",
     title: "Data Grid",
     subtitle:
       "A robust & flexible Data Grid component engineered to handle diverse datasets with ease.",
     description:
-      "The Data Grid component enables you to customize & extend virtually every part of it, enabling you accommodate a wide variety of data types.",
+      "The Data Grid component enables you to customize & extend virtually every part of it, enabling you to accommodate a wide variety of data types.",
     experimental: true,
   },
   {
@@ -183,6 +248,13 @@ export const navigation = [
       "A Divider can serve a valuable purpose in visually distinguishing between paragraphs, navigation elements, or menu items.",
   },
   {
+    slug: "dot-pattern",
+    title: "Dot Pattern",
+    subtitle: "The DotPattern component renders a configurable SVG dot field.",
+    description:
+      "An optional ripple mask adds subtle motion while the SVG remains resolution independent at any size.",
+  },
+  {
     slug: "drag",
     title: "Drag",
     subtitle:
@@ -205,6 +277,14 @@ export const navigation = [
       "The Editable component enables users to edit simple text content inline.",
     description:
       "The Editable component is useful for providing users an inline experience for editing simple text content. It is suited to headings, names & other text content that is presented on a single line. Editable is not suited to large text blocks where the user needs a more traditional text input element.",
+  },
+  {
+    slug: "flickering-grid",
+    title: "Flickering Grid",
+    subtitle:
+      "The FlickeringGrid component renders a softly animated field of squares.",
+    description:
+      "The canvas animation responds to its container size and pauses its drawing work while outside the viewport.",
   },
   {
     slug: "form",
@@ -285,6 +365,14 @@ export const navigation = [
       "The Layout components facilitate the quick creation of standard layouts for a wide range of applications, making them useful for developing applications, websites, and widgets (and anything else).",
   },
   {
+    slug: "line-chart",
+    title: "Line Chart",
+    subtitle:
+      "The LineChart component plots one or more series of values over a shared axis.",
+    description:
+      "Line charts are useful for visualising trends over time or across an ordered set of categories. Series can be toggled via their legend, and an optional gradient area fill helps emphasise volume. Like the Sparkline, it is rendered with plain SVG and carries no charting dependencies.",
+  },
+  {
     slug: "list",
     title: "List",
     subtitle:
@@ -349,6 +437,13 @@ export const navigation = [
       "Pagination is a frequently employed technique for facilitating user navigation across multiple pages. However, it may not be suitable in cases where lazy loading is implemented or when the user requires access to all content.",
   },
   {
+    slug: "pie-chart",
+    title: "Pie Chart",
+    subtitle: "The PieChart component shows how parts contribute to a whole.",
+    description:
+      "Pie charts are useful for displaying proportional data at a glance. Set an `innerRadius` to render a donut instead. It is rendered with plain SVG and carries no charting dependencies.",
+  },
+  {
     slug: "pill",
     title: "Pill",
     subtitle:
@@ -379,6 +474,14 @@ export const navigation = [
       "The Progress component visually communicates progress to the user through color & SVG elements.",
     description:
       "Progress indicators provide users with information regarding the status of active operations, such as launching an application, completing a form submission, or saving recent changes. Also see the Spinner component.",
+  },
+  {
+    slug: "project-preview",
+    title: "Project Preview",
+    subtitle:
+      "The ProjectPreview component reveals image context beside an interactive project item.",
+    description:
+      "It animates the current image into view while pre-positioning the next image for a smooth change between project items.",
   },
   {
     slug: "radio",
@@ -413,12 +516,28 @@ export const navigation = [
       "Resizable components are a common feature of navigations that the user can expand or contract. They also serve a valuable role in establishing size relationships among enclosed elements (see the Splitter component).",
   },
   {
+    slug: "ripple",
+    title: "Ripple",
+    subtitle:
+      "The Ripple component creates a layered field of softly pulsing circles.",
+    description:
+      "Use Ripple as a decorative background for hero content, calls to action, and other prominent surfaces.",
+  },
+  {
     slug: "select",
     title: "Select",
     subtitle:
       "The Select component displays a list of options a user can select from.",
     description:
       "Select components are a common feature of almost every user experience on the web (and off) where the user is tasked to input data. The Fold Select component attempts to cover as many general use-case scenarios, as well as specialized, whilst keeping the interface performant and responsive.",
+  },
+  {
+    slug: "shooting-stars",
+    title: "Shooting Stars",
+    subtitle:
+      "The ShootingStars component adds a layered field of animated streaks.",
+    description:
+      "Use it as a decorative background inside a positioned, overflow-hidden surface.",
   },
   {
     slug: "skeleton",
@@ -477,6 +596,14 @@ export const navigation = [
       "Stacked layouts are a widely used method for achieving consistent visual spacing on either the horizontal or vertical axis, without directly altering child elements.",
   },
   {
+    slug: "starry-background",
+    title: "Starry Background",
+    subtitle:
+      "The StarryBackground component renders gently drifting, twinkling stars with a subtle mouse influence.",
+    description:
+      "It uses the browser canvas directly, pauses outside the viewport, and respects reduced-motion preferences.",
+  },
+  {
     slug: "stat",
     title: "Stat",
     subtitle: "The Stat component highlights key statistics.",
@@ -506,6 +633,14 @@ export const navigation = [
       "The Tabs component facilitates the organization of navigation between related content.",
     description:
       "Tabs can find application in full-page layouts or within various components, like modals, cards, or side panels. They prove particularly valuable when presenting user profile settings, application configurations, or content related to a specific entity type.",
+  },
+  {
+    slug: "templates",
+    title: "Hero template",
+    subtitle:
+      "A polished marketing hero composed from Fold primitives and design tokens.",
+    description:
+      "Use this template as a starting point for a product landing page. It combines a compact navigation bar, focused headline, supporting copy, primary action, and decorative product tiles in one copyable Storybook recipe.",
   },
   {
     slug: "text",
@@ -594,45 +729,6 @@ export const navigation = [
       "The Virtual component is a element list strategy that can be used to enable infinite scroll.",
     description:
       "Virtual scrolling enable users to efficiently navigate through vast amounts of data without requiring React to render every single child element.",
-    experimental: true,
-  },
-];
-
-export const navigationPro = [
-  {
-    slug: "calendar",
-    title: "Calendar",
-    subtitle:
-      "The Calendar component displays dates in an interactive grid format, enabling users to navigate through months and select dates.",
-    description:
-      "Calendar components are useful for displaying date-based information and selecting dates. They serve as the foundation for date pickers, event scheduling, and booking systems.",
-    experimental: true,
-  },
-  {
-    slug: "common",
-    title: "Common",
-    subtitle:
-      "The Common components provide shared building blocks and utilities used across the Pro component library.",
-    description:
-      "Common components contain shared functionality, styles, and utilities that are leveraged by other Pro components, ensuring consistency and reducing code duplication.",
-    experimental: true,
-  },
-  {
-    slug: "kanban",
-    title: "Kanban",
-    subtitle:
-      "The Kanban component displays tasks or items in columns that represent different stages of a workflow.",
-    description:
-      "Kanban components are useful for visualizing work progress and managing tasks through different stages. They are ideal for project management, task tracking, and workflow visualization.",
-    experimental: true,
-  },
-  {
-    slug: "todo",
-    title: "Todo",
-    subtitle:
-      "The Todo component provides a list-based interface for managing and tracking tasks.",
-    description:
-      "Todo components are useful for creating task management interfaces where users can add, complete, and organize their work items. They are suited to personal productivity tools, project checklists, and reminder applications.",
     experimental: true,
   },
 ];

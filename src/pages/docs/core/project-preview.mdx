@@ -1,0 +1,78 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, ProjectPreview, View } from '@fold-ui/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Project Preview',
+    subtitle: 'The ProjectPreview component reveals image context beside an interactive project item.',
+    description:
+        'It animates the current image into view while pre-positioning the next image for a smooth change between project items.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/project-preview/index.ts","description":"","displayName":"ProjectPreview","methods":[],"props":{"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"nextSrc":{"defaultValue":null,"description":"","name":"nextSrc","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"alt":{"defaultValue":{"value":""},"description":"","name":"alt","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"nextAlt":{"defaultValue":{"value":""},"description":"","name":"nextAlt","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"visible":{"defaultValue":{"value":"false"},"description":"","name":"visible","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"position":{"defaultValue":{"value":"center"},"description":"","name":"position","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ProjectPreviewPosition"},"tags":{}},"x":{"defaultValue":{"value":"50vw"},"description":"","name":"x","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"y":{"defaultValue":{"value":"50vh"},"description":"","name":"y","declarations":[{"fileName":"fold/packages/core/src/project-preview/project-preview.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}}}}]
+
+export const css = [[["--f-project-preview-width","clamp(220px, 24vw, 340px)"],["--f-project-preview-aspect-ratio","8 / 5"],["--f-project-preview-border-color","var(--f-color-border-strong)"],["--f-project-preview-border-radius","var(--f-radius-lg)"],["--f-project-preview-background","var(--f-color-surface)"],["--f-project-preview-shadow","var(--f-shadow-2xl)"],["--f-project-preview-offset","1.25rem"]]]
+
+
+
+<CodeComponent filename="project-preview.tsx" code="aW1wb3J0IHsgUHJvamVjdFByZXZpZXcgfSBmcm9tICJAZm9sZC11aS9wcm8iOwo=" />
+```tsx
+import { ProjectPreview } from "@fold-ui/pro";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [visible, setVisible] = useState(false);
+    return (<View row position="relative" width="100%" height={360} radius="var(--f-radius-xl)" bg="var(--f-color-surface-strong)" alignItems="center" justifyContent="center" style={{ overflow: 'hidden' }}>
+            <Button onPointerEnter={() => setVisible(true)} onPointerLeave={() => setVisible(false)} onFocus={() => setVisible(true)} onBlur={() => setVisible(false)}>
+                Hover to preview the project
+            </Button>
+            <ProjectPreview src="/photos/05.jpg" nextSrc="/photos/06.jpg" visible={visible} x="50%" y="50%" style={{ position: 'absolute' }}/>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3Zpc2libGUsIHNldFZpc2libGVdID0gdXNlU3RhdGUoZmFsc2UpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIgogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgaGVpZ2h0PXszNjB9CiAgICAgICAgICAgIHJhZGl1cz0idmFyKC0tZi1yYWRpdXMteGwpIgogICAgICAgICAgICBiZz0idmFyKC0tZi1jb2xvci1zdXJmYWNlLXN0cm9uZykiCiAgICAgICAgICAgIGFsaWduSXRlbXM9ImNlbnRlciIKICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9ImNlbnRlciIKICAgICAgICAgICAgc3R5bGU9e3sgb3ZlcmZsb3c6ICdoaWRkZW4nIH19PgogICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICBvblBvaW50ZXJFbnRlcj17KCkgPT4gc2V0VmlzaWJsZSh0cnVlKX0KICAgICAgICAgICAgICAgIG9uUG9pbnRlckxlYXZlPXsoKSA9PiBzZXRWaXNpYmxlKGZhbHNlKX0KICAgICAgICAgICAgICAgIG9uRm9jdXM9eygpID0+IHNldFZpc2libGUodHJ1ZSl9CiAgICAgICAgICAgICAgICBvbkJsdXI9eygpID0+IHNldFZpc2libGUoZmFsc2UpfT4KICAgICAgICAgICAgICAgIEhvdmVyIHRvIHByZXZpZXcgdGhlIHByb2plY3QKICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDxQcm9qZWN0UHJldmlldwogICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzA1LmpwZyIKICAgICAgICAgICAgICAgIG5leHRTcmM9Ii9waG90b3MvMDYuanBnIgogICAgICAgICAgICAgICAgdmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIHg9IjUwJSIKICAgICAgICAgICAgICAgIHk9IjUwJSIKICAgICAgICAgICAgICAgIHN0eWxlPXt7IHBvc2l0aW9uOiAnYWJzb2x1dGUnIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const [visible, setVisible] = useState(false)
+
+    return (
+        <View
+            row
+            position="relative"
+            width="100%"
+            height={360}
+            radius="var(--f-radius-xl)"
+            bg="var(--f-color-surface-strong)"
+            alignItems="center"
+            justifyContent="center"
+            style={{ overflow: 'hidden' }}>
+            <Button
+                onPointerEnter={() => setVisible(true)}
+                onPointerLeave={() => setVisible(false)}
+                onFocus={() => setVisible(true)}
+                onBlur={() => setVisible(false)}>
+                Hover to preview the project
+            </Button>
+            <ProjectPreview
+                src="/photos/05.jpg"
+                nextSrc="/photos/06.jpg"
+                visible={visible}
+                x="50%"
+                y="50%"
+                style={{ position: 'absolute' }}
+            />
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>
