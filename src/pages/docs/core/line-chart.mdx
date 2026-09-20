@@ -2,7 +2,7 @@ import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import * as Token from '@fold-ui/design/tokens'
-import { Button, ButtonGroup, LineChart, LineChartSeries, View } from '@fold-ui/core'
+import { Button, ButtonGroup, LineChart, View } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -25,7 +25,7 @@ import { LineChart } from "@fold-ui/pro";
 
 ### Line Chart Series
 
-const revenue = {
+export const revenue = {
     legend: 'Revenue',
     color: Token.ColorAccent500,
     points: [
@@ -38,7 +38,7 @@ const revenue = {
         ['Jun 10', 11.74],
     ],
 };
-const spend = {
+export const spend = {
     legend: 'Spend',
     color: Token.ColorPurple500,
     points: [
@@ -56,10 +56,10 @@ export const Usage = () => (<View width="100%">
     </View>);
 
 <div className="story-block">
-<LineChartSeries />
+<Usage />
 </div>
 
-<CodeComponent filename="LineChartSeries.tsx" code="Y29uc3QgcmV2ZW51ZTogTGluZUNoYXJ0U2VyaWVzID0gewogICAgbGVnZW5kOiAnUmV2ZW51ZScsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsCiAgICBwb2ludHM6IFsKICAgICAgICBbJ01heSAxMCcsIDUuNzhdLAogICAgICAgIFsnTWF5IDE1JywgNy4yMl0sCiAgICAgICAgWydNYXkgMjAnLCA2Ljk2XSwKICAgICAgICBbJ01heSAyNScsIDcuMjldLAogICAgICAgIFsnSnVuIDEnLCA5Ljk1XSwKICAgICAgICBbJ0p1biA1JywgOS4yMV0sCiAgICAgICAgWydKdW4gMTAnLCAxMS43NF0sCiAgICBdLAp9Cgpjb25zdCBzcGVuZDogTGluZUNoYXJ0U2VyaWVzID0gewogICAgbGVnZW5kOiAnU3BlbmQnLAogICAgY29sb3I6IFRva2VuLkNvbG9yUHVycGxlNTAwLAogICAgcG9pbnRzOiBbCiAgICAgICAgWydNYXkgMTAnLCAzLjFdLAogICAgICAgIFsnTWF5IDE1JywgNC40XSwKICAgICAgICBbJ01heSAyMCcsIDUuOF0sCiAgICAgICAgWydNYXkgMjUnLCA1LjJdLAogICAgICAgIFsnSnVuIDEnLCA3LjFdLAogICAgICAgIFsnSnVuIDUnLCA2LjRdLAogICAgICAgIFsnSnVuIDEwJywgOC4zXSwKICAgIF0sCn0KCmV4cG9ydCBjb25zdCBVc2FnZSA9ICgpID0+ICgKICAgIDxWaWV3IHdpZHRoPSIxMDAlIj4KICAgICAgICA8TGluZUNoYXJ0CiAgICAgICAgICAgIHRpdGxlPSJEZW1vIGRhdGEiCiAgICAgICAgICAgIGRhdGE9e1tyZXZlbnVlLCBzcGVuZF19CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="Usage.tsx" code="Y29uc3QgcmV2ZW51ZTogTGluZUNoYXJ0U2VyaWVzID0gewogICAgbGVnZW5kOiAnUmV2ZW51ZScsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsCiAgICBwb2ludHM6IFsKICAgICAgICBbJ01heSAxMCcsIDUuNzhdLAogICAgICAgIFsnTWF5IDE1JywgNy4yMl0sCiAgICAgICAgWydNYXkgMjAnLCA2Ljk2XSwKICAgICAgICBbJ01heSAyNScsIDcuMjldLAogICAgICAgIFsnSnVuIDEnLCA5Ljk1XSwKICAgICAgICBbJ0p1biA1JywgOS4yMV0sCiAgICAgICAgWydKdW4gMTAnLCAxMS43NF0sCiAgICBdLAp9Cgpjb25zdCBzcGVuZDogTGluZUNoYXJ0U2VyaWVzID0gewogICAgbGVnZW5kOiAnU3BlbmQnLAogICAgY29sb3I6IFRva2VuLkNvbG9yUHVycGxlNTAwLAogICAgcG9pbnRzOiBbCiAgICAgICAgWydNYXkgMTAnLCAzLjFdLAogICAgICAgIFsnTWF5IDE1JywgNC40XSwKICAgICAgICBbJ01heSAyMCcsIDUuOF0sCiAgICAgICAgWydNYXkgMjUnLCA1LjJdLAogICAgICAgIFsnSnVuIDEnLCA3LjFdLAogICAgICAgIFsnSnVuIDUnLCA2LjRdLAogICAgICAgIFsnSnVuIDEwJywgOC4zXSwKICAgIF0sCn0KCmV4cG9ydCBjb25zdCBVc2FnZSA9ICgpID0+ICgKICAgIDxWaWV3IHdpZHRoPSIxMDAlIj4KICAgICAgICA8TGluZUNoYXJ0CiAgICAgICAgICAgIHRpdGxlPSJEZW1vIGRhdGEiCiAgICAgICAgICAgIGRhdGE9e1tyZXZlbnVlLCBzcGVuZF19CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 const revenue: LineChartSeries = {

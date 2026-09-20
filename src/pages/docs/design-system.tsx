@@ -179,6 +179,7 @@ export default function DesignSystem(props) {
                 justifyContent="stretch">
                 {new Array(10).fill(null).map((_, i) => (
                     <View
+                        key={i}
                         flex={1}
                         bgToken={i == 0 ? `base-50` : `base-${i}00`}
                         width={30}
@@ -198,6 +199,7 @@ export default function DesignSystem(props) {
                 justifyContent="stretch">
                 {new Array(10).fill(null).map((_, i) => (
                     <View
+                        key={i}
                         flex={1}
                         bgToken={i == 0 ? `accent-50` : `accent-${i}00`}
                         width={30}

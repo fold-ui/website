@@ -2,7 +2,7 @@ import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import * as Token from '@fold-ui/design/tokens'
-import { PieChart, PieChartSlice, View } from '@fold-ui/core'
+import { PieChart, View } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -25,7 +25,7 @@ import { PieChart } from "@fold-ui/pro";
 
 ### Pie Chart Slice[]
 
-const data = [
+export const data = [
     { legend: 'Direct', color: Token.ColorAccent500, value: 40 },
     { legend: 'Referral', color: Token.ColorBlue500, value: 25 },
     { legend: 'Organic', color: Token.ColorGreen500, value: 20 },
@@ -36,10 +36,10 @@ export const Usage = () => (<View width="100%">
     </View>);
 
 <div className="story-block">
-<PieChartSlice[] />
+<Usage />
 </div>
 
-<CodeComponent filename="PieChartSlice[].tsx" code="Y29uc3QgZGF0YTogUGllQ2hhcnRTbGljZVtdID0gWwogICAgeyBsZWdlbmQ6ICdEaXJlY3QnLCBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsIHZhbHVlOiA0MCB9LAogICAgeyBsZWdlbmQ6ICdSZWZlcnJhbCcsIGNvbG9yOiBUb2tlbi5Db2xvckJsdWU1MDAsIHZhbHVlOiAyNSB9LAogICAgeyBsZWdlbmQ6ICdPcmdhbmljJywgY29sb3I6IFRva2VuLkNvbG9yR3JlZW41MDAsIHZhbHVlOiAyMCB9LAogICAgeyBsZWdlbmQ6ICdTb2NpYWwnLCBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsIHZhbHVlOiAxNSB9LApdCgpleHBvcnQgY29uc3QgVXNhZ2UgPSAoKSA9PiAoCiAgICA8VmlldyB3aWR0aD0iMTAwJSI+CiAgICAgICAgPFBpZUNoYXJ0CiAgICAgICAgICAgIHJhZGl1cz17MTYwfQogICAgICAgICAgICBkYXRhPXtkYXRhfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="Usage.tsx" code="Y29uc3QgZGF0YTogUGllQ2hhcnRTbGljZVtdID0gWwogICAgeyBsZWdlbmQ6ICdEaXJlY3QnLCBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsIHZhbHVlOiA0MCB9LAogICAgeyBsZWdlbmQ6ICdSZWZlcnJhbCcsIGNvbG9yOiBUb2tlbi5Db2xvckJsdWU1MDAsIHZhbHVlOiAyNSB9LAogICAgeyBsZWdlbmQ6ICdPcmdhbmljJywgY29sb3I6IFRva2VuLkNvbG9yR3JlZW41MDAsIHZhbHVlOiAyMCB9LAogICAgeyBsZWdlbmQ6ICdTb2NpYWwnLCBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsIHZhbHVlOiAxNSB9LApdCgpleHBvcnQgY29uc3QgVXNhZ2UgPSAoKSA9PiAoCiAgICA8VmlldyB3aWR0aD0iMTAwJSI+CiAgICAgICAgPFBpZUNoYXJ0CiAgICAgICAgICAgIHJhZGl1cz17MTYwfQogICAgICAgICAgICBkYXRhPXtkYXRhfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
 
 ```tsx
 const data: PieChartSlice[] = [

@@ -83,6 +83,7 @@ export default function Icons(props) {
                 wrap="wrap">
                 {Object.keys(defaultIcons).map((icon) => (
                     <View
+                        key={icon}
                         column
                         width={100}
                         height={100}

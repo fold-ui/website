@@ -2,7 +2,7 @@ import { CodeComponent } from '@/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import * as Token from '@fold-ui/design/tokens'
-import { BarChart, BarChartGroup, View } from '@fold-ui/core'
+import { BarChart, View } from '@fold-ui/core'
 import React from 'react'
 
 export const docs = {
@@ -25,7 +25,7 @@ import { BarChart } from "@fold-ui/pro";
 
 ### Bar Chart Group
 
-const spend = {
+export const spend = {
     legend: 'Spend',
     color: Token.ColorAccent500,
     values: [
@@ -35,7 +35,7 @@ const spend = {
         { label: 'April', count: 1.2 },
     ],
 };
-const conversions = {
+export const conversions = {
     legend: 'Conversions',
     color: Token.ColorPurple500,
     values: [
@@ -50,10 +50,10 @@ export const Usage = () => (<View width="100%">
     </View>);
 
 <div className="story-block">
-<BarChartGroup />
+<Usage />
 </div>
 
-<CodeComponent filename="BarChartGroup.tsx" code="Y29uc3Qgc3BlbmQ6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdTcGVuZCcsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAxIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNSB9LAogICAgICAgIHsgbGFiZWw6ICdNYXJjaCcsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDEuMiB9LAogICAgXSwKfQoKY29uc3QgY29udmVyc2lvbnM6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdDb252ZXJzaW9ucycsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNzUgfSwKICAgICAgICB7IGxhYmVsOiAnTWFyY2gnLCBjb3VudDogMS41IH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDIuNCB9LAogICAgXSwKfQoKZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgIDxCYXJDaGFydAogICAgICAgICAgICB0aXRsZT0iR3JvdXBlZCIKICAgICAgICAgICAgZGF0YT17W3NwZW5kLCBjb252ZXJzaW9uc119CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="Usage.tsx" code="Y29uc3Qgc3BlbmQ6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdTcGVuZCcsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAxIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNSB9LAogICAgICAgIHsgbGFiZWw6ICdNYXJjaCcsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDEuMiB9LAogICAgXSwKfQoKY29uc3QgY29udmVyc2lvbnM6IEJhckNoYXJ0R3JvdXAgPSB7CiAgICBsZWdlbmQ6ICdDb252ZXJzaW9ucycsCiAgICBjb2xvcjogVG9rZW4uQ29sb3JQdXJwbGU1MDAsCiAgICB2YWx1ZXM6IFsKICAgICAgICB7IGxhYmVsOiAnSmFudWFyeScsIGNvdW50OiAyIH0sCiAgICAgICAgeyBsYWJlbDogJ0ZlYnJ1YXJ5JywgY291bnQ6IDEuNzUgfSwKICAgICAgICB7IGxhYmVsOiAnTWFyY2gnLCBjb3VudDogMS41IH0sCiAgICAgICAgeyBsYWJlbDogJ0FwcmlsJywgY291bnQ6IDIuNCB9LAogICAgXSwKfQoKZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgIDxCYXJDaGFydAogICAgICAgICAgICB0aXRsZT0iR3JvdXBlZCIKICAgICAgICAgICAgZGF0YT17W3NwZW5kLCBjb252ZXJzaW9uc119CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 const spend: BarChartGroup = {
