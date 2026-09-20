@@ -21,7 +21,8 @@ import {
     Heading,
     IconLib,
     Grid,
-    DarkModeToggle
+    DarkModeToggle,
+    Badge
 } from '@fold-ui/core'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
@@ -363,7 +364,7 @@ export default function SiteLayout(props: any) {
                     </Navigation>
 
                     <Navigation variant="navbar" className="site-header__links">
-                        <NavigationItem href="/docs">Documentation</NavigationItem>
+                        <NavigationItem href="/docs" suffix={<Badge variant="accent" outline size="xs">v0.26.0</Badge>}>Documentation</NavigationItem>
                         <NavigationItem href="mailto:support@fold.dev">Support</NavigationItem>
                         
                         <NavigationItem 
