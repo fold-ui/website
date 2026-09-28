@@ -25,10 +25,13 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
         const positions = new Float32Array(dotCount * 3)
         const originals = new Float32Array(dotCount * 3)
         const container = mountRef.current
-        const interactionRadius = baseRadius * 0.25
+        const interactionRadius = baseRadius * 0.8
+        const repelStrength = baseRadius * 0.7
         const starCount = isSun ? 100 : 2000
         const starGeometry = new THREE.BufferGeometry()
         const starPositions = new Float32Array(starCount * 3)
+        const starCoordinates = new Float32Array(starCount * 2)
+        const starDepths = new Float32Array(starCount)
         const width = Math.max(container.clientWidth, 1)
         const height = Math.max(container.clientHeight, 1)
         const scene = new THREE.Scene()
@@ -162,17 +165,26 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
         // --- Starfield Construction ---
 
         for (let i = 0; i < starCount; i++) {
-            // Random positions in a large sphere around the scene
-            const r = 400 + Math.random() * 500
-            const theta = 2 * Math.PI * Math.random()
-            const phi = Math.acos(2 * Math.random() - 1)
+            starCoordinates[i * 2] = Math.random()
+            starCoordinates[i * 2 + 1] = Math.random()
+            starDepths[i] = 400 + Math.random() * 500
+        }
 
-            starPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta)
-            starPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
-            starPositions[i * 3 + 2] = r * Math.cos(phi)
+        // Keep the starfield aligned to the screen so every star drifts southwest.
+        const layoutStars = () => {
+            const halfFov = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))
+            for (let i = 0; i < starCount; i++) {
+                const depth = starDepths[i]
+                const halfHeight = depth * halfFov * 1.7
+                starPositions[i * 3] = (starCoordinates[i * 2] * 2 - 1) * halfHeight * camera.aspect
+                starPositions[i * 3 + 1] = (starCoordinates[i * 2 + 1] * 2 - 1) * halfHeight
+                starPositions[i * 3 + 2] = -depth
+            }
+            starGeometry.attributes.position.needsUpdate = true
         }
 
         starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
+        layoutStars()
         const starMaterial = new THREE.PointsMaterial({
             color: isSun ? 0x000000 : 0x34303D,
             size: 2,
@@ -181,6 +193,8 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
             sizeAttenuation: true, // Makes far stars smaller
         })
         const stars = new THREE.Points(starGeometry, starMaterial)
+        stars.position.copy(camera.position)
+        stars.quaternion.copy(camera.quaternion)
         scene.add(stars)
 
         // --- Ring Shader Definition ---
@@ -250,6 +264,10 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
         // --- Interaction ---
         const mouse = new THREE.Vector2(-100, -100)
         const raycaster = new THREE.Raycaster()
+        const interactionSphere = new THREE.Sphere(new THREE.Vector3(), baseRadius)
+        const hitPoint = new THREE.Vector3()
+        const localHit = new THREE.Vector3()
+        const inversePointsMatrix = new THREE.Matrix4()
 
         const handleMouseMove = (e: MouseEvent) => {
             const bounds = container.getBoundingClientRect()
@@ -265,35 +283,65 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
             const frameScale = previousTime ? Math.min((now - previousTime) / (1000 / 60), 2) : 1
             previousTime = now
 
-            // stars
-            stars.rotation.y += 0.000015 * frameScale
-            stars.rotation.x += 0.000005 * frameScale
+            // Move the background stars from the upper right toward the lower left.
+            for (let i = 0; i < starCount; i++) {
+                starCoordinates[i * 2] = (starCoordinates[i * 2] - 0.0002 * frameScale + 1) % 1
+                starCoordinates[i * 2 + 1] = (starCoordinates[i * 2 + 1] - 0.000135 * frameScale + 1) % 1
+            }
+            layoutStars()
             const time = now * 0.001
             starMaterial.opacity = 0.65 + Math.sin(time * 0.5) * 0.25
 
-            // Mouse Interaction logic
+            // Push the nearby surface dots away from the cursor and ease them back.
             raycaster.setFromCamera(mouse, camera)
+            points.updateMatrixWorld()
+            const isOverPlanet = raycaster.ray.intersectSphere(interactionSphere, hitPoint) !== null
+            if (isOverPlanet) {
+                inversePointsMatrix.copy(points.matrixWorld).invert()
+                localHit.copy(hitPoint).applyMatrix4(inversePointsMatrix)
+            }
             const posAttr = geometry.attributes.position
-            const worldV = new THREE.Vector3()
 
             for (let i = 0; i < dotCount; i++) {
-                worldV.set(originals[i * 3], originals[i * 3 + 1], originals[i * 3 + 2])
-                worldV.applyMatrix4(points.matrixWorld)
+                const index = i * 3
+                const x = originals[index]
+                const y = originals[index + 1]
+                const z = originals[index + 2]
+                let targetX = x
+                let targetY = y
+                let targetZ = z
+                let responseSpeed = 0.032
 
-                const dist = raycaster.ray.distanceToPoint(worldV)
+                if (isOverPlanet) {
+                    const dx = x - localHit.x
+                    const dy = y - localHit.y
+                    const dz = z - localHit.z
+                    const distance = Math.hypot(dx, dy, dz)
 
-                if (dist < interactionRadius) {
-                    const normal = worldV.clone().normalize()
-                    const move = ((interactionRadius - dist) / interactionRadius) * 0.8
-                    posAttr.setXYZ(
-                        i,
-                        originals[i * 3] + normal.x * move,
-                        originals[i * 3 + 1] + normal.y * move,
-                        originals[i * 3 + 2] + normal.z * move
-                    )
-                } else {
-                    posAttr.setXYZ(i, originals[i * 3], originals[i * 3 + 1], originals[i * 3 + 2])
+                    if (distance < interactionRadius) {
+                        responseSpeed = 0.105
+                        const falloff = Math.pow(1 - distance / interactionRadius, 1.5)
+                        // Remove the radial part so dots spread across the globe's surface.
+                        const radialPart = (dx * x + dy * y + dz * z) / (baseRadius * baseRadius)
+                        const tangentX = dx - radialPart * x
+                        const tangentY = dy - radialPart * y
+                        const tangentZ = dz - radialPart * z
+                        const tangentLength = Math.hypot(tangentX, tangentY, tangentZ) || 1
+                        const push = repelStrength * falloff / tangentLength
+                        const lift = 1.5 * falloff / baseRadius
+                        targetX += tangentX * push + x * lift
+                        targetY += tangentY * push + y * lift
+                        targetZ += tangentZ * push + z * lift
+                    }
                 }
+
+                const response = 1 - Math.exp(-responseSpeed * frameScale)
+                posAttr.setXYZ(
+                    i,
+                    positions[index] += (targetX - positions[index]) * response,
+                    positions[index + 1] += (targetY - positions[index + 1]) * response,
+                    positions[index + 2] += (targetZ - positions[index + 2]) * response
+                )
             }
 
             posAttr.needsUpdate = true
@@ -325,6 +373,9 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
 
             camera.aspect = w / h
             fitCamera()
+            stars.position.copy(camera.position)
+            stars.quaternion.copy(camera.quaternion)
+            layoutStars()
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
             renderer.setSize(w, h)
             composer?.setPixelRatio(renderer.getPixelRatio())
