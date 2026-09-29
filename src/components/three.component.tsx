@@ -23,6 +23,7 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
         const rotationSpeed = isSun ? 0.00025 : 0.0005
         const geometry = new THREE.BufferGeometry()
         const positions = new Float32Array(dotCount * 3)
+        const velocities = new Float32Array(dotCount * 3)
         const originals = new Float32Array(dotCount * 3)
         const container = mountRef.current
         const interactionRadius = baseRadius * 0.8
@@ -292,7 +293,7 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
             const time = now * 0.001
             starMaterial.opacity = 0.65 + Math.sin(time * 0.5) * 0.25
 
-            // Push the nearby surface dots away from the cursor and ease them back.
+            // Push nearby dots away, then let their momentum carry them into place.
             raycaster.setFromCamera(mouse, camera)
             points.updateMatrixWorld()
             const isOverPlanet = raycaster.ray.intersectSphere(interactionSphere, hitPoint) !== null
@@ -301,6 +302,8 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
                 localHit.copy(hitPoint).applyMatrix4(inversePointsMatrix)
             }
             const posAttr = geometry.attributes.position
+            const hoverDamping = Math.pow(0.83, frameScale)
+            const restDamping = Math.pow(0.86, frameScale)
 
             for (let i = 0; i < dotCount; i++) {
                 const index = i * 3
@@ -310,7 +313,7 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
                 let targetX = x
                 let targetY = y
                 let targetZ = z
-                let responseSpeed = 0.032
+                let isRepelled = false
 
                 if (isOverPlanet) {
                     const dx = x - localHit.x
@@ -319,7 +322,7 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
                     const distance = Math.hypot(dx, dy, dz)
 
                     if (distance < interactionRadius) {
-                        responseSpeed = 0.105
+                        isRepelled = true
                         const falloff = Math.pow(1 - distance / interactionRadius, 1.5)
                         // Remove the radial part so dots spread across the globe's surface.
                         const radialPart = (dx * x + dy * y + dz * z) / (baseRadius * baseRadius)
@@ -335,12 +338,16 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
                     }
                 }
 
-                const response = 1 - Math.exp(-responseSpeed * frameScale)
+                const spring = isRepelled ? 0.015 : 0.008
+                const damping = isRepelled ? hoverDamping : restDamping
+                velocities[index] = (velocities[index] + (targetX - positions[index]) * spring * frameScale) * damping
+                velocities[index + 1] = (velocities[index + 1] + (targetY - positions[index + 1]) * spring * frameScale) * damping
+                velocities[index + 2] = (velocities[index + 2] + (targetZ - positions[index + 2]) * spring * frameScale) * damping
                 posAttr.setXYZ(
                     i,
-                    positions[index] += (targetX - positions[index]) * response,
-                    positions[index + 1] += (targetY - positions[index + 1]) * response,
-                    positions[index + 2] += (targetZ - positions[index + 2]) * response
+                    positions[index] += velocities[index] * frameScale,
+                    positions[index + 1] += velocities[index + 1] * frameScale,
+                    positions[index + 2] += velocities[index + 2] * frameScale
                 )
             }
 
