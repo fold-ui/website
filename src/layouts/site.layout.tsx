@@ -205,6 +205,8 @@ export default function SiteLayout(props: any) {
             <AppProvider license="fake-license-code">
                 <style id="custom-styles" />
 
+                <div className="site-edge-blur site-edge-blur--top" aria-hidden="true" />
+
                 <SkipNavMain />
 
                 <Cookie
@@ -338,10 +340,11 @@ export default function SiteLayout(props: any) {
                         size="md"
                         color="var(--f-color-text)"
                     />
-                    {/* <View 
-                        width="3.5rem"
-                        height="2rem"
-                        border="0.25rem solid var(--f-color-text-weakest)"
+
+                    {/* <View
+                        width="3.15rem"
+                        height="1.85rem"
+                        border="0.35rem solid var(--f-color-text)"
                         radius={100}
                     /> */}
 
@@ -364,7 +367,7 @@ export default function SiteLayout(props: any) {
                     </Navigation>
 
                     <Navigation variant="navbar" className="site-header__links">
-                        <NavigationItem href="/docs" suffix={<Badge variant="accent" outline size="xs">v0.26.0</Badge>}>Documentation</NavigationItem>
+                        <NavigationItem href="/docs" suffix={<Badge variant="neutral" size="xs">v0.26.0</Badge>}>Documentation</NavigationItem>
                         <NavigationItem href="mailto:support@fold.dev">Support</NavigationItem>
                         
                         <NavigationItem 

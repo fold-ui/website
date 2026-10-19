@@ -64,7 +64,57 @@ body {
 
 .site-header {
     position: relative;
-    z-index: 2;
+    z-index: 11;
+}
+
+.site-edge-blur {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    background: linear-gradient(
+        var(--site-edge-direction),
+        rgba(from var(--f-color-background) r g b / 0.2),
+        rgba(from var(--f-color-background) r g b / 0.05) 60%,
+        transparent
+    );
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    -webkit-mask-image: linear-gradient(var(--site-edge-direction), black 20%, transparent 100%);
+    mask-image: linear-gradient(var(--site-edge-direction), black 20%, transparent 100%);
+}
+
+.site-edge-blur--top,
+.site-edge-blur--bottom {
+    left: 0;
+    right: 0;
+    height: min(clamp(160px, 24vh, 260px), 30vh);
+}
+
+.site-edge-blur--top {
+    top: 0;
+    --site-edge-direction: to bottom;
+}
+
+.site-edge-blur--bottom {
+    bottom: 0;
+    --site-edge-direction: to top;
+}
+
+.site-edge-blur--left,
+.site-edge-blur--right {
+    top: 0;
+    bottom: 0;
+    width: min(clamp(160px, 24vw, 260px), 30vw);
+}
+
+.site-edge-blur--left {
+    left: 0;
+    --site-edge-direction: to right;
+}
+
+.site-edge-blur--right {
+    right: 0;
+    --site-edge-direction: to left;
 }
 
 .revamp-hero__space .star,
