@@ -367,7 +367,7 @@ export default function SiteLayout(props: any) {
                     </Navigation>
 
                     <Navigation variant="navbar" className="site-header__links">
-                        <NavigationItem href="/docs" suffix={<Badge variant="neutral" size="xs">v0.26.0</Badge>}>Documentation</NavigationItem>
+                        <NavigationItem href="/docs" suffix={<Badge variant="neutral" size="xs">v0.27.0</Badge>}>Documentation</NavigationItem>
                         <NavigationItem href="mailto:support@fold.dev">Support</NavigationItem>
                         
                         <NavigationItem 
