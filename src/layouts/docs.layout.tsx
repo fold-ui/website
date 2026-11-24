@@ -465,7 +465,7 @@ export default function DocsLayout(props: any) {
                                             Roadmap
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://storybook.fold-ui.com"
+                                            href="https://storybook.fold.dev"
                                             target="_blank"
                                             prefix={<StorybookIcon />}>
                                             Storybook
